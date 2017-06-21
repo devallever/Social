@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/id_comment_item_circle_iv_userhead"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:civ_border_width="0dp"
+        app:civ_border_color="#fff"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/id_comment_item_tv_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/id_comment_item_circle_iv_userhead"
+        android:text="NickName"
+        android:textColor="#000"/>
+    <TextView
+        android:id="@+id/id_comment_item_tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#CCC"
+        android:layout_alignParentRight="true"
+        android:text="Time"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/id_comment_item_tv_react_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/id_comment_item_circle_iv_userhead"
+        android:layout_below="@id/id_comment_item_tv_nickname"
+        android:layout_marginTop="6dp"
+        android:text="#回复："
+        android:textColor="@color/colorPrimary"
+        android:visibility="visible"/>
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_comment_item_rv_audio"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_comment_item_tv_react_comment"
+        android:layout_toRightOf="@id/id_comment_item_circle_iv_userhead"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="10dp"
+        android:background="@mipmap/pop_blue_24"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="100"
+        ripple:rv_color="@color/color_green_100">
+
+        <ImageView
+            android:id="@+id/id_comment_item_iv_audio_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/wifi_36"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/id_comment_item_tv_audio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="播放"
+            android:layout_toRightOf="@id/id_comment_item_iv_audio_logo"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"/>
+
+    </com.andexert.library.RippleView>
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/id_comment_item_tv_content"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_toRightOf="@id/id_comment_item_circle_iv_userhead"-->
+        <!--android:layout_below="@id/id_comment_item_tv_nickname"-->
+        <!--android:layout_marginTop="6dp"-->
+        <!--android:textColor="@color/description_color"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:text="评论内容"/>-->
+
+    <View
+        android:layout_below="@id/id_comment_item_rv_audio"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGray_300"
+        android:layout_toRightOf="@id/id_comment_item_circle_iv_userhead"/>
+
+</RelativeLayout>

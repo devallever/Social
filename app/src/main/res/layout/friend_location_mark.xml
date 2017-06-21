@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:circle_image="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/id_friend_location_mark_iv_head"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            circle_image:civ_border_width="1dp"
+            android:layout_margin="5dp"
+            circle_image:civ_border_color="@color/white"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/id_friend_location_mark_tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="中国广东省广州市番禺区外环西路230号"
+            android:textColor="@color/black_deep"
+            android:padding="5dp"
+            android:layout_below="@id/id_friend_location_mark_iv_head"
+            android:background="@drawable/broder_base"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/location_red_32"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/id_friend_location_mark_tv_address"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/id_friend_location_mark_tv_address"-->
+        <!--android:layout_width="150dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="15dp"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:text="中国广东省广州市番禺区外环西路230号"-->
+        <!--/>-->
+    <!--<ImageView-->
+        <!--android:id="@+id/id_friend_location_mark_iv_head"-->
+        <!--android:layout_width="48dp"-->
+        <!--android:layout_height="48dp" />-->
+
+</LinearLayout>

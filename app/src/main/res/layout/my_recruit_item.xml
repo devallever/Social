@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/id_my_recruit_item_iv_head"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/id_my_recruit_item_tv_companyname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="16sp"
+        android:text="Companyname"
+        android:textColor="#000"
+        android:layout_toRightOf="@id/id_my_recruit_item_iv_head"/>
+
+    <TextView
+        android:id="@+id/id_my_recruit_item_tv_requirement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/id_my_recruit_item_tv_companyname"
+        android:layout_toRightOf="@id/id_my_recruit_item_iv_head"
+        android:text="补充"/>
+
+    <TextView
+        android:id="@+id/id_my_recruit_item_tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_below="@id/id_my_recruit_item_tv_requirement"
+        android:layout_toRightOf="@id/id_my_recruit_item_iv_head"
+        android:text="日期"/>
+    <ImageView
+        android:id="@+id/id_my_recruit_item_iv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/trash_32"/>
+
+    <View
+        android:layout_below="@id/id_my_recruit_item_tv_date"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+</RelativeLayout>

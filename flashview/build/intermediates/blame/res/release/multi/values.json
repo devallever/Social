@@ -1,0 +1,45 @@
+[
+    {
+        "outputFile": "F:\\Study\\Android\\stadio workplace\\Social\\flashview\\build\\intermediates\\res\\merged\\release\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 405,
+                    "endColumn": 46,
+                    "endOffset": 447
+                },
+                "from": {
+                    "file": "F:\\Study\\Android\\stadio workplace\\Social\\flashview\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 58,
+                        "endColumn": 46,
+                        "endOffset": 100
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 452,
+                    "endColumn": 52,
+                    "endOffset": 500
+                },
+                "from": {
+                    "file": "F:\\Study\\Android\\stadio workplace\\Social\\flashview\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 106,
+                        "endColumn": 52,
+                        "endOffset": 154
+                    }
+                }
+            }
+        ]
+    }
+]

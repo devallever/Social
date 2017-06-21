@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_green_50">
+
+    <RadioGroup
+        android:id="@+id/id_get_vip_activity_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:divider="@color/color_green_100">
+
+        <RadioButton
+            android:id="@+id/id_get_vip_activity_rb_1"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 1个月 10 元"/>
+        <RadioButton
+            android:id="@+id/id_get_vip_activity_rb_3"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 3个月 28 元"/>
+        <RadioButton
+            android:id="@+id/id_get_vip_activity_rb_6"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 6个月 50 元"/>
+        <RadioButton
+            android:id="@+id/id_get_vip_activity_rb_12"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 12个月 100 元"/>
+    </RadioGroup>
+    <RelativeLayout
+        android:id="@+id/id_get_vip_activity_rl_choose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_get_vip_activity_rg"
+        android:background="@color/color_green_100"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择支付方式"/>
+
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/id_get_vip_activity_rg_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:divider="@color/color_green_100"
+        android:layout_below="@id/id_get_vip_activity_rl_choose">
+
+        <RadioButton
+            android:id="@+id/id_get_vip_activity_rb_zhifubao"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/zhifubao_48"
+            android:text="    支付宝"/>
+
+        <RadioButton
+            android:id="@+id/id_get_vip_activity_rb_credit"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/glod_48"
+            android:text="    信用支付"/>
+
+    </RadioGroup>
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_get_vip_activity_rv_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBlue_300"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="200"
+        ripple:rv_color="@color/color_green_100">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:text="确认支付"/>
+
+    </com.andexert.library.RippleView>
+
+
+
+
+</RelativeLayout>

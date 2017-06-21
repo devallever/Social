@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:checkable="true"
+            android:id="@+id/id_drawer_menu_index"
+            android:icon="@mipmap/ic_menu_black_24dp"
+            android:title="首页" />
+        <item
+            android:checkable="true"
+            android:id="@+id/id_drawer_menu_friend"
+            android:icon="@mipmap/ic_person_black_24dp"
+            android:title="好友" />
+        <item
+            android:checkable="true"
+            android:id="@+id/id_drawer_menu_notification"
+            android:icon="@mipmap/ic_notifications_black_24dp"
+            android:title="通知" />
+        <!--<item-->
+            <!--android:id="@+id/nav_manage"-->
+            <!--android:icon="@drawable/ic_menu_manage"-->
+            <!--android:title="Tools" />-->
+    </group>
+
+    <item android:title="其他">
+        <menu>
+            <item
+                android:checkable="true"
+                android:id="@+id/id_drawer_menu_setting"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="设置" />
+            <item
+                android:checkable="true"
+                android:id="@+id/id_drawer_menu_about"
+                android:icon="@mipmap/ic_error_black_24dp"
+                android:title="关于" />
+        </menu>
+    </item>
+
+</menu>

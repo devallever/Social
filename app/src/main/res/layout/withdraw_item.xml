@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/id_withdraw_item_tv_tixian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="提现"
+        android:textSize="18sp"
+        android:textColor="@color/black_deep"/>
+
+    <TextView
+        android:id="@+id/id_withdraw_item_tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:textSize="18sp"
+        android:textColor="@color/black_deep"
+        android:layout_toRightOf="@id/id_withdraw_item_tv_tixian"/>
+
+    <TextView
+        android:id="@+id/id_withdraw_item_tv_zhanghao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="交易账号："
+        android:layout_below="@id/id_withdraw_item_tv_tixian"/>
+    <TextView
+        android:id="@+id/id_withdraw_item_tv_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="540026054@qq.com"
+        android:layout_below="@id/id_withdraw_item_tv_tixian"
+        android:layout_toRightOf="@id/id_withdraw_item_tv_zhanghao"/>
+
+
+
+
+    <TextView
+        android:id="@+id/id_withdraw_item_tv_riqi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="日期："
+        android:layout_below="@id/id_withdraw_item_tv_zhanghao"/>
+    <TextView
+        android:id="@+id/id_withdraw_item_tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="2016-06-13"
+        android:layout_below="@id/id_withdraw_item_tv_zhanghao"
+        android:layout_toRightOf="@id/id_withdraw_item_tv_riqi"/>
+
+    <TextView
+        android:id="@+id/id_withdraw_item_tv_zhuangtai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="状态："
+        android:layout_below="@id/id_withdraw_item_tv_riqi"/>
+    <TextView
+        android:id="@+id/id_withdraw_item_tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="处理中"
+        android:layout_below="@id/id_withdraw_item_tv_riqi"
+        android:layout_toRightOf="@id/id_withdraw_item_tv_riqi"/>
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_withdraw_item_rv_cancle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_centerVertical="true"
+        android:background="@color/colorPink_300"
+        android:layout_alignParentRight="true"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="200"
+        ripple:rv_color="@color/color_green_100">
+        <TextView
+            android:id="@+id/id_withdraw_item_tv_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textColor="@color/white"/>
+
+    </com.andexert.library.RippleView>
+
+</RelativeLayout>

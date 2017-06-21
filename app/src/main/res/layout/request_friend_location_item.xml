@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/id_request_friend_location_item_iv_head"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@mipmap/logo"
+            android:layout_margin="10dp"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/id_request_friend_location_item_tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nickname"
+            android:layout_toRightOf="@id/id_request_friend_location_item_iv_head"
+            android:textSize="16sp"
+            android:textColor="@color/black_deep"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

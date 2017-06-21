@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/id_ad_bar_fg_iv_ad_bar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_ad_bar"
+        android:scaleType="centerCrop"/>
+    <ImageView
+        android:id="@+id/id_ad_bar_fg_iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_delete_48"
+        android:padding="10dp"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

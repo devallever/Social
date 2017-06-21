@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/id_group_member_scrollview"
+    android:scrollbars="none">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/id_group_member_rl_owner_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_green_50"
+            android:padding="10dp">
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="群主"/>
+
+        </RelativeLayout>
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_group_member_activity_rv_owner_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_group_member_rl_owner_title"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+
+            <RelativeLayout
+                android:id="@+id/id_group_member_activity_rl_owner_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/id_group_member_activity_iv_owner_head"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    app:civ_border_width="0.5dp"
+                    app:civ_border_color="#fff"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentTop="true"/>
+                <TextView
+                    android:id="@+id/id_group_member_activity_tv_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"
+                    android:text="NickName"
+                    android:layout_toRightOf="@id/id_group_member_activity_iv_owner_head"
+                    android:textColor="#000"/>
+                <TextView
+                    android:id="@+id/id_group_member_activity_tv_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="14sp"
+                    android:text="1km"
+                    android:layout_alignParentRight="true"/>
+
+                <LinearLayout
+                    android:id="@+id/id_group_member_activity_ll_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:background="#5c6bc0"
+                    android:layout_below="@id/id_group_member_activity_tv_nickname"
+                    android:layout_toRightOf="@id/id_group_member_activity_iv_owner_head">
+                    <TextView
+                        android:id="@+id/id_group_member_activity_tv_sex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@color/btn_white_normal"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginLeft="4dp"
+                        android:text="男"/>
+                    <TextView
+                        android:id="@+id/id_group_member_activity_tv_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@color/btn_white_normal"
+                        android:text="21"
+                        android:layout_marginRight="4dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_group_member_activity_ll_constellation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:background="#5c6bc0"
+                    android:layout_below="@id/id_group_member_activity_tv_nickname"
+                    android:layout_toRightOf="@id/id_group_member_activity_ll_sex">
+                    <TextView
+                        android:id="@+id/id_group_member_activity_tv_constellation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@color/btn_white_normal"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginLeft="4dp"
+                        android:text="白羊座"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_group_member_activity_ll_occupation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:background="#5c6bc0"
+                    android:layout_below="@id/id_group_member_activity_tv_nickname"
+                    android:layout_toRightOf="@id/id_group_member_activity_ll_constellation">
+                    <TextView
+                        android:id="@+id/id_group_member_activity_tv_occupation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@color/btn_white_normal"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginLeft="4dp"
+                        android:text="学生"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/id_group_member_activity_tv_signature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_group_member_activity_ll_sex"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@id/id_group_member_activity_iv_owner_head"
+                    android:text="没个性，不签名"/>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/id_group_member_activity_iv_owner_head"
+                    android:layout_toRightOf="@id/id_group_member_activity_iv_owner_head"/>
+
+            </RelativeLayout>
+
+        </com.andexert.library.RippleView>
+
+        <RelativeLayout
+            android:id="@+id/id_group_member_rl_member_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_green_50"
+            android:layout_below="@id/id_group_member_activity_rv_owner_container"
+            android:padding="10dp">
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="成员"/>
+
+        </RelativeLayout>
+
+        <com.allever.social.view.MyListView
+            android:id="@+id/id_group_member_activity_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/id_group_member_rl_member_title"
+            android:divider="@null" />
+
+
+    </RelativeLayout>
+
+</ScrollView>
+    <com.andexert.library.RippleView
+        android:id="@+id/id_group_member_activity_rv_invite_member"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/background_with_shadow"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="200"
+        ripple:rv_color="@color/color_green_100"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邀请"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"/>
+
+    </com.andexert.library.RippleView>
+</RelativeLayout>

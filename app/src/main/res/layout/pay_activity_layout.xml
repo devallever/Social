@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/pay_activity_tv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="暂不支持支付宝快捷支付功能"/>
+    <TextView
+        android:id="@+id/pay_activity_tv_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_below="@id/pay_activity_tv_1"
+        android:layout_centerHorizontal="true"
+        android:text="请使用支付宝转账功能"/>
+
+    <TextView
+        android:id="@+id/pay_activity_tv_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_below="@id/pay_activity_tv_2"
+        android:layout_centerHorizontal="true"
+        android:text="转账备注您的互信号(重要)"
+        android:textColor="@color/colorPrimary"/>
+    <TextView
+        android:id="@+id/pay_activity_tv_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pay_activity_tv_3"
+        android:layout_marginTop="6dp"
+        android:layout_centerHorizontal="true"
+        android:text="我们收款核实后第一时间为您开通会员或充值服务"/>
+
+    <TextView
+        android:id="@+id/pay_activity_tv_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pay_activity_tv_4"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:text="支付宝：18029347174(李国军)"/>
+
+</RelativeLayout>

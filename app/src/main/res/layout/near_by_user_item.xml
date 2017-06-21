@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/id_near_by_user_item_tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        android:text="1km"
+        android:layout_alignParentRight="true"/>
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_near_by_user_item_rv_videocall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/id_near_by_user_item_tv_distance"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="200"
+        android:layout_margin="10dp"
+        ripple:rv_color="@color/color_green_100">
+        <ImageView
+            android:id="@+id/id_near_by_user_item_iv_videocall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/video_call_54"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="视频聊天"
+            android:textSize="10sp"
+            android:layout_below="@id/id_near_by_user_item_iv_videocall"
+            android:layout_marginTop="4dp"/>
+
+    </com.andexert.library.RippleView>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/id_near_by_user_item_circle_iv_userhead"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        app:civ_border_width="0.5dp"
+        app:civ_border_color="#fff"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"/>
+    <TextView
+        android:id="@+id/id_near_by_user_item_tv_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="10dp"
+        android:text="NickName"
+        android:layout_toRightOf="@id/id_near_by_user_item_circle_iv_userhead"
+        android:textColor="#000"/>
+
+    <ImageView
+        android:id="@+id/id_near_by_user_item_circle_iv_vip_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/vip_32"
+        android:layout_toRightOf="@id/id_near_by_user_item_tv_nickname"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="12dp"
+        android:visibility="gone"/>
+
+
+    <LinearLayout
+        android:id="@+id/id_near_by_user_item_ll_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/color_red_bg_round"
+        android:layout_below="@id/id_near_by_user_item_tv_nickname"
+        android:layout_toRightOf="@id/id_near_by_user_item_circle_iv_userhead">
+        <TextView
+            android:id="@+id/id_near_by_user_item_tv_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/btn_white_normal"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:text="女"/>
+        <TextView
+            android:id="@+id/id_near_by_user_item_tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/btn_white_normal"
+            android:text="21"
+            android:layout_marginRight="4dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/id_near_by_user_item_ll_constellation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:background="#5c6bc0"
+        android:layout_below="@id/id_near_by_user_item_tv_nickname"
+        android:layout_toRightOf="@id/id_near_by_user_item_ll_sex"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/id_near_by_user_item_tv_constellation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/btn_white_normal"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:text="白羊座"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/id_near_by_user_item_ll_occupation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:background="@drawable/color_indigo_bg_round"
+        android:layout_below="@id/id_near_by_user_item_tv_nickname"
+        android:layout_toRightOf="@id/id_near_by_user_item_ll_constellation">
+        <TextView
+            android:id="@+id/id_near_by_user_item_tv_occupation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:textColor="@color/white"
+            android:text="学生"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/id_near_by_user_item_tv_signature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_near_by_user_item_ll_occupation"
+        android:layout_marginTop="5dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="14sp"
+        android:layout_toRightOf="@id/id_near_by_user_item_circle_iv_userhead"
+        android:layout_toLeftOf="@id/id_near_by_user_item_rv_videocall"
+        android:text="没个性，不签名"/>
+
+
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@id/id_near_by_user_item_circle_iv_userhead"
+        android:layout_toRightOf="@id/id_near_by_user_item_circle_iv_userhead"
+        android:background="@color/colorGray_300"/>
+
+</RelativeLayout>

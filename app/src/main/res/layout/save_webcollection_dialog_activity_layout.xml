@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/id_save_webcollection_dialog_activity_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="输入名称:"/>
+
+    <EditText
+        android:id="@+id/id_save_webcollection_dialog_activity_et_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/id_save_webcollection_dialog_activity_tv_title"
+        android:background="@drawable/edittext_broder_standard_gray"
+        android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/id_save_webcollection_dialog_activity_tv_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/id_save_webcollection_dialog_activity_et_title"
+        android:text="网址:http://www.baidu.com"/>
+
+    <LinearLayout
+        android:layout_below="@id/id_save_webcollection_dialog_activity_tv_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal">
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/id_save_webcollection_dialog_activity_btn_save"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="保存"
+            android:background="@color/colorPrimary"
+            />
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/id_save_webcollection_dialog_activity_btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="取消"
+            android:background="@color/colorAccent"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

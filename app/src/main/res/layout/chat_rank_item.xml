@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/id_chat_rank_item_tv_rank"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="1"
+            android:gravity="center"
+            android:padding="10dp"/>
+        <ImageView
+            android:id="@+id/id_chat_rank_item_iv_cup"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@mipmap/medal_gold_3"
+            android:padding="10dp"
+            android:visibility="gone"/>
+        <ImageView
+            android:id="@+id/id_chat_rank_item_iv_head"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/id_chat_rank_item_tv_rank"
+            android:src="@mipmap/winchen"/>
+        <TextView
+            android:id="@+id/id_chat_rank_item_tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nickname"
+            android:layout_toRightOf="@id/id_chat_rank_item_iv_head"
+            android:textColor="@color/black_deep"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"/>
+
+
+        <TextView
+            android:id="@+id/id_chat_rank_item_tv_chatcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/colorRed_500"/>
+
+        <TextView
+            android:id="@+id/id_chat_rank_item_tv_chat_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="聊天数："
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@id/id_chat_rank_item_tv_chatcount"
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

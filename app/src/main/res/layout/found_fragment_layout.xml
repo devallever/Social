@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_green_50">
+
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/id_found_fg_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发现"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"/>
+        <com.andexert.library.RippleView
+            android:id="@+id/id_found_fg_rv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="100"
+            ripple:rv_color="@color/color_green_100">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_share_white_24dp"/>
+        </com.andexert.library.RippleView>
+    </RelativeLayout>
+
+
+    <com.gc.flashview.FlashView
+        android:id="@+id/id_found_fg_flashview"
+        android:layout_width="match_parent"
+        android:layout_below="@id/id_found_fg_toolbar"
+        android:layout_height="150dp"
+        />
+
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_found_fg_rv_hot_news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@id/id_found_fg_flashview"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="200"
+        ripple:rv_color="@color/color_green_100">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/broder_indigo">
+
+        <ImageView
+            android:id="@+id/id_found_fg_iv_hot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/hot_110"/>
+        <TextView
+            android:id="@+id/id_found_fg_tv_hot_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/id_found_fg_iv_hot"
+            android:layout_marginLeft="10dp"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:layout_marginTop="5dp"
+            android:text="热点"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/id_found_fg_iv_hot"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@id/id_found_fg_tv_hot_title"
+            android:text="为您推荐精彩内容"/>
+
+    </RelativeLayout>
+    </com.andexert.library.RippleView>
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_found_fg_rv_friend_news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/id_found_fg_rv_hot_news"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="200"
+        ripple:rv_color="@color/color_green_100">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/broder_indigo">
+
+            <ImageView
+                android:id="@+id/id_found_fg_iv_friend_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/friend"/>
+
+            <TextView
+                android:id="@+id/id_found_fg_tv_friend_news_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/id_found_fg_iv_friend_news"
+                android:text="圈子"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/id_found_fg_iv_friend_news"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@id/id_found_fg_tv_friend_news_title"
+                android:text="关注身边的朋友"/>
+
+
+
+            <RelativeLayout
+                android:id="@+id/id_found_fg_rl_msg_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:visibility="gone">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/id_found_fg_iv_msg_userhead"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:civ_border_width="0.5dp"
+                    app:civ_border_color="#fff"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/head_32"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/msg_count_background"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:id="@+id/id_found_fg_tv_msg_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textColor="@color/white"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+
+
+
+        </RelativeLayout>
+    </com.andexert.library.RippleView>
+
+    <LinearLayout
+        android:id="@+id/id_found_fg_ll_newer_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/id_found_fg_rv_friend_news"
+        android:layout_margin="10dp">
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_found_fg_rv_newer_task"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="100"
+            ripple:rv_color="@color/color_green_100">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/broder_indigo"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/id_found_fg_iv_newer_task"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/new_task_109"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="新手任务"
+                    android:layout_below="@id/id_found_fg_iv_newer_task"/>
+
+            </RelativeLayout>
+
+        </com.andexert.library.RippleView>
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_found_fg_rv_sign_in"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="100"
+            ripple:rv_color="@color/color_green_100">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/broder_indigo"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/id_found_fg_iv_sign_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/sign_in_110"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="签到赚信用"
+                    android:layout_below="@id/id_found_fg_iv_sign_in"/>
+
+            </RelativeLayout>
+
+        </com.andexert.library.RippleView>
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_found_fg_rv_rank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="100"
+            ripple:rv_color="@color/color_green_100">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/broder_indigo"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/id_found_fg_iv_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/rank_110"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="排行榜"
+                    android:layout_below="@id/id_found_fg_iv_other"/>
+
+            </RelativeLayout>
+
+        </com.andexert.library.RippleView>
+    </LinearLayout>
+
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_found_fg_rv_friend_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/id_found_fg_ll_newer_task"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="200"
+        ripple:rv_color="@color/color_green_100">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/broder_indigo">
+
+            <ImageView
+                android:id="@+id/id_found_fg_iv_friend_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/found_location_110"/>
+
+            <TextView
+                android:id="@+id/id_found_fg_tv_friend_location_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/id_found_fg_iv_friend_location"
+                android:text="定位"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/id_found_fg_iv_friend_location"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@id/id_found_fg_tv_friend_location_title"
+                android:text="看看朋友们都在哪"/>
+        </RelativeLayout>
+    </com.andexert.library.RippleView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_found_fg_rv_friend_location"/>
+
+
+</RelativeLayout>
+</ScrollView>

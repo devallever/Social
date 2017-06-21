@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto">
+
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_manage_friendgroup_activity_rv_add_friendgroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="200"
+        ripple:rv_color="@color/color_green_100"
+        >
+
+        <ImageView
+            android:id="@+id/id_manage_friendgroup_activity_iv_add_friendgroup"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/icon_addpic_unfocused"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加分组"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/id_manage_friendgroup_activity_iv_add_friendgroup"
+            />
+
+    </com.andexert.library.RippleView>
+
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:id="@+id/id_manage_friendgroup_activity_swipmenuListview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/id_manage_friendgroup_activity_rv_add_friendgroup"/>
+
+
+    <!--<android.support.v4.widget.SwipeRefreshLayout-->
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:id="@+id/id_manage_friendgroup_activity_refresh"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@id/id_manage_friendgroup_activity_rv_add_friendgroup">-->
+
+        <!--<com.baoyz.swipemenulistview.SwipeMenuListView-->
+            <!--android:id="@+id/id_manage_friendgroup_activity_swipmenuListview"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+
+    <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+
+
+
+</RelativeLayout>

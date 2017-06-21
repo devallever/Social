@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view = "http://schemas.android.com/apk/res-auto"
+    xmlns:ripple = "http://schemas.android.com/apk/res-auto"
+    xmlns:circle_imageview="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="3dp"
+    card_view:cardBackgroundColor="@color/white"
+    card_view:cardElevation="3dp">
+
+    <RelativeLayout
+        android:id="@+id/id_news_item_rv_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!-- 图片 -->
+        <RelativeLayout
+            android:id="@+id/id_news_item_rl_news_img"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp">
+
+            <ImageView
+                android:id="@+id/id_news_item_iv_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/xm"
+                android:scaleType="centerCrop"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/balck_alpha_a">
+                <TextView
+                    android:id="@+id/id_news_item_tv_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ContentContentContentContentConteContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContent"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="60dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:maxLines="5"
+                    android:lineSpacingExtra="5dp"
+                    android:ellipsize="end"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true">
+
+                    <ImageView
+                        android:id="@+id/id_news_item_iv_like"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/like_white_40"
+                        android:padding="10dp"/>
+                    <TextView
+                        android:id="@+id/id_news_item_tv_like_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="16"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/white"
+                        android:layout_toRightOf="@id/id_news_item_iv_like"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp">
+
+                    <ImageView
+                        android:id="@+id/id_news_item_iv_img_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_crop_original_white_24dp"
+                        android:padding="8dp"/>
+                    <TextView
+                        android:id="@+id/id_news_item_tv_img_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="16"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/white"
+                        android:layout_toRightOf="@id/id_news_item_iv_img_count"/>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <!-- 信息 -->
+        <RelativeLayout
+            android:id="@+id/id_news_item_rl_news_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_news_item_rl_news_img"
+            android:padding="10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/id_news_item_iv_head"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                circle_imageview:civ_border_width="0dp"
+                circle_imageview:civ_border_color="#fff"
+                android:src="@mipmap/xm"/>
+            <TextView
+                android:id="@+id/id_news_item_tv_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Nickname"
+                android:layout_toRightOf="@id/id_news_item_iv_head"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/id_news_item_tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="3分钟前"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

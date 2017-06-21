@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+    android:id="@+id/id_add_recruit_activity_et_companyname"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="20dp"
+    android:hint="请输入您公司的名称"
+        app:met_floatingLabel="highlight"
+    android:inputType="text"
+    android:textCursorDrawable="@drawable/text_cursor_cyan"
+    app:met_underlineColor="@color/colorPrimaryDark"
+    app:met_helperTextColor="@color/colorAccent"
+    app:met_baseColor="@color/colorPrimaryDark"
+    app:met_floatingLabelTextColor="@color/colorPrimaryDark"
+    app:met_primaryColor="@color/colorPrimaryDark"
+    app:met_singleLineEllipsis="true"
+    app:met_maxCharacters="20"
+    app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"
+    app:met_clearButton="true"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+    android:id="@+id/id_add_recruit_activity_et_link"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:hint="请输入联系人"
+        app:met_floatingLabel="highlight"
+    android:inputType="text"
+    android:textCursorDrawable="@drawable/text_cursor_cyan"
+    app:met_underlineColor="@color/colorPrimaryDark"
+    app:met_baseColor="@color/colorPrimaryDark"
+    app:met_floatingLabelTextColor="@color/colorPrimaryDark"
+    app:met_primaryColor="@color/colorPrimaryDark"
+    app:met_singleLineEllipsis="true"
+    app:met_maxCharacters="20"
+    app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"
+    app:met_clearButton="true"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+    android:id="@+id/id_add_recruit_activity_et_phone"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:hint="请输入联系电话"
+        app:met_floatingLabel="highlight"
+    android:inputType="phone"
+    android:textCursorDrawable="@drawable/text_cursor_cyan"
+    app:met_underlineColor="@color/colorPrimaryDark"
+    app:met_helperTextColor="@color/colorPrimaryDark"
+    app:met_baseColor="@color/colorPrimaryDark"
+    app:met_floatingLabelTextColor="@color/colorPrimaryDark"
+    app:met_primaryColor="@color/colorPrimaryDark"
+    app:met_singleLineEllipsis="true"
+    app:met_maxCharacters="11"
+    app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"
+    app:met_clearButton="true"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/id_add_recruit_activity_et_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:hint="请输入地址"
+        android:inputType="text"
+        app:met_floatingLabel="highlight"
+        android:textCursorDrawable="@drawable/text_cursor_cyan"
+        app:met_underlineColor="@color/colorPrimaryDark"
+        app:met_helperTextColor="@color/colorPrimaryDark"
+        app:met_baseColor="@color/colorPrimaryDark"
+        app:met_floatingLabelTextColor="@color/colorPrimaryDark"
+        app:met_primaryColor="@color/colorPrimaryDark"
+        app:met_singleLineEllipsis="true"
+        app:met_maxCharacters="200"
+        app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/id_add_recruit_activity_et_requirement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:hint="要求"
+        app:met_floatingLabel="highlight"
+        app:met_validateOnFocusLost="false"
+        android:layout_gravity="center_vertical"
+        app:met_baseColor="@color/colorPrimary"
+        app:met_primaryColor="@color/colorPrimaryDark"
+        android:textCursorDrawable="@drawable/text_cursor_cyan"
+        app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"
+        android:textColor="@color/colorPrimary"
+        app:met_underlineColor="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        app:met_clearButton="true"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="为该招聘添加几张照片:"/>
+
+
+    <com.allever.social.view.MyGridView
+    android:id="@+id/gridView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
+    android:background="@color/colorGray_300"
+    android:horizontalSpacing="5dp"
+    android:verticalSpacing="5dp"
+    android:numColumns="4"
+    android:columnWidth="90dp"
+    android:stretchMode="columnWidth"
+    android:gravity="center"/>
+
+    <com.gc.materialdesign.views.ButtonFlat
+        android:id="@+id/id_add_recruit_activity_btn_take_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="拍照上传"/>
+
+    <com.gc.materialdesign.views.ButtonFlat
+    android:id="@+id/id_add_recruit_activity_btn_submit"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="right"
+    android:text="下一步"/>
+
+
+
+
+    
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="5">-->
+
+        <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--android:id="@+id/id_add_recruit_activity_et_companyname"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:hint="请输入您公司的名称"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:inputType="text"-->
+            <!--android:textCursorDrawable="@drawable/text_cursor_cyan"-->
+            <!--android:textSize="14sp"-->
+            <!--app:met_underlineColor="@color/colorPrimaryDark"-->
+            <!--app:met_helperTextColor="@color/colorAccent"-->
+            <!--app:met_baseColor="@color/colorPrimaryDark"-->
+            <!--app:met_floatingLabelTextColor="@color/colorPrimaryDark"-->
+            <!--app:met_primaryColor="@color/colorPrimaryDark"-->
+            <!--app:met_singleLineEllipsis="true"-->
+            <!--app:met_maxCharacters="20"-->
+            <!--app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"-->
+            <!--app:met_clearButton="true"/>-->
+
+        <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--android:id="@+id/id_add_recruit_activity_et_link"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_below="@id/id_add_recruit_activity_et_companyname"-->
+            <!--android:hint="请输入联系人"-->
+            <!--android:inputType="text"-->
+            <!--android:textCursorDrawable="@drawable/text_cursor_cyan"-->
+            <!--android:textSize="14sp"-->
+            <!--app:met_underlineColor="@color/colorPrimaryDark"-->
+            <!--app:met_baseColor="@color/colorPrimaryDark"-->
+            <!--app:met_floatingLabelTextColor="@color/colorPrimaryDark"-->
+            <!--app:met_primaryColor="@color/colorPrimaryDark"-->
+            <!--app:met_singleLineEllipsis="true"-->
+            <!--app:met_maxCharacters="20"-->
+            <!--app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"-->
+            <!--app:met_clearButton="true"/>-->
+
+        <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--android:id="@+id/id_add_recruit_activity_et_phone"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_below="@id/id_add_recruit_activity_et_link"-->
+            <!--android:hint="请输入联系电话"-->
+            <!--android:inputType="phone"-->
+            <!--android:textCursorDrawable="@drawable/text_cursor_cyan"-->
+            <!--android:textSize="14sp"-->
+            <!--app:met_underlineColor="@color/colorPrimaryDark"-->
+            <!--app:met_helperTextColor="@color/colorPrimaryDark"-->
+            <!--app:met_baseColor="@color/colorPrimaryDark"-->
+            <!--app:met_floatingLabelTextColor="@color/colorPrimaryDark"-->
+            <!--app:met_primaryColor="@color/colorPrimaryDark"-->
+            <!--app:met_singleLineEllipsis="true"-->
+            <!--app:met_maxCharacters="200"-->
+            <!--app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"-->
+            <!--app:met_clearButton="true"/>-->
+
+        <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--android:id="@+id/id_add_recruit_activity_et_requirement"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_below="@id/id_add_recruit_activity_et_phone"-->
+            <!--android:hint="请输入您的要求"-->
+            <!--android:inputType="text"-->
+            <!--android:textCursorDrawable="@drawable/text_cursor_cyan"-->
+            <!--android:textSize="14sp"-->
+            <!--app:met_underlineColor="@color/colorPrimaryDark"-->
+            <!--app:met_helperTextColor="@color/colorPrimaryDark"-->
+            <!--app:met_baseColor="@color/colorPrimaryDark"-->
+            <!--app:met_floatingLabelTextColor="@color/colorPrimaryDark"-->
+            <!--app:met_primaryColor="@color/colorPrimaryDark"-->
+            <!--app:met_singleLineEllipsis="true"-->
+            <!--app:met_maxCharacters="20"-->
+            <!--app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"-->
+            <!--app:met_clearButton="true"/>-->
+        <!-- -->
+    <!--</RelativeLayout>-->
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="5">-->
+
+        <!--<com.allever.social.view.MyGridView-->
+            <!--android:id="@+id/gridView1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="200dp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:background="@color/colorGray_300"-->
+            <!--android:horizontalSpacing="5dp"-->
+            <!--android:verticalSpacing="5dp"-->
+            <!--android:numColumns="4"-->
+            <!--android:columnWidth="90dp"-->
+            <!--android:stretchMode="columnWidth"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_alignParentTop="true">-->
+        <!--</com.allever.social.view.MyGridView-->>-->
+
+        <!--<com.gc.materialdesign.views.ButtonFlat-->
+            <!--android:id="@+id/id_add_recruit_activity_btn_submit"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:text="提交"/>-->
+
+    <!--</RelativeLayout>-->
+    
+
+</LinearLayout>
+</ScrollView>

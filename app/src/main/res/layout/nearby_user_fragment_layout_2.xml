@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/id_nearby_user_fg_2_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <GridView
+            android:id="@+id/id_near_by_user_fg_2_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="auto_fit"
+            android:columnWidth="120dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="5dp"
+            android:horizontalSpacing="5dp"
+            />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

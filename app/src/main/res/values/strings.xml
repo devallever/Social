@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">社交圈</string>
+    <string name="company_address">广东省佛山市南海区桂城夏平西路万利商务中心328室</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="pull_to_load">上拉加载</string>
+    <string name="loading">加载中</string>
+    <string name="release_to_load">释放</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string-array name="pref_setting_ad_day">
+        <item>一天</item>
+        <item>两天</item>
+        <item>三天</item>
+    </string-array>
+    <string-array name="pref_setting_ad_count">
+        <item>显示1次</item>
+        <item>显示2次</item>
+        <item>显示3次</item>
+    </string-array>
+    <string-array name="pref_setting_ad_day_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="pref_setting_ad_count_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>

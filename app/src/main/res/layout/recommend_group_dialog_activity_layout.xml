@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/id_recommend_group_dialog_activity_iv_head"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@mipmap/logo"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/id_recommend_group_dialog_activity_tv_group_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GroupName"
+        android:layout_toRightOf="@id/id_recommend_group_dialog_activity_iv_head"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/black_deep"/>
+    <TextView
+        android:id="@+id/id_recommend_group_dialog_activity_tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="10.23 km"
+        android:layout_toRightOf="@id/id_recommend_group_dialog_activity_iv_head"
+        android:layout_below="@id/id_recommend_group_dialog_activity_tv_group_name"/>
+
+    <TextView
+        android:id="@+id/id_recommend_group_dialog_activity_tv_group_member_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@id/id_recommend_group_dialog_activity_iv_head"
+        android:layout_below="@id/id_recommend_group_dialog_activity_tv_distance"
+        android:text="共20人(女生10人)"/>
+
+    <View
+        android:id="@+id/id_recommend_group_cut"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@id/id_recommend_group_dialog_activity_iv_head"
+        android:background="@color/colorGray_300"/>
+
+    <CheckBox
+        android:id="@+id/id_recommend_group_dialog_checkbox_join_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加入群组"
+        android:checked="true"
+        android:layout_below="@id/id_recommend_group_cut"
+        android:layout_centerHorizontal="true"/>
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_recommend_group_dialog_activity_rv_enter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorRed_500"
+        android:layout_margin="10dp"
+        android:layout_below="@id/id_recommend_group_dialog_checkbox_join_group"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="100"
+        ripple:rv_color="@color/color_green_100">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="进入"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:padding="15dp"
+            android:layout_centerHorizontal="true"/>
+
+    </com.andexert.library.RippleView>
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/id_red_pocket_dialog_activity_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/dialog_red_pocket_480"/>
+
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_red_pocket_dialog_activity_rv_invite_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/id_red_pocket_dialog_activity_iv"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="100"
+        ripple:rv_color="@color/color_green_100"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:text="邀请好友"/>
+    </com.andexert.library.RippleView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="获得一个新人红包\n邀请好友才可拆开哦！"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@id/id_red_pocket_dialog_activity_iv"/>
+
+</RelativeLayout>

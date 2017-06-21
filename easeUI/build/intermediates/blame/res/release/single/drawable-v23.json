@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-v23\\abc_control_background_material.xml",
+        "source": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable-v23\\abc_control_background_material.xml"
+    },
+    {
+        "merged": "/home/allever/AndroidStudioProjects/Social/easeUI/build/intermediates/res/merged/release/drawable-v23/abc_control_background_material.xml",
+        "source": "/home/allever/.android/build-cache/b197879786ff6a809a76cadc99c4f3415042b471/output/res/drawable-v23/abc_control_background_material.xml"
+    }
+]

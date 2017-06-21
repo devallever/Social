@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@mipmap/first_bg_480"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/id_first_activity_alpha_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/balck_alpha_a">
+
+        <ImageView
+            android:layout_width="108dp"
+            android:layout_height="108dp"
+            android:layout_marginTop="100dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_centerHorizontal="true"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <com.andexert.library.RippleView
+                android:id="@+id/id_first_activity_rv_regist"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorRed_500"
+                ripple:rv_centered="false"
+                ripple:rv_rippleDuration="100"
+                ripple:rv_color="@color/color_green_100">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="注册"
+                    android:textColor="@color/white"
+                    android:layout_centerHorizontal="true"
+                    android:padding="20dp"/>
+            </com.andexert.library.RippleView>
+
+            <com.andexert.library.RippleView
+                android:id="@+id/id_first_activity_rv_login"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/black_deep"
+                ripple:rv_centered="false"
+                ripple:rv_rippleDuration="100"
+                ripple:rv_color="@color/color_green_100">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="登录"
+                    android:textColor="@color/white"
+                    android:layout_centerHorizontal="true"
+                    android:padding="20dp"/>
+            </com.andexert.library.RippleView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+            <com.andexert.library.RippleView
+                android:id="@+id/id_first_activity_rv_share"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/colorRed_500"
+                ripple:rv_centered="false"
+                ripple:rv_rippleDuration="100"
+                ripple:rv_color="@color/color_green_100"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="邀请好友"
+                    android:textColor="@color/white"/>
+
+            </com.andexert.library.RippleView>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

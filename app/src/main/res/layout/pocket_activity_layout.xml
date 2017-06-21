@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_green_50">
+
+    <RelativeLayout
+        android:id="@+id/id_pocket_activity_rl_balance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/id_pocket_activity_iv_head"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@mipmap/winchen"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:id="@+id/id_pocket_activity_tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nickname"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textColor="@color/black_deep"
+            android:layout_toRightOf="@id/id_pocket_activity_iv_head"/>
+        <TextView
+            android:id="@+id/id_pocket_activity_tv_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前信用：0"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@id/id_pocket_activity_iv_head"
+            android:layout_below="@id/id_pocket_activity_tv_nickname"/>
+
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_pocket_activity_rv_withdraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorIndigo_300"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="提现"
+                android:textColor="@color/white"/>
+        </com.andexert.library.RippleView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/id_pocket_activity_rl_choose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_pocket_activity_rl_balance"
+        android:background="@color/color_green_100"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择充值余额"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/id_pocket_activity_rl_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_pocket_activity_rl_choose">
+
+        <ListView
+            android:id="@+id/id_pocket_activity_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="15dp"-->
+        <!--android:background="@color/colorIndigo_100"-->
+        <!--android:layout_below="@id/id_pocket_activity_rl_balance"/>-->
+
+</RelativeLayout>

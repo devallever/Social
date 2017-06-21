@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/color_green_50"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_video_call_setting_rv_accept_video_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="允许接听视频聊天"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black_deep"/>
+
+            <com.gc.materialdesign.views.Switch
+                android:id="@+id/id_video_call_setting_switchView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@color/colorAccent"
+                materialdesign:check="true"
+                android:layout_alignParentRight="true"/>
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_video_call_setting_cut_1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_video_call_setting_rv_accept_video_call"/>
+
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_video_call_setting_rv_accept_video_call_fee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_video_call_setting_cut_1"
+            android:padding="15dp"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频聊天收费"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:textColor="@color/black_deep"/>
+            <ImageView
+                android:id="@+id/id_general_activity_iv_enter_choose_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_chevron_right_black_24dp"/>
+            <TextView
+                android:id="@+id/id_video_call_setting_tv_video_call_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 信用/分钟"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/id_general_activity_iv_enter_choose_fee"/>
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_video_call_setting_cut_2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_video_call_setting_rv_accept_video_call_fee"/>
+
+
+    </RelativeLayout>
+
+</ScrollView>

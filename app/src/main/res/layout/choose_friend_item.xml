@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/id_choose_friend_item_iv_head"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            app:civ_border_width="0.5dp"
+            app:civ_border_color="#fff"
+            android:src="@mipmap/winchen"/>
+        <TextView
+            android:id="@+id/id_choose_friend_item_tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_deep"
+            android:text="nickname"
+            android:layout_toRightOf="@id/id_choose_friend_item_iv_head"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

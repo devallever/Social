@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/id_add_group_tv_groupname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:text="填写群名称"/>
+        <TextView
+            android:id="@+id/id_add_group_tv_groupname_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_below="@id/id_add_group_tv_groupname"
+            android:layout_centerHorizontal="true"
+            android:text="群名称需要审核，请认真说明群主题"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/id_add_group_iv_group_img"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_below="@id/id_add_group_tv_groupname_desc"
+            android:src="@mipmap/add_head"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            app:civ_border_width="0.5dp"/>
+
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/id_add_group_et_groupname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_add_group_iv_group_img"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:hint="请输入群昵称，不超过10个字"
+            android:inputType="text"
+            android:text=""
+            android:textCursorDrawable="@drawable/text_cursor_cyan"
+            android:textSize="16sp"
+            app:met_floatingLabel="highlight"
+            app:met_underlineColor="@color/colorPrimaryDark"
+            app:met_helperTextColor="@color/colorPrimaryDark"
+            app:met_baseColor="@color/colorPrimaryDark"
+            app:met_floatingLabelTextColor="@color/colorPrimaryDark"
+            app:met_primaryColor="@color/colorPrimaryDark"
+            app:met_singleLineEllipsis="true"
+            app:met_maxCharacters="20"
+            app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"
+            app:met_clearButton="true"/>
+
+        <TextView
+            android:id="@+id/id_add_group_tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/id_add_group_et_groupname"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:text="填写群介绍"/>
+        <TextView
+            android:id="@+id/id_add_group_tv_description_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_below="@id/id_add_group_tv_description"
+            android:layout_centerHorizontal="true"
+            android:text="认真填写群介绍，吸引朋友加入你的群组"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/id_add_group_et_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_add_group_tv_description_desc"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:hint="请输入群介绍"
+            android:inputType="text"
+            android:text=""
+            android:textCursorDrawable="@drawable/text_cursor_cyan"
+            android:textSize="16sp"
+            app:met_floatingLabel="highlight"
+            app:met_underlineColor="@color/colorPrimaryDark"
+            app:met_helperTextColor="@color/colorPrimaryDark"
+            app:met_baseColor="@color/colorPrimaryDark"
+            app:met_floatingLabelTextColor="@color/colorPrimaryDark"
+            app:met_primaryColor="@color/colorPrimaryDark"
+            app:met_singleLineEllipsis="true"
+            app:met_maxCharacters="20"
+            app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"
+            app:met_clearButton="true"/>
+
+
+        <TextView
+            android:id="@+id/id_add_group_tv_group_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/id_add_group_et_description"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:text="选择群组类型"/>
+
+        <RadioGroup
+            android:id="@+id/id_add_group_rg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@id/id_add_group_tv_group_type">
+
+            <RadioButton
+                android:id="@+id/id_add_group_rb_private_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="私有群：只有群主可以邀请人；"/>
+            <RadioButton
+                android:id="@+id/id_add_group_rb_private_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="私有群：群成员也能邀请人进群；"/>
+            <RadioButton
+                android:id="@+id/id_add_group_rb_public_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="公开群：除了群主邀请，只能通过申请加入此群；"/>
+            <RadioButton
+                android:id="@+id/id_add_group_rb_public_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="公开群：任何人都能加入此群。"/>
+
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/id_add_group_tv_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/id_add_group_rg"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:text="选择群组地点"/>
+        <TextView
+            android:id="@+id/id_add_group_tv_point_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_below="@id/id_add_group_tv_point"
+            android:layout_centerHorizontal="true"
+            android:text="选择身边地点，群组将在此扎根"/>
+
+        <TextView
+            android:id="@+id/id_add_group_tv_choose_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_add_group_tv_point_desc"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:textSize="18sp"
+            android:text="请选择"/>
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/id_add_group_btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/id_add_group_tv_choose_point"
+            android:background="@color/colorPrimary"
+            android:text="提交"/>
+
+
+    </RelativeLayout>
+
+
+
+</ScrollView>

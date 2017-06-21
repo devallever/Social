@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/id_near_by_recruit_item_iv_head"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/winchen"/>
+
+    <TextView
+        android:id="@+id/id_near_by_recruit_item_tv_commanyname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="16sp"
+        android:text="CommanyName"
+        android:layout_toRightOf="@id/id_near_by_recruit_item_iv_head"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/id_near_by_recruit_item_tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:textSize="14sp"
+        android:text="距离"
+        android:layout_toRightOf="@id/id_near_by_recruit_item_iv_head"
+        android:layout_below="@id/id_near_by_recruit_item_tv_commanyname"
+        android:textColor="@color/colorGray_500"/>
+
+
+
+
+    <ListView
+        android:id="@+id/id_near_by_recruit_item_listview_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_near_by_recruit_item_iv_head"/>
+
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/id_near_by_recruit_item_btn_add_post"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginRight="4dp"
+        android:layout_alignParentRight="true"
+        android:text="添加职位"
+        android:background="@color/colorBlue_300"
+        android:layout_below="@id/id_near_by_recruit_item_listview_post"/>
+
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/id_near_by_recruit_item_btn_delete_recruit"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@id/id_near_by_recruit_item_btn_add_post"
+        android:text="删除招聘"
+        android:background="@color/colorPink_300"
+        android:layout_below="@id/id_near_by_recruit_item_listview_post"/>
+
+    <ImageView
+        android:id="@+id/id_near_by_recruit_item_gb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/gb_32"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_below="@id/id_near_by_recruit_item_btn_add_post"/>
+
+    <TextView
+        android:id="@+id/id_near_by_recruit_item_require"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="要求："
+        android:layout_below="@id/id_near_by_recruit_item_btn_add_post"
+        android:layout_toRightOf="@id/id_near_by_recruit_item_gb"/>
+
+    <TextView
+        android:id="@+id/id_near_by_recruit_item_tv_requirement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:lineSpacingExtra="5dp"
+        android:layout_toRightOf="@id/id_near_by_recruit_item_require"
+        android:text=""
+        android:layout_below="@id/id_near_by_recruit_item_btn_add_post"
+        />
+
+
+
+    <ImageView
+        android:id="@+id/id_near_by_recruit_item_iv_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/head_32"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/id_near_by_recruit_item_tv_requirement"/>
+
+    <TextView
+        android:id="@+id/id_near_by_recruit_item_tv_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="联系人："
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/id_near_by_recruit_item_tv_requirement"
+        android:layout_toRightOf="@id/id_near_by_recruit_item_iv_link"/>
+
+    <com.gc.materialdesign.views.ButtonFlat
+        android:id="@+id/id_near_by_recruit_item_btn_dail"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="打电话"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/id_near_by_recruit_item_tv_requirement"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorGray_300"
+        android:layout_below="@id/id_near_by_recruit_item_tv_link"/>
+
+</RelativeLayout>

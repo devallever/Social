@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto">
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/id_post_detail_activity_ll_btn_option"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_alignParentBottom="true">-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1">-->
+
+            <!--<com.gc.materialdesign.views.ButtonRectangle-->
+                <!--android:id="@+id/id_post_detail_activity_btn_dail"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="打电话"-->
+                <!--android:background="@color/colorGreen_300"/>-->
+
+            <!--<com.gc.materialdesign.views.ButtonRectangle-->
+                <!--android:id="@+id/id_post_detail_activity_btn_add_post"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="添加职位"-->
+                <!--android:background="@color/colorPrimary"-->
+                <!--android:visibility="gone"/>-->
+
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1">-->
+
+            <!--<com.gc.materialdesign.views.ButtonRectangle-->
+                <!--android:id="@+id/id_post_detail_activity_btn_chat"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="聊天"-->
+                <!--android:background="@color/colorGreen_300"/>-->
+
+            <!--<com.gc.materialdesign.views.ButtonRectangle-->
+                <!--android:id="@+id/id_post_detail_activity_btn_delete_post"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="删除职位"-->
+                <!--android:background="@color/colorAccent"-->
+                <!--android:visibility="gone"/>-->
+
+        <!--</RelativeLayout>-->
+
+
+    <!--</LinearLayout>-->
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.gc.flashview.FlashView
+            android:id="@+id/id_post_detail_activity_flash_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_postname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/id_post_detail_activity_flash_view"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:text="PostName"/>
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_salary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/colorPink_300"
+            android:layout_below="@id/id_post_detail_activity_flash_view"
+            android:text="salary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/id_post_detail_activity_flash_view"
+            android:layout_toLeftOf="@id/id_post_detail_activity_tv_salary"
+            android:text="薪资："/>
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_companyname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:text="companyname"
+            android:layout_below="@id/id_post_detail_activity_tv_postname"/>
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:text="date"
+            android:layout_below="@id/id_post_detail_activity_tv_postname"/>
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:text="距离"
+            android:layout_below="@id/id_post_detail_activity_tv_companyname"/>
+
+        <View
+            android:id="@+id/id_post_detail_activity_cut"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorGray_300"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/id_post_detail_activity_tv_distance"/>
+
+        <RelativeLayout
+            android:id="@+id/id_post_detail_activity_rl_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/id_post_detail_activity_cut">
+
+            <ImageView
+                android:id="@+id/id_post_detail_activity_iv_location_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/location_32"/>
+            <TextView
+                android:id="@+id/id_post_detail_activity_tv_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="地址"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@id/id_post_detail_activity_iv_location_logo"/>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/id_post_detail_activity_cut_2"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorGray_300"
+            android:layout_below="@id/id_post_detail_activity_rl_location"/>
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_description_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/id_post_detail_activity_cut_2"
+            android:text="职位描述"
+            android:textSize="18sp"
+            android:textColor="#000"/>
+
+        <View
+            android:id="@+id/id_post_detail_activity_cut_3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray_300"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@id/id_post_detail_activity_tv_description_desc"/>
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_gangweizhize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_post_detail_activity_cut_3"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="岗位职责："/>
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_post_detail_activity_tv_gangweizhize"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="岗位职责描述"/>
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_renzhiyaoqiu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_post_detail_activity_tv_description"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="任职要求："/>
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_requirement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_post_detail_activity_tv_renzhiyaoqiu"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="任职要求描述"/>
+
+        <View
+            android:id="@+id/id_post_detail_activity_cut_4"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorGray_300"
+            android:layout_below="@id/id_post_detail_activity_tv_requirement"/>
+
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_link_method"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_below="@id/id_post_detail_activity_cut_4"
+            android:text="联系方式"/>
+        <View
+            android:id="@+id/id_post_detail_activity_cut_5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray_300"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@id/id_post_detail_activity_tv_link_method"/>
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="联系人："
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/id_post_detail_activity_cut_5"/>
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="电  话："
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/id_post_detail_activity_tv_link"/>
+
+        <TextView
+            android:id="@+id/id_post_detail_activity_tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="地  址："
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/id_post_detail_activity_tv_phone"/>
+
+
+    </RelativeLayout>
+
+</ScrollView>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/multiple_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        fab:fab_addButtonColorNormal="@color/colorPink_300"
+        fab:fab_addButtonColorPressed="@color/colorPink_700"
+        fab:fab_addButtonPlusIconColor="@color/white"
+        fab:fab_labelStyle="@style/menu_labels_style"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/id_post_detail_activity_fab_delete_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/colorPink_300"
+            fab:fab_title="删除职位"
+            fab:fab_colorPressed="@color/colorPink_700"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/id_post_detail_activity_fab_modify_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_title="修改"
+            fab:fab_colorPressed="@color/colorPrimaryDark"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/id_post_detail_activity_fab_add_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_title="添加职位"
+            fab:fab_colorPressed="@color/colorPrimaryDark"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/id_post_detail_activity_fab_dail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/colorGreen_300"
+            fab:fab_title="打电话"
+            fab:fab_colorPressed="@color/colorGreen700"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/id_post_detail_activity_fab_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/colorGreen_300"
+            fab:fab_title="聊天"
+            fab:fab_colorPressed="@color/colorGreen700"/>
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+</RelativeLayout>

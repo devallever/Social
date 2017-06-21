@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/color_green_50">
+
+    <RelativeLayout
+        android:id="@+id/id_newer_task_activity_rl_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/id_newer_task_activity_iv_head"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@mipmap/winchen"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:id="@+id/id_newer_task_activity_tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nickname"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textColor="@color/black_deep"
+            android:layout_toRightOf="@id/id_newer_task_activity_iv_head"/>
+        <TextView
+            android:id="@+id/id_newer_task_activity_tv_credit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前信用：0"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@id/id_newer_task_activity_iv_head"
+            android:layout_below="@id/id_newer_task_activity_tv_nickname"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/id_newer_task_activity_rl_task_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_newer_task_activity_rl_head"
+        android:background="@color/color_green_100"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="任务描述："
+            android:textColor="@color/black_deep"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/id_newer_task_activity_tv_task_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="邀请一个好友加入互信奖励 1 信用并开启拆红包权限"
+        android:padding="10dp"
+        android:layout_below="@id/id_newer_task_activity_rl_task_desc"/>
+
+    <RelativeLayout
+        android:id="@+id/id_newer_task_activity_rl_method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_newer_task_activity_tv_task_desc"
+        android:background="@color/color_green_100"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邀请方式："
+            android:textColor="@color/black_deep"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/id_newer_task_activity_tv_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="被邀请的人注册互信号时填写推荐人的互信号，被填写互信号的用户将得到1个信用奖励，并自动获得拆红包权限"
+        android:padding="10dp"
+        android:layout_below="@id/id_newer_task_activity_rl_method"/>
+
+
+    <RelativeLayout
+        android:id="@+id/id_newer_task_activity_rl_reward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_newer_task_activity_tv_method"
+        android:background="@color/color_green_100"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="任务奖励："
+            android:textColor="@color/black_deep"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/id_newer_task_activity_iv_reward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/glod_48"
+        android:layout_below="@id/id_newer_task_activity_rl_reward"
+        android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/id_newer_task_activity_tv_reward_credit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="4dp"
+        android:text="1"
+        android:textColor="@color/colorIndigo_700"
+        android:layout_below="@id/id_newer_task_activity_rl_reward"
+        android:layout_toRightOf="@id/id_newer_task_activity_iv_reward"/>
+
+    <TextView
+        android:id="@+id/id_newer_task_activity_tv_reward_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:paddingRight="4dp"
+        android:text="信用"
+        android:layout_below="@id/id_newer_task_activity_rl_reward"
+        android:layout_toRightOf="@id/id_newer_task_activity_tv_reward_credit"/>
+
+</RelativeLayout>

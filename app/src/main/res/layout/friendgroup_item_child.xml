@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/id_friendgroup_item_child_iv_head"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            app:civ_border_width="0.5dp"
+            app:civ_border_color="#fff"
+            android:src="@mipmap/winchen"/>
+
+        <TextView
+            android:id="@+id/id_friendgroup_item_child_tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nickname"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black_deep"
+            android:textSize="18sp"
+            android:layout_toRightOf="@id/id_friendgroup_item_child_iv_head"/>
+        <TextView
+            android:id="@+id/id_friendgroup_item_child_tv_signature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Signature"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="4dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_below="@id/id_friendgroup_item_child_tv_nickname"
+            android:layout_toRightOf="@id/id_friendgroup_item_child_iv_head"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

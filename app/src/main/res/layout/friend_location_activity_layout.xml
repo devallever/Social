@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_friend_location_activity_rv_add_friend"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_margin="1dp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="100"
+        ripple:rv_color="@color/color_green_100">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_add"
+            android:layout_centerInParent="true"
+            />
+
+    </com.andexert.library.RippleView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/id_friend_location_activity_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
+        android:background="@color/colorGray_100"
+        android:layout_toLeftOf="@id/id_friend_location_activity_rv_add_friend"/>
+
+
+    <!--<ListView-->
+        <!--android:id="@+id/id_friend_location_activity_list_view"-->
+        <!--android:layout_width="72dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginTop="1dp"-->
+        <!--android:layout_marginBottom="1dp"-->
+        <!--android:layout_above="@id/id_friend_location_activity_rv_add_friend"/>-->
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/id_friend_location_activity_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/id_friend_location_activity_recycler_view"/>
+
+</RelativeLayout>

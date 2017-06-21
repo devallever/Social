@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/id_nearby_group_fg_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"/>
+
+    <!--<android.support.v4.widget.SwipeRefreshLayout-->
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:id="@+id/id_nearby_group_fg_refresh"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" >-->
+
+        <!--<com.handmark.pulltorefresh.library.PullToRefreshListView-->
+            <!--android:id="@+id/id_nearby_group_fg_listview"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:scrollbars="none"/>-->
+    <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+
+    <!--<include layout="@layout/login_layout"/>-->
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_nearby_group_fg_rv_red_pocket_group"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/background_with_shadow"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:elevation="1dp"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="100"
+        ripple:rv_color="@color/color_green_100"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="红包群"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"/>
+
+    </com.andexert.library.RippleView>
+
+</RelativeLayout>

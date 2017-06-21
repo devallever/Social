@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/allever/AndroidStudioProjects/Social/pulltorefreshlibrary/src/main/assets"/><source path="/home/allever/AndroidStudioProjects/Social/pulltorefreshlibrary/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/home/allever/AndroidStudioProjects/Social/pulltorefreshlibrary/src/release/assets"/></dataSet></merger>

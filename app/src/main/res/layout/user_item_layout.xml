@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view = "http://schemas.android.com/apk/res-auto"
+    xmlns:ripple = "http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="3dp"
+    card_view:cardBackgroundColor="@color/white"
+    card_view:cardElevation="3dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/id_user_item_iv_head"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:src="@mipmap/logo"
+            android:scaleType="centerCrop"/>
+        <RelativeLayout
+            android:id="@+id/id_user_item_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_below="@id/id_user_item_iv_head">
+
+            <TextView
+                android:id="@+id/id_user_item_tv_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="nickname"
+                android:singleLine="true"
+                android:textColor="@color/black_deep"/>
+
+            <LinearLayout
+                android:id="@+id/id_user_item_ll_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/color_red_bg_round"
+                android:layout_below="@id/id_user_item_tv_nickname">
+                <TextView
+                    android:id="@+id/id_user_item_tv_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_white_normal"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:text="女"/>
+                <TextView
+                    android:id="@+id/id_user_item_tv_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_white_normal"
+                    android:text="21"
+                    android:layout_marginRight="4dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_user_item_ll_occupation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/color_indigo_bg_round"
+                android:layout_below="@id/id_user_item_tv_nickname"
+                android:layout_toRightOf="@id/id_user_item_ll_sex">
+                <TextView
+                    android:id="@+id/id_user_item_tv_occupation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white"
+                    android:text="学生"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/id_user_item_tv_login_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                android:text="3分钟前"
+                android:layout_below="@id/id_user_item_tv_nickname"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/id_user_item_iv_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/video_48"
+            android:layout_marginTop="6dp"
+            android:layout_above="@id/id_user_item_info"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/id_user_item_info">
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

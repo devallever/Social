@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_green_50">
+
+    <LinearLayout
+        android:id="@+id/id_user_detail_ll_btn_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/id_user_detail_btn_video_call"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary"
+            android:gravity="center_horizontal"
+            android:text="视频聊天"
+            android:visibility="gone"/>
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/id_user_detail_btn_chat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary"
+            android:gravity="center_horizontal"
+            android:text="会话"/>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/id_user_detail_btn_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:orientation="horizontal"
+                android:background="@color/colorPrimary"
+                android:gravity="center_horizontal"
+                android:text="加好友"/>
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/id_user_detail_btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:text="删除好友"
+                android:visibility="invisible"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/id_user_detail_ll_btn_container"
+        android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/user_detail_rl_head_container"
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+
+        <ImageView
+            android:id="@+id/id_user_detail_iv_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_shadow"
+            />
+
+        <com.allever.social.view.MyGridView
+            android:id="@+id/id_id_user_detail_gv_photowall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:verticalSpacing="5dp"
+            android:horizontalSpacing="5dp"
+            android:stretchMode="columnWidth"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"
+            android:numColumns="4"/>
+
+    </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/id_user_detail_ll_social_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/user_detail_rl_head_container"
+            android:background="@color/white">
+
+            <com.andexert.library.RippleView
+                android:id="@+id/id_user_detail_rv_follow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                ripple:rv_centered="false"
+                ripple:rv_rippleDuration="100"
+                ripple:rv_color="@color/color_green_100">
+                <TextView
+                    android:id="@+id/id_user_detail_tv_follow_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="0"
+                    android:textSize="20sp"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:id="@+id/id_user_detail_tv_follow_count_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="关注"
+                    android:layout_below="@id/id_user_detail_tv_follow_count"
+                    android:layout_centerHorizontal="true"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_below="@id/id_user_detail_tv_follow_count_label"/>
+            </com.andexert.library.RippleView>
+
+            <com.andexert.library.RippleView
+                android:id="@+id/id_user_detail_rv_fans"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                ripple:rv_centered="false"
+                ripple:rv_rippleDuration="100"
+                ripple:rv_color="@color/color_green_100">
+                <TextView
+                    android:id="@+id/id_user_detail_tv_fans_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="0"
+                    android:textSize="20sp"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:id="@+id/id_user_detail_tv_fans_count_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="粉丝"
+                    android:layout_below="@id/id_user_detail_tv_fans_count"
+                    android:layout_centerHorizontal="true"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_below="@id/id_user_detail_tv_fans_count_label"/>
+            </com.andexert.library.RippleView>
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/id_user_detail_cut_social_count"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_below="@id/id_user_detail_ll_social_count"
+            android:background="@color/color_green_100"
+            />
+
+
+
+        <!-- 性别 年龄 星座 地区 -->
+        <com.andexert.library.RippleView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/id_user_detail_rv_first"
+            android:padding="15dp"
+            android:layout_below="@id/id_user_detail_cut_social_count">
+            <LinearLayout
+                android:id="@+id/id_user_detail_ll_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerVertical="true"
+                android:background="@drawable/color_blue_bg_round"
+                android:layout_below="@id/id_user_data_tv_nickname">
+                <TextView
+                    android:id="@+id/id_user_detail_tv_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_white_normal"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:text="男"/>
+                <TextView
+                    android:id="@+id/id_user_detail_tv_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_white_normal"
+                    android:text="21"
+                    android:layout_marginRight="4dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/id_user_detail_tv_constellation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="天蝎座"
+                android:layout_marginLeft="4dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/id_user_detail_ll_sex"/>
+
+
+
+            <TextView
+                android:id="@+id/id_user_detail_tv_discance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.01km"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+
+            <TextView
+                android:id="@+id/id_user_detail_tv_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="广东肇庆"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/id_user_detail_tv_discance"/>
+
+
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_user_detail_cut_1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_user_detail_rv_first"/>
+
+
+        <!-- 账号 -->
+        <com.andexert.library.RippleView
+            android:id="@+id/id_user_detail_rv_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_below="@id/id_user_detail_cut_1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:text="互信号"/>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3">
+
+                    <TextView
+                        android:id="@+id/id_user_detail_tv_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/black_deep"
+                        android:layout_centerVertical="true"
+                        android:text="xm"/>
+                    <ImageView
+                        android:id="@+id/id_user_detail_iv_vip_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@mipmap/vip_32"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/id_user_detail_tv_username"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/id_user_detail_tv_follow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="关注"
+                        android:layout_alignParentRight="true"
+                        android:textColor="@color/colorPrimary"
+                        android:background="@drawable/broder_follow"/>
+
+                    <TextView
+                        android:id="@+id/id_user_detail_tv_unfollow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="取消关注"
+                        android:layout_alignParentRight="true"
+                        android:textColor="@color/colorGray_500"
+                        android:background="@drawable/broder_follow"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_user_detail_cut_2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_user_detail_rv_account"/>
+
+
+        <!-- 备注 -->
+        <com.andexert.library.RippleView
+            android:id="@+id/id_user_detail_rv_second_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_below="@id/id_user_detail_cut_2"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:text="备注"/>
+                <TextView
+                    android:id="@+id/id_user_detail_tv_second_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="16sp"
+                    android:textColor="@color/black_deep"
+                    android:text="邓永全"/>
+            </LinearLayout>
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_user_detail_cut_21"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_user_detail_rv_second_name"/>
+
+        <!-- 分组 -->
+        <com.andexert.library.RippleView
+            android:id="@+id/id_user_detail_rv_friendgroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_below="@id/id_user_detail_cut_21"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:text="分组"/>
+                <TextView
+                    android:id="@+id/id_user_detail_tv_friendgroup_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="16sp"
+                    android:textColor="@color/black_deep"
+                    android:text="我的好友"/>
+            </LinearLayout>
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_user_detail_cut_22"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_user_detail_rv_friendgroup"/>
+
+
+        <!-- 动态 -->
+        <com.andexert.library.RippleView
+            android:id="@+id/id_user_detail_rv_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_below="@id/id_user_detail_cut_22"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:text="动态"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3">
+
+                    <ImageView
+                        android:id="@+id/id_user_detail_iv_news_img_1"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginRight="5dp"/>
+                    <ImageView
+                        android:id="@+id/id_user_detail_iv_news_img_2"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginRight="5dp"/>
+                    <ImageView
+                        android:id="@+id/id_user_detail_iv_news_img_3"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginRight="5dp"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_chevron_right_black_24dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dp"/>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_user_detail_cut_3"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_user_detail_rv_news"/>
+
+
+        <!-- 签名 -->
+        <com.andexert.library.RippleView
+            android:id="@+id/id_user_detail_rv_signature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_below="@id/id_user_detail_cut_3">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:text="个性签名"/>
+                <TextView
+                    android:id="@+id/id_user_detail_tv_signature"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="16sp"
+                    android:textColor="#000"
+                    android:text="没个性，不签名"/>
+            </LinearLayout>
+
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_user_detail_cut_4"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_user_detail_rv_signature"/>
+
+        <!-- 职业 -->
+        <com.andexert.library.RippleView
+            android:id="@+id/id_user_detail_rv_occupation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_below="@id/id_user_detail_cut_4">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:text="职业"/>
+                <TextView
+                    android:id="@+id/id_user_detail_tv_occupation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="16sp"
+                    android:textColor="#000"
+                    android:text="学生"/>
+            </LinearLayout>
+
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_user_detail_cut_5"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_user_detail_rv_occupation"/>
+
+        <View
+            android:id="@+id/id_user_detail_cut_6"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_below="@id/id_user_detail_cut_5"
+            android:background="@color/color_green_100"
+            />
+
+        <RelativeLayout
+            android:id="@+id/id_user_detail_rl_secret"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_user_detail_cut_6"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/id_user_detail_tv_secret_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/black_deep"
+                android:text="私密资料卡"/>
+            <TextView
+                android:id="@+id/id_user_detail_tv_secret_card_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                android:layout_below="@id/id_user_detail_tv_secret_card"
+                android:text="仅会员能查看"/>
+
+        </RelativeLayout>
+        <View
+            android:id="@+id/id_user_detail_cut_7"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_user_detail_rl_secret"/>
+
+        <!-- 身高 -->
+        <com.andexert.library.RippleView
+            android:id="@+id/id_user_detail_rv_hight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_below="@id/id_user_detail_cut_7">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:text="身高"/>
+                <TextView
+                    android:id="@+id/id_user_detail_tv_hight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="16sp"
+                    android:textColor="#000"
+                    android:text="私密"/>
+            </LinearLayout>
+
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_user_detail_cut_8"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_user_detail_rv_hight"/>
+
+        <!-- 体重 -->
+        <com.andexert.library.RippleView
+            android:id="@+id/id_user_detail_rv_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_below="@id/id_user_detail_cut_8">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:text="体重"/>
+                <TextView
+                    android:id="@+id/id_user_detail_tv_weight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="16sp"
+                    android:textColor="#000"
+                    android:text="私密"/>
+            </LinearLayout>
+
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_user_detail_cut_9"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_user_detail_rv_weight"/>
+
+        <!-- 身材 -->
+        <com.andexert.library.RippleView
+            android:id="@+id/id_user_detail_rv_figure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_below="@id/id_user_detail_cut_9">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:text="身材"/>
+                <TextView
+                    android:id="@+id/id_user_detail_tv_figure"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="16sp"
+                    android:textColor="#000"
+                    android:text="私密"/>
+            </LinearLayout>
+
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_user_detail_cut_10"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_user_detail_rv_figure"/>
+
+        <!-- 感情状态 -->
+        <com.andexert.library.RippleView
+            android:id="@+id/id_user_detail_rv_emotion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_below="@id/id_user_detail_cut_10">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:text="感情状态"/>
+                <TextView
+                    android:id="@+id/id_user_detail_tv_emotion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="16sp"
+                    android:textColor="#000"
+                    android:text="私密"/>
+            </LinearLayout>
+
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_user_detail_cut_11"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_user_detail_rv_emotion"/>
+
+
+
+    </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

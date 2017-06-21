@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="广告设置">
+        <ListPreference
+            android:defaultValue="3"
+            android:entries="@array/pref_setting_ad_day"
+            android:entryValues="@array/pref_setting_ad_day_value"
+            android:summary="设置广告弹出间隔"
+            android:key="pref_setting_ad_day_key"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="选择间隔时间" />
+
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/pref_setting_ad_count"
+            android:entryValues="@array/pref_setting_ad_count_value"
+            android:summary="设置广告弹出次数"
+            android:key="pref_setting_ad_count_key"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="次数" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

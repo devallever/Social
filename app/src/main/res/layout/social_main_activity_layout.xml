@@ -1,0 +1,119 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modules.main.SocialMainActivity">
+
+    <LinearLayout
+        android:id="@+id/id_social_main_ly_tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/btn_white_normal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/id_social_main_tv_nearby"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_menu_bg"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/nearby_menu_channel"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="发现"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/id_social_main_tv_chat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_menu_bg"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/chat_menu_channel"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="聊天"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_menu_bg">
+
+            <TextView
+                android:id="@+id/id_social_main_tv_hot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tab_menu_bg"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/hot_menu_channel"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="推荐"
+                android:textColor="@drawable/tab_menu_text"
+                android:textSize="12sp" />
+            <RelativeLayout
+                android:id="@+id/id_social_main_rl_msg_count_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/msg_count_background"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="2dp"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/id_social_main_tv_msg_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:textColor="@color/white"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:layout_centerInParent="true"
+                    android:textSize="12sp"
+                    />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:id="@+id/id_social_main_tv_mine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_menu_bg"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/mine_menu_channel"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="我的"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/div_tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/divider_grey"
+        android:layout_above="@id/id_social_main_ly_tab_bar"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/div_tab_bar"
+        android:id="@+id/ly_content">
+
+    </FrameLayout>
+
+</RelativeLayout> 

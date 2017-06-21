@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/id_my_share_rank_fg_iv_head"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_centerHorizontal="true"
+        app:civ_border_width="0.5dp"
+        app:civ_border_color="#fff"
+        android:layout_marginTop="50dp"
+        android:src="@mipmap/winchen"/>
+
+    <TextView
+        android:id="@+id/id_my_share_rank_fg_tv_sharecount_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="分享次数："
+        android:layout_below="@id/id_my_share_rank_fg_iv_head"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/id_my_share_rank_fg_tv_sharecount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="0"
+        android:layout_below="@id/id_my_share_rank_fg_iv_head"
+        android:layout_toRightOf="@id/id_my_share_rank_fg_tv_sharecount_title"/>
+
+
+    <TextView
+        android:id="@+id/id_my_share_rank_fg_tv_rank_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="我的排名"
+        android:layout_below="@id/id_my_share_rank_fg_tv_sharecount_title"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/id_my_share_rank_fg_tv_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="未上榜"
+        android:layout_below="@id/id_my_share_rank_fg_tv_rank_title"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorRed_500"
+        android:textSize="20sp"/>
+
+</RelativeLayout>

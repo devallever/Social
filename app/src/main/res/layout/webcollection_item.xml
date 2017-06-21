@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/id_webcollection_item_iv_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/collection_48"
+            android:padding="10dp"/>
+        <TextView
+            android:id="@+id/id_webcollection_item_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/id_webcollection_item_iv_collection"
+            android:textSize="18sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black_deep"
+            android:text="标题"/>
+        <TextView
+            android:id="@+id/id_webcollection_item_tv_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@id/id_webcollection_item_tv_title"
+            android:layout_toRightOf="@id/id_webcollection_item_iv_collection"
+            android:text="http://www.baidu.com"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/id_webcollection_item_tv_url"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

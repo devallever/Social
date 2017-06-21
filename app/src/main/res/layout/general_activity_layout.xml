@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/color_green_50"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_general_activity_rv_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="广告"
+                android:textSize="18sp"
+                android:textColor="@color/black_deep"/>
+        </com.andexert.library.RippleView>
+        <View
+            android:id="@+id/id_general_activity_cut_1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_general_activity_rv_ad"/>
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_general_activity_rv_video_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_general_activity_cut_1"
+            android:padding="15dp"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频聊天"
+                android:textSize="18sp"
+                android:textColor="@color/black_deep"/>
+        </com.andexert.library.RippleView>
+
+        <View
+            android:id="@+id/id_general_activity_cut_2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_general_activity_rv_video_setting"/>
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_general_activity_rv_clean_cache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_general_activity_cut_2"
+            android:padding="15dp"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清理缓存"
+                android:textSize="18sp"
+                android:textColor="@color/black_deep"/>
+        </com.andexert.library.RippleView>
+
+        <View
+            android:id="@+id/id_general_activity_cut_3"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_general_activity_rv_clean_cache"/>
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_general_activity_rv_autoreaction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_general_activity_cut_3"
+            android:padding="15dp"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自动回复"
+                android:textSize="18sp"
+                android:textColor="@color/black_deep"/>
+        </com.andexert.library.RippleView>
+
+        <View
+            android:id="@+id/id_general_activity_cut_4"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_green_100"
+            android:layout_below="@id/id_general_activity_rv_autoreaction"/>
+    </RelativeLayout>
+
+
+</ScrollView>

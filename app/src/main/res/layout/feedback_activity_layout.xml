@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/id_feedback_activity_et_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/edittext_broder_standard_gray"
+        android:layout_margin="10dp"
+        android:inputType="textMultiLine"
+        android:hint="反馈与建议"
+        android:gravity="top"
+        android:minLines="6"
+        />
+
+</RelativeLayout>

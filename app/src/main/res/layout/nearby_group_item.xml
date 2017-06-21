@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/id_near_by_group_iv_group"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/winchen"/>
+
+    <TextView
+        android:id="@+id/id_near_by_group_tv_groupname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:text="GroupName"
+        android:layout_toRightOf="@id/id_near_by_group_iv_group"
+        android:textColor="#000"/>
+
+
+
+    <TextView
+        android:id="@+id/id_near_by_group_tv_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="14sp"
+        android:text="地点"
+        android:layout_toRightOf="@id/id_near_by_group_iv_group"
+        android:layout_below="@id/id_near_by_group_tv_groupname"
+        android:textColor="@color/colorGray_500"/>
+
+    <TextView
+        android:id="@+id/id_near_by_group_tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:textSize="14sp"
+        android:text="距离"
+        android:layout_toRightOf="@id/id_near_by_group_tv_point"
+        android:layout_below="@id/id_near_by_group_tv_groupname"
+        android:textColor="@color/colorGray_500"/>
+
+    <TextView
+        android:id="@+id/id_near_by_group_tv_member_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="14sp"
+        android:text="本群共3人(女生2人)"
+        android:layout_toRightOf="@id/id_near_by_group_iv_group"
+        android:layout_below="@id/id_near_by_group_tv_distance"
+        android:textColor="@color/colorGray_500"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/colorGray_300"
+        android:layout_toRightOf="@id/id_near_by_group_iv_group"
+        android:layout_below="@id/id_near_by_group_tv_member_count"/>
+
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/id_near_by_group_btn_join"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorBlue_300"
+        android:text="申请加入"
+        android:layout_alignParentRight="true" />
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/id_near_by_group_btn_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPink_300"
+        android:text="群聊"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/id_near_by_group_tv_attention"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_near_by_group_tv_member_count"
+        android:layout_toRightOf="@id/id_near_by_group_iv_group"
+        android:layout_marginTop="12dp"
+        android:textSize="14sp"
+        android:text="入群须知"/>
+
+    <TextView
+        android:id="@+id/id_near_by_group_tv_attention_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_near_by_group_tv_attention"
+        android:layout_toRightOf="@id/id_near_by_group_iv_group"
+        android:layout_marginTop="5dp"
+        android:textSize="14sp"
+        android:text="入群须知入群须知入群须知入群须知入群须知入群须知入群须知入群须知入群须知"/>
+
+
+    <TextView
+        android:id="@+id/id_near_by_group_tv_group_member"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_near_by_group_tv_attention_desc"
+        android:layout_toRightOf="@id/id_near_by_group_iv_group"
+        android:layout_marginTop="12dp"
+        android:textSize="14sp"
+        android:text="成员"/>
+
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_near_by_group_rv_group_member_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/id_near_by_group_tv_group_member"
+        android:layout_toRightOf="@id/id_near_by_group_iv_group"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="200"
+        ripple:rv_color="@color/color_green_100">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/id_near_by_group_iv_member_1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:layout_below="@id/id_near_by_group_tv_group_member"
+            android:layout_toRightOf="@id/id_near_by_group_iv_group"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/id_near_by_group_iv_member_2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/id_near_by_group_tv_group_member"
+            android:layout_toRightOf="@id/id_near_by_group_iv_member_1"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/id_near_by_group_iv_member_3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/id_near_by_group_tv_group_member"
+            android:layout_toRightOf="@id/id_near_by_group_iv_member_2" />
+
+
+    </com.andexert.library.RippleView>
+    <!--<de.hdodenhof.circleimageview.CircleImageView-->
+        <!--android:id="@+id/id_near_by_group_iv_member_1"-->
+        <!--android:layout_width="48dp"-->
+        <!--android:layout_height="48dp"-->
+        <!--android:layout_marginTop="4dp"-->
+        <!--android:layout_below="@id/id_near_by_group_tv_group_member"-->
+        <!--android:layout_toRightOf="@id/id_near_by_group_iv_group"/>-->
+    <!--<de.hdodenhof.circleimageview.CircleImageView-->
+        <!--android:id="@+id/id_near_by_group_iv_member_2"-->
+        <!--android:layout_width="48dp"-->
+        <!--android:layout_height="48dp"-->
+        <!--android:layout_marginTop="4dp"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_below="@id/id_near_by_group_tv_group_member"-->
+        <!--android:layout_toRightOf="@id/id_near_by_group_iv_member_1"/>-->
+
+    <!--<de.hdodenhof.circleimageview.CircleImageView-->
+        <!--android:id="@+id/id_near_by_group_iv_member_3"-->
+        <!--android:layout_width="48dp"-->
+        <!--android:layout_height="48dp"-->
+        <!--android:layout_marginTop="4dp"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_below="@id/id_near_by_group_tv_group_member"-->
+        <!--android:layout_toRightOf="@id/id_near_by_group_iv_member_2" />-->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorGray_300"
+        android:layout_below="@id/id_near_by_group_rv_group_member_container"/>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/id_add_news_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_add_news"></include>
+
+    <!--<fragment-->
+    <!--android:id="@+id/id_login_regist_fragment"-->
+    <!--android:name="com.allever.social.fragment.RegistFragment"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginTop="60dp"-->
+    <!--android:layout_alignParentTop="true"/>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:orientation="horizontal"
+        android:background="?attr/colorPrimary"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <!--android:background="?attr/colorPrimary"-->
+        <!--<LinearLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="#fff"-->
+        <!--android:layout_weight="1">-->
+
+        <!--</LinearLayout>-->
+
+        <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--android:id="@+id/id_login_fg_et_username"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:hint="评论"-->
+            <!--app:met_validateOnFocusLost="false"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:text="评论"-->
+            <!--app:met_baseColor="#fff"-->
+            <!--android:textCursorDrawable="@drawable/text_cursor_white"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textColor="#fff"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--app:met_hideUnderline="true"/>-->
+
+        <!--<EditText-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"/>-->
+        <ImageButton
+            android:id="@+id/id_add_news_btn_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_place_white_24dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:background="@color/colorPrimary"/>
+        <ImageButton
+            android:id="@+id/id_add_news_btn_choose_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/ic_crop_original_white_24dp"
+            android:layout_toRightOf="@id/id_add_news_btn_location"
+            android:layout_centerVertical="true"
+            android:background="@color/colorPrimary"/>
+
+        <ImageButton
+            android:id="@+id/id_add_news_btn_take_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/ic_camera_alt_white_24dp"
+            android:layout_toRightOf="@id/id_add_news_btn_choose_image"
+            android:layout_centerVertical="true"
+            android:background="@color/colorPrimary"/>
+
+        <ImageButton
+            android:id="@+id/id_add_news_btn_choose_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/ic_group_white_24dp"
+            android:layout_toRightOf="@id/id_add_news_btn_take_photo"
+            android:layout_centerVertical="true"
+            android:background="@color/colorPrimary"/>
+
+
+        <ImageButton
+            android:id="@+id/id_add_news_btn_add_news"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorPrimary"
+            android:src="@mipmap/ic_send_white_24dp"/>
+
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

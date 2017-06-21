@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/id_friend_item_circle_iv_userhead"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        app:civ_border_width="0.5dp"
+        app:civ_border_color="#fff"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/id_friend_item_tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="NickName"
+            android:textColor="#000"/>
+        <!--<TextView-->
+            <!--android:id="@+id/id_comment_item_tv_time"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="2dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:textColor="#CCC"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:text="Time"-->
+            <!--android:textSize="14sp"/>-->
+        <TextView
+            android:id="@+id/id_friend_item_tv_signature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_friend_item_tv_nickname"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/description_color"
+            android:textSize="14sp"
+            android:layout_marginBottom="5dp"
+            android:text="个性签名"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

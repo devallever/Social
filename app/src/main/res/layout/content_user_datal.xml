@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_green_50"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.allever.social.activity.UserDataActivity"
+    tools:showIn="@layout/user_data_layout">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
+
+        <com.allever.social.view.MyGridView
+            android:id="@+id/id_id_user_data_gv_photowall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="5dp"
+            android:stretchMode="columnWidth"
+            android:gravity="center"
+            android:numColumns="4"/>
+
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/id_user_data_iv_userhead"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            app:civ_border_width="0.5dp"
+            app:civ_border_color="@color/divider_grey"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/id_user_data_tv_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="NICKNAME"
+                android:textColor="#000" />
+            <!--<ImageView-->
+                <!--android:id="@+id/id_user_data_iv_sex"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="2dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:src="@mipmap/ic_person_black_24dp"-->
+                <!--android:layout_toRightOf="@id/id_user_data_tv_nickname"/>-->
+
+            <LinearLayout
+                android:id="@+id/id_user_data_ll_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:background="#5c6bc0"
+                android:layout_below="@id/id_user_data_tv_nickname">
+                <TextView
+                    android:id="@+id/id_user_data_tv_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_white_normal"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:text="男"/>
+                <TextView
+                    android:id="@+id/id_user_data_tv_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_white_normal"
+                    android:text="21"
+                    android:layout_marginRight="4dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_user_data_ll_constellation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:background="#5c6bc0"
+                android:layout_marginLeft="4dp"
+                android:layout_below="@id/id_user_data_tv_nickname"
+                android:layout_toRightOf="@id/id_user_data_ll_sex">
+                <TextView
+                    android:id="@+id/id_user_data_tv_constellation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_white_normal"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:text="白羊"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_user_data_ll_occupation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:background="#5c6bc0"
+                android:layout_marginLeft="4dp"
+                android:layout_below="@id/id_user_data_tv_nickname"
+                android:layout_toRightOf="@id/id_user_data_ll_constellation">
+                <TextView
+                    android:id="@+id/id_user_data_tv_occupation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_white_normal"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:text="学"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/id_user_data_tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/id_user_data_ll_sex"
+                android:layout_marginTop="3dp"
+                android:textSize="12sp"
+                android:textColor="@color/description_color"
+                android:layout_marginBottom="10dp"
+                android:text="username"/>
+
+            <View
+                android:layout_below="@id/id_user_data_tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey"/>
+
+    <View
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:shrinkColumns="1">
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="#000"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="地区："/>
+                <com.andexert.library.RippleView
+                    android:id="@+id/id_user_data_rv_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    ripple:rv_centered="false"
+                    ripple:rv_rippleDuration="200"
+                    android:padding="12dp"
+                    ripple:rv_color="@color/color_green_100">
+                    <TextView
+                        android:id="@+id/id_user_data_tv_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="false"
+                        android:textSize="16sp"
+                        android:layout_marginRight="10dp"
+                        android:text=""/>
+                </com.andexert.library.RippleView>
+
+            </TableRow>
+            <TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_span="2"
+                    android:layout_height="1dp"
+                    android:background="@color/divider_grey"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/id_user_data_tablerow_news"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16sp"
+                    android:textColor="#000"
+                    android:text="动态："/>
+
+                <com.andexert.library.RippleView
+                    android:id="@+id/id_user_data_rv_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    ripple:rv_centered="false"
+                    android:padding="8dp"
+                    ripple:rv_rippleDuration="200"
+                    ripple:rv_color="@color/color_green_100">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/id_user_data_iv_news_img_1"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginRight="5dp"/>
+                    <ImageView
+                        android:id="@+id/id_user_data_iv_news_img_2"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginRight="5dp"/>
+                    <ImageView
+                        android:id="@+id/id_user_data_iv_news_img_3"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginRight="5dp"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_chevron_right_black_24dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dp"/>
+                </LinearLayout>
+                </com.andexert.library.RippleView>
+
+            </TableRow>
+            <TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_span="2"
+                    android:layout_height="1dp"
+                    android:background="@color/divider_grey"/>
+            </TableRow>
+            <TableRow
+                android:id="@+id/id_user_data_tablerow_photo">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:textSize="16sp"
+                    android:textColor="#000"
+                    android:layout_marginRight="30dp"
+                    android:text="相册："/>
+                <com.andexert.library.RippleView
+                    android:id="@+id/id_user_data_rv_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    ripple:rv_centered="false"
+                    ripple:rv_rippleDuration="200"
+                    android:padding="12dp"
+                    ripple:rv_color="@color/color_green_100">
+                <TextView
+                    android:id="@+id/id_user_data_tv_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:textSize="16sp"
+                    android:layout_marginRight="10dp"
+                    android:text=""/>
+                </com.andexert.library.RippleView>
+
+            </TableRow>
+
+            <TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_span="2"
+                    android:layout_height="1dp"
+                    android:background="@color/divider_grey"/>
+            </TableRow>
+            <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp"
+                android:textColor="#000"
+                android:layout_marginRight="30dp"
+                android:text="签名："/>
+            <com.andexert.library.RippleView
+                android:id="@+id/id_user_data_rv_signature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_centered="false"
+                ripple:rv_rippleDuration="200"
+                android:padding="12dp"
+                ripple:rv_color="@color/color_green_100">
+            <TextView
+                android:id="@+id/id_user_data_tv_signature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:textSize="16sp"
+                android:layout_marginRight="10dp"
+                android:text="签名"/>
+                </com.andexert.library.RippleView>
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey"/>
+
+
+</LinearLayout>
+</ScrollView>

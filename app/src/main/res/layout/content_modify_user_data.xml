@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@color/color_green_50"
+    tools:context="com.allever.social.activity.ModifyUserDataActivity"
+    tools:showIn="@layout/modify_user_data_layout">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@color/color_green_50">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_green_100"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/id_modify_user_data_rl_modify_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:text="头像"
+                android:textColor="#000"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/id_modify_user_data_iv_userhead"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/winchen"
+                app:civ_border_width="0.5dp"
+                app:civ_border_color="@color/divider_grey"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/id_modify_user_data_iv_userhead"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey"/>
+
+    <!-- 第一层 -->
+    <View
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_green_100"/>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:shrinkColumns="1">
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:text="昵称："/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/id_modify_user_data_et_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:met_baseColor="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                app:met_hideUnderline="true"
+                android:hint="输入昵称"/>
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/divider_grey"/>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:text="性别："/>
+
+            <RadioGroup
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical"
+                >
+                <RadioButton
+                    android:id="@+id/id_modify_user_data_rb_man"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColorHighlight="@color/colorPrimary"
+                    android:checked="true"
+                    android:text="男"/>
+                <RadioButton
+                    android:id="@+id/id_modify_user_data_rb_woman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColorHighlight="@color/colorPrimary"
+                    android:text="女"/>
+            </RadioGroup>
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/divider_grey"/>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:text="年龄："/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/id_modify_user_data_et_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:met_baseColor="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:inputType="number"
+                app:met_hideUnderline="true"
+                android:hint="输入年龄"/>
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/divider_grey"/>
+
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:text="星座："/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/id_modify_user_data_et_constellation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:met_baseColor="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                app:met_hideUnderline="true"
+                android:editable="false"
+                android:hint="点击选择"/>
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/divider_grey"/>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:text="职业："/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/id_modify_user_data_et_occupation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:met_baseColor="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                app:met_hideUnderline="true"
+                android:editable="false"
+                android:hint="点击选择"/>
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/divider_grey"/>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:text="地区："/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/id_modify_user_data_et_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:met_baseColor="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                app:met_hideUnderline="true"
+                android:hint="输入地区"/>
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/divider_grey"/>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:text="签名："/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/id_modify_user_data_et_signature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:met_baseColor="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                app:met_hideUnderline="true"
+                android:hint="输入签名"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey"/>
+
+    <!-- 第二层 -->
+    <View
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey"/>
+
+    <RelativeLayout
+        android:id="@+id/id_modify_user_data_rl_secret"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/id_modify_user_data_tv_secret_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/black_deep"
+            android:text="私密资料卡"/>
+        <TextView
+            android:id="@+id/id_modify_user_data_tv_secret_card_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="12sp"
+            android:layout_below="@id/id_modify_user_data_tv_secret_card"
+            android:text="仅会员能查看"/>
+
+    </RelativeLayout>
+    <View
+        android:id="@+id/id_user_detail_cut_7"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/color_green_100"
+        android:layout_below="@id/id_modify_user_data_rl_secret"/>
+
+
+    <!-- 邮箱 -->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:shrinkColumns="1">
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:text="邮箱："/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/id_modify_user_data_et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:met_baseColor="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:inputType="textEmailSubject"
+                app:met_hideUnderline="true"
+                android:hint="输入邮箱"/>
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/divider_grey"/>
+
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:text="身高："/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/id_modify_user_data_et_hight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:met_baseColor="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:inputType="number"
+                app:met_hideUnderline="true"
+                android:hint="输入您的身高"/>
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/divider_grey"/>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:text="体重："/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/id_modify_user_data_et_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:met_baseColor="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:inputType="number"
+                app:met_hideUnderline="true"
+                android:hint="输入您的体重"/>
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/divider_grey"/>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:text="身材："/>
+            <TextView
+                android:id="@+id/id_modify_user_data_tv_figure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:textSize="16sp"/>
+
+            <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+                <!--android:id="@+id/id_modify_user_data_et_figure"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--app:met_baseColor="@color/colorPrimary"-->
+                <!--android:textCursorDrawable="@drawable/text_cursor_cyan"-->
+                <!--android:textSize="16sp"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:inputType="text"-->
+                <!--app:met_hideUnderline="true"-->
+                <!--android:editable="false"-->
+                <!--android:hint="身材"/>-->
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/divider_grey"/>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#000"
+                android:text="感情："/>
+            <TextView
+                android:id="@+id/id_modify_user_data_tv_emotion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:textSize="16sp"/>
+
+
+        </TableRow>
+
+    </TableLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey"/>
+
+
+    <com.gc.materialdesign.views.ButtonFlat
+        android:id="@+id/id_modify_user_data_btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="right"
+        android:text="保存修改"
+        />
+</LinearLayout>
+</ScrollView>

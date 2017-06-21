@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_green_50">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/id_withdraw_activity_ll_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当前信用"
+                android:layout_marginRight="5dp"
+                />
+            <TextView
+                android:id="@+id/id_withdraw_activity_tv_credit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/colorIndigo_300"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="，可提现"
+                android:layout_marginRight="5dp"
+                />
+
+            <TextView
+                android:id="@+id/id_withdraw_activity_tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/colorIndigo_300"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元"
+                android:layout_marginRight="10dp"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/id_withdraw_activity_ll_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/id_withdraw_activity_ll_1"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="提现金额:"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                />
+
+            <EditText
+                android:id="@+id/id_withdraw_activity_et_money"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="3"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:hint="大于100"
+                android:background="@drawable/edittext_broder_standard_gray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/id_withdraw_activity_ll_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_below="@id/id_withdraw_activity_ll_2"
+            android:background="@color/colorPrimary">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="提现账号:"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                />
+            <EditText
+                android:id="@+id/id_withdraw_activity_et_account"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="3"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:hint="支付宝或银行卡号"
+                android:background="@drawable/edittext_broder_standard_gray"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/id_withdraw_activity_ll_4"
+            android:layout_below="@id/id_withdraw_activity_ll_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="温馨提示："/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:text="1)提现金额必须大于100"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:text="2)预计1-3个工作日内到账"/>
+
+
+        </LinearLayout>
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_withdraw_activity_rv_withdraw_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_below="@id/id_withdraw_activity_ll_4"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/colorPrimary"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="提现记录"
+                android:textColor="@color/white"/>
+
+        </com.andexert.library.RippleView>
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

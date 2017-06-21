@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/id_modify_post_activity_et_postname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:hint="请输入职位"
+            android:inputType="text"
+            android:text=""
+            android:textCursorDrawable="@drawable/text_cursor_cyan"
+            android:textSize="16sp"
+            app:met_floatingLabel="highlight"
+            app:met_underlineColor="@color/colorPrimaryDark"
+            app:met_helperTextColor="@color/colorAccent"
+            app:met_baseColor="@color/colorPrimaryDark"
+            app:met_floatingLabelTextColor="@color/colorPrimaryDark"
+            app:met_primaryColor="@color/colorPrimaryDark"
+            app:met_singleLineEllipsis="true"
+            app:met_maxCharacters="20"
+            app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"
+            app:met_clearButton="true"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/id_modify_post_activity_et_salary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_modify_post_activity_et_postname"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:hint="请输入薪资"
+            android:inputType="text"
+            android:text=""
+            android:textCursorDrawable="@drawable/text_cursor_cyan"
+            android:textSize="16sp"
+            app:met_floatingLabel="highlight"
+            app:met_underlineColor="@color/colorPrimaryDark"
+            app:met_helperTextColor="@color/colorAccent"
+            app:met_baseColor="@color/colorPrimaryDark"
+            app:met_floatingLabelTextColor="@color/colorPrimaryDark"
+            app:met_primaryColor="@color/colorPrimaryDark"
+            app:met_singleLineEllipsis="true"
+            app:met_maxCharacters="20"
+            app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"
+            app:met_clearButton="true"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/id_modify_post_activity_et_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:hint="职责描述"
+            app:met_validateOnFocusLost="false"
+            app:met_floatingLabel="highlight"
+            android:layout_gravity="center_vertical"
+            app:met_baseColor="@color/colorPrimary"
+            app:met_primaryColor="@color/colorPrimaryDark"
+            android:textCursorDrawable="@drawable/text_cursor_cyan"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            app:met_underlineColor="@color/colorPrimary"
+            android:layout_centerHorizontal="true"
+            app:met_clearButton="true"
+            app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"
+            android:layout_below="@id/id_modify_post_activity_et_salary"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/id_modify_post_activity_et_requirement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:hint="职位要求"
+            app:met_floatingLabel="highlight"
+            app:met_validateOnFocusLost="false"
+            android:layout_gravity="center_vertical"
+            app:met_baseColor="@color/colorPrimary"
+            app:met_primaryColor="@color/colorPrimaryDark"
+            android:textCursorDrawable="@drawable/text_cursor_cyan"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            app:met_underlineColor="@color/colorPrimary"
+            android:layout_centerHorizontal="true"
+            app:met_clearButton="true"
+            app:met_accentTypeface="fonts/Roboto-LightItalic.ttf"
+            android:layout_below="@id/id_modify_post_activity_et_description"/>
+
+        <com.gc.materialdesign.views.ButtonFlat
+            android:id="@+id/id_modify_post_activity_btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/id_modify_post_activity_et_requirement"
+            android:text="提交"/>
+
+    </RelativeLayout>
+</ScrollView>

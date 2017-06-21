@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/id_group_request_dialog_activity_iv_head"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/winchen"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/id_group_request_dialog_activity_tv_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nickname"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/id_group_request_dialog_activity_iv_head"/>
+
+    <TextView
+        android:id="@+id/id_group_request_dialog_activity_tv_reason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="想认识你"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/id_group_request_dialog_activity_iv_head"
+        android:layout_below="@id/id_group_request_dialog_activity_tv_nickname"/>
+    <LinearLayout
+        android:layout_below="@id/id_group_request_dialog_activity_iv_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal">
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/id_group_request_dialog_activity_btn_accept"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="同意"
+            android:background="@color/colorPrimary"
+            />
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/id_group_request_dialog_activity_btn_reject"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="拒绝"
+            android:background="@color/colorAccent"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/id_follow_user_item_iv_head"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            app:civ_border_width="0.5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            app:civ_border_color="#fff"
+            android:src="@mipmap/winchen"/>
+        <TextView
+            android:id="@+id/id_follow_user_item_tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/id_follow_user_item_iv_head"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black_deep"
+            android:textSize="18sp"
+            android:text="Nickname"/>
+
+        <ImageView
+            android:id="@+id/id_follow_user_item_iv_vip_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/vip_32"
+            android:layout_toRightOf="@id/id_follow_user_item_tv_nickname"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="14dp"
+            android:visibility="gone"/>
+
+
+        <TextView
+            android:id="@+id/id_follow_user_item_tv_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"
+            android:text="0.01km"/>
+
+        <TextView
+            android:id="@+id/id_follow_user_item_tv_sex_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_follow_user_item_tv_nickname"
+            android:layout_toRightOf="@id/id_follow_user_item_iv_head"
+            android:background="@color/colorIndigo_300"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:text="男 21"/>
+
+        <TextView
+            android:id="@+id/id_follow_user_item_tv_constellation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_follow_user_item_tv_nickname"
+            android:layout_toRightOf="@id/id_follow_user_item_tv_sex_age"
+            android:background="@color/colorPink_300"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:text="白羊座"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/id_follow_user_item_tv_occupation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_follow_user_item_tv_nickname"
+            android:layout_toRightOf="@id/id_follow_user_item_tv_constellation"
+            android:background="@color/colorIndigo_300"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:text="学生"/>
+
+
+
+        <TextView
+            android:id="@+id/id_follow_user_item_tv_signature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_follow_user_item_tv_sex_age"
+            android:layout_toRightOf="@id/id_follow_user_item_iv_head"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="签名:"/>
+
+        <!--<TextView-->
+            <!--android:id="@+id/id_follow_user_item_tv_signature"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_toRightOf="@id/id_follow_user_item_tv_signature_label"-->
+            <!--android:layout_below="@id/id_follow_user_item_tv_sex_age"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:text="没个性不签名"/>-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/id_follow_user_item_iv_head"
+            android:layout_toRightOf="@id/id_follow_user_item_iv_head"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorGray_300"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

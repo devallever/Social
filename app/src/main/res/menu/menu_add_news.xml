@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/id_menu_add_news_add"
+        android:orderInCategory="100"
+        android:title="发布动态"
+        android:icon="@mipmap/ic_add"
+        app:showAsAction="ifRoom" />
+    <!--<item-->
+        <!--android:id="@+id/id_main_menu_notification"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="通知"-->
+        <!--android:icon="@mipmap/ic_notifications_white_24dp"-->
+        <!--app:showAsAction="ifRoom" />-->
+
+
+</menu>

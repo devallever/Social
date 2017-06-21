@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--/>-->
+
+
+    <!--<EditText-->
+        <!--android:id="@+id/id_add_comment_dialog_activity_et_content"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="10dp"-->
+        <!--android:background="@drawable/edittext_broder_standard_gray"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:inputType="text"-->
+        <!--android:hint="输入评论"-->
+        <!--/>-->
+
+    <RelativeLayout
+        android:id="@+id/id_add_comment_dialog_activity_rl_send"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_margin="10dp"
+        android:background="@color/color_green_100">
+
+        <!-- 选择评论类型   左边-->
+        <RelativeLayout
+            android:id="@+id/id_add_comment_dialog_activity_rv_comment_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true">
+            <com.andexert.library.RippleView
+                android:id="@+id/id_add_comment_dialog_activity_rv_choose_audio_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_centered="false"
+                ripple:rv_rippleDuration="100"
+                ripple:rv_color="@color/color_green_100">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/audio_48"
+                    android:layout_centerInParent="true"
+                    android:padding="10dp"/>
+            </com.andexert.library.RippleView>
+
+            <com.andexert.library.RippleView
+                android:id="@+id/id_add_comment_dialog_activity_rv_choose_text_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_centered="false"
+                ripple:rv_rippleDuration="100"
+                ripple:rv_color="@color/color_green_100"
+                android:visibility="gone">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/keyboard_48"
+                    android:layout_centerInParent="true"
+                    android:padding="10dp"/>
+            </com.andexert.library.RippleView>
+
+
+        </RelativeLayout>
+
+
+        <!-- 评论内容区域 -->
+        <RelativeLayout
+            android:id="@+id/id_news_detail_rl_comment_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/id_add_comment_dialog_activity_rv_comment_type">
+            <!-- 类型一：文本 -->
+            <EditText
+                android:id="@+id/id_add_comment_dialog_activity_et_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_broder_standard_gray"
+                android:layout_centerVertical="true"
+                android:padding="8dp"
+                android:layout_marginRight="5dp"
+                android:visibility="visible"/>
+
+            <!-- 类型二：语音 -->
+            <RelativeLayout
+                android:id="@+id/id_add_comment_dialog_activity_rl_comment_audio_container"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:visibility="gone">
+
+                <!-- 录音/停止按钮 -->
+                <com.andexert.library.RippleView
+                    android:id="@+id/id_add_comment_dialog_activity_rv_audio_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="4dp"
+                    android:background="@color/colorGreen_300"
+                    android:layout_centerVertical="true"
+                    ripple:rv_centered="false"
+                    ripple:rv_rippleDuration="100"
+                    ripple:rv_color="@color/color_green_100">
+                    <TextView
+                        android:id="@+id/id_add_comment_dialog_activity_tv_audio_record"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="点我开始"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/white"/>
+                </com.andexert.library.RippleView>
+
+                <!-- 播放/停止按钮 -->
+                <com.andexert.library.RippleView
+                    android:id="@+id/id_add_comment_dialog_activity_rv_play_audio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlue_300"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_centerVertical="true"
+                    ripple:rv_centered="false"
+                    ripple:rv_rippleDuration="100"
+                    ripple:rv_color="@color/color_green_100"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/wifi_36"
+                        android:padding="10dp"/>
+
+                    <TextView
+                        android:id="@+id/id_add_comment_dialog_activity_tv_play_audio_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="播放"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/white"/>
+
+                    <ImageView
+                        android:id="@+id/id_add_comment_dialog_activity_iv_delete_record"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_delete_48"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"/>
+
+                </com.andexert.library.RippleView>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/id_add_comment_dialog_activity_ll_container"
+        android:layout_below="@id/id_add_comment_dialog_activity_rl_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_add_comment_dialog_activity_rv_cancle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消"
+                android:padding="15dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"/>
+        </com.andexert.library.RippleView>
+
+        <com.andexert.library.RippleView
+            android:id="@+id/id_add_comment_dialog_activity_rv_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            ripple:rv_centered="false"
+            ripple:rv_rippleDuration="200"
+            ripple:rv_color="@color/color_green_100">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="评论"
+                android:padding="15dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"/>
+        </com.andexert.library.RippleView>
+
+    </LinearLayout>
+    <View
+        android:layout_below="@id/id_add_comment_dialog_activity_ll_container"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+</RelativeLayout>

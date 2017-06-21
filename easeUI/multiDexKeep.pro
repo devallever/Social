@@ -1,0 +1,2 @@
+-dontwarn cn.jpush.**
+-keep class cn.jpush.** { *; }

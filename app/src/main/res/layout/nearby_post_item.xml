@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/id_near_by_post_item_iv_head"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/id_near_by_post_item_tv_postname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_toRightOf="@id/id_near_by_post_item_iv_head"
+        android:text="PostName"/>
+
+    <TextView
+        android:id="@+id/id_near_by_post_item_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_near_by_post_item_tv_postname"
+        android:layout_toRightOf="@id/id_near_by_post_item_iv_head"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="6dp"
+        android:text="薪资："/>
+
+    <TextView
+        android:id="@+id/id_near_by_post_item_tv_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_near_by_post_item_tv_postname"
+        android:layout_toRightOf="@id/id_near_by_post_item_salary"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/colorPink_300"
+        android:text="salary"/>
+
+    <TextView
+        android:id="@+id/id_near_by_post_item_tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_near_by_post_item_tv_salary"
+        android:layout_toRightOf="@id/id_near_by_post_item_iv_head"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp"
+        android:text="距离"/>
+
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/id_near_by_post_item_btn_dail"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorGreen_300"
+        android:layout_below="@id/id_near_by_post_item_tv_postname"
+        android:text="打电话"/>
+
+    <!--<View-->
+        <!--android:id="@+id/id_near_by_post_item_cut"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:layout_below="@id/id_near_by_post_item_iv_head"-->
+        <!--android:background="@color/colorGray_300"/>-->
+
+    <View
+        android:id="@+id/id_near_by_post_item_cut_2"
+        android:layout_width="match_parent"
+        android:layout_toRightOf="@id/id_near_by_post_item_iv_head"
+        android:layout_height="1dp"
+        android:layout_below="@id/id_near_by_post_item_tv_distance"
+        android:background="@color/colorGray_300"/>
+
+</RelativeLayout>

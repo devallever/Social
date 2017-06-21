@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/id_choose_photo_menu_choose_pic"
+        android:title="选择图片"/>
+    <item
+        android:id="@+id/id_choose_photo_menu_take_photo"
+        android:title="拍照上传"/>
+
+</menu>

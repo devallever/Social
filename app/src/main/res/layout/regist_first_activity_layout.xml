@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:background="@color/color_green_50">
+
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_regist_first_activity_rv_check_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+        android:background="@drawable/btn_background_round_green"
+        android:padding="15dp"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="200"
+        ripple:rv_color="@color/color_green_100">
+        <TextView
+            android:id="@+id/id_regist_first_activity_tv_check_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="获取验证码"/>
+    </com.andexert.library.RippleView>
+
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/id_regist_first_activity_et_phone"
+        android:layout_toLeftOf="@id/id_regist_first_activity_rv_check_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入手机号"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:inputType="phone"
+        android:text=""
+        android:textCursorDrawable="@drawable/text_cursor_cyan"
+        android:textSize="16sp"
+        app:met_floatingLabel="highlight"
+        app:met_underlineColor="@color/colorPrimaryDark"
+        app:met_helperTextColor="@color/colorPrimaryDark"
+        app:met_baseColor="@color/colorPrimaryDark"
+        app:met_floatingLabelTextColor="@color/colorPrimaryDark"
+        app:met_primaryColor="@color/colorPrimaryDark"
+        app:met_singleLineEllipsis="true"
+        app:met_maxCharacters="11"/>
+
+    <TextView
+        android:id="@+id/id_regist_first_activity_tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@id/id_regist_first_activity_rv_check_code"
+        android:text="手机号仅用于登录和保护账号安全"/>
+
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/id_regist_first_activity_et_check_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_regist_first_activity_tv_desc"
+        android:hint="请输入收到的验证码"
+        android:inputType="number"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textCursorDrawable="@drawable/text_cursor_cyan"
+        android:textSize="16sp"
+        app:met_floatingLabel="highlight"
+        app:met_underlineColor="@color/colorPrimaryDark"
+        app:met_helperTextColor="@color/colorPrimaryDark"
+        app:met_baseColor="@color/colorPrimaryDark"
+        app:met_floatingLabelTextColor="@color/colorPrimaryDark"
+        app:met_primaryColor="@color/colorPrimaryDark"
+        app:met_singleLineEllipsis="true"
+        app:met_maxCharacters="11"/>
+
+
+    <com.andexert.library.RippleView
+        android:id="@+id/id_regist_first_activity_rv_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:layout_below="@id/id_regist_first_activity_et_check_code"
+        android:background="@drawable/btn_background_round_indigo"
+        android:padding="16dp"
+        ripple:rv_centered="false"
+        ripple:rv_rippleDuration="200"
+        ripple:rv_color="@color/color_green_100">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="下一步"/>
+    </com.andexert.library.RippleView>
+
+
+</RelativeLayout>
