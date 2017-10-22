@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\easeUI\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
+        "outputFile": "/home/allever/AndroidStudioProjects/Social/easeUI/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
         "map": [
             {
                 "to": {
@@ -12,7 +12,7 @@
                     "endOffset": 327
                 },
                 "from": {
-                    "file": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "file": "/home/allever/.android/build-cache/4f0c6973f5e7a40013649c0afd88fe9b503c1c2d/output/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -26,7 +26,7 @@
         ]
     },
     {
-        "outputFile": "/home/allever/AndroidStudioProjects/Social/easeUI/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+        "outputFile": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\easeUI\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
         "map": [
             {
                 "to": {
@@ -38,7 +38,7 @@
                     "endOffset": 327
                 },
                 "from": {
-                    "file": "/home/allever/.android/build-cache/b197879786ff6a809a76cadc99c4f3415042b471/output/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "file": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

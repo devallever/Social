@@ -100,9 +100,6 @@ public class ContactFragment2 extends Fragment implements SwipeRefreshLayout.OnR
             }
         });
 
-
-
-
         registerForContextMenu(expandableListView);
 
         myReceiver = new MyReceiver();
@@ -298,7 +295,6 @@ public class ContactFragment2 extends Fragment implements SwipeRefreshLayout.OnR
                 break;
             case ITEM3_DELETE:
                 break;
-
         }
         return true;
     }

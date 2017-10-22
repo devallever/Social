@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/home/allever/AndroidStudioProjects/Social/easeUI/build/intermediates/res/merged/release/color-v23/abc_color_highlight_material.xml",
-        "source": "/home/allever/.android/build-cache/b197879786ff6a809a76cadc99c4f3415042b471/output/res/color-v23/abc_color_highlight_material.xml"
-    },
-    {
         "merged": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\easeUI\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_color_highlight_material.xml",
         "source": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color-v23\\abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/home/allever/AndroidStudioProjects/Social/easeUI/build/intermediates/res/merged/release/color-v23/abc_color_highlight_material.xml",
+        "source": "/home/allever/.android/build-cache/4f0c6973f5e7a40013649c0afd88fe9b503c1c2d/output/res/color-v23/abc_color_highlight_material.xml"
     }
 ]

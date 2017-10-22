@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\easeUI\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v13\\values-v13.xml",
+        "outputFile": "/home/allever/AndroidStudioProjects/Social/easeUI/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v13/values-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 109
                 },
                 "from": {
-                    "file": "/home/allever/AndroidStudioProjects/Social/C:\\Users\\Allever\\.android\\build-cache\\f7bbde1324f3dd9359158f9c79f75b687f9e8ca1\\output\\res\\values-v13\\values-v13.xml",
+                    "file": "/home/allever/.android/build-cache/4f0c6973f5e7a40013649c0afd88fe9b503c1c2d/output/res/values-v13/values-v13.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -24,7 +24,7 @@
         ]
     },
     {
-        "outputFile": "/home/allever/AndroidStudioProjects/Social/easeUI/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v13/values-v13.xml",
+        "outputFile": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\easeUI\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v13\\values-v13.xml",
         "map": [
             {
                 "to": {
@@ -35,7 +35,7 @@
                     "endOffset": 109
                 },
                 "from": {
-                    "file": "/home/allever/.android/build-cache/b197879786ff6a809a76cadc99c4f3415042b471/output/res/values-v13/values-v13.xml",
+                    "file": "/home/allever/AndroidStudioProjects/Social/C:\\Users\\Allever\\.android\\build-cache\\f7bbde1324f3dd9359158f9c79f75b687f9e8ca1\\output\\res\\values-v13\\values-v13.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

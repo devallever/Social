@@ -24,6 +24,7 @@ import com.allever.social.activity.FriendNewsActivity;
 import com.allever.social.activity.GetVipActivity;
 import com.allever.social.activity.HotNewsActivity;
 import com.allever.social.activity.NearbyGroupWithRedPocketMapViewActivity;
+import com.allever.social.activity.NearbyUserActivity;
 import com.allever.social.activity.NewerTaskActivity;
 import com.allever.social.activity.SignActivity;
 import com.allever.social.activity.WebViewActivity;
@@ -250,7 +251,10 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
                 break;
             case R.id.id_found_fg_rv_rank:
                 //Toast.makeText(getActivity(),"该功能未开启",Toast.LENGTH_LONG).show();
-                intent = new Intent(getActivity(), ChatRankActivity.class);
+                //intent = new Intent(getActivity(), ChatRankActivity.class);
+                //startActivity(intent);
+
+                intent = new Intent(getActivity(), NearbyUserActivity.class);
                 startActivity(intent);
                 break;
             case R.id.id_found_fg_rv_friend_location:

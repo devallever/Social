@@ -28,6 +28,4 @@ public class FriendGroupItem {
         this.list_friend = list_friend;
     }
 
-
-
 }

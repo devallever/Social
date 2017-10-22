@@ -143,5 +143,4 @@ public class FriendGroupItemExpandableBaseAdapter extends BaseExpandableListAdap
         return true;
     }
 
-    //
 }

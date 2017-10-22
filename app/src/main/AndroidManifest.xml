@@ -898,6 +898,9 @@
             android:theme="@style/Theme.AppCompat.Light.Dialog"
             android:label="">
         </activity>
+        <activity
+            android:name=".activity.NearbyUserActivity"
+            android:label="附近人"/>
 
 
 

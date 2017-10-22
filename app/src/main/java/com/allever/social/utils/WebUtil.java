@@ -31,9 +31,9 @@ public class WebUtil {
     //public static String HTTP_ADDRESS = "http://172.16.98.95:8080/SocialServer";//
     //public static String HTTP_ADDRESS = "http://192.168.56.1:8080/SocialServer";//V-BOX ipv4
     //public static String HTTP_ADDRESS = "http://192.168.23.1:8080/SocialServer";//本机开wifi
-    public static String HTTP_ADDRESS = "http://39.108.9.138:8080/SocialServer";//阿里云
+    //public static String HTTP_ADDRESS = "http://39.108.9.138:8080/SocialServer";//阿里云
 
-    //public static String HTTP_ADDRESS = "http://10.42.0.1:8080/SocialServer";//Linux 本机开wifi
+    public static String HTTP_ADDRESS = "http://10.42.0.1:8080/SocialServer";//Linux 本机开wifi
 
    // public static String HTTP_ADDRESS = "http://192.168.0.106:8080/SocialServer";//Tenda27.54.249.252
    // public static String HTTP_ADDRESS = "http://27.54.249.252:8080/SocialServer";//远程服务器   27.54.249.252

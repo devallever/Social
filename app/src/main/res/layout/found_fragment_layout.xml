@@ -279,7 +279,7 @@
                     android:layout_height="wrap_content"
                     android:padding="4dp"
                     android:layout_centerHorizontal="true"
-                    android:text="排行榜"
+                    android:text="附近人"
                     android:layout_below="@id/id_found_fg_iv_other"/>
 
             </RelativeLayout>
