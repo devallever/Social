@@ -37,7 +37,7 @@ public class WebUtil {
 
    // public static String HTTP_ADDRESS = "http://192.168.0.106:8080/SocialServer";//Tenda27.54.249.252
    // public static String HTTP_ADDRESS = "http://27.54.249.252:8080/SocialServer";//远程服务器   27.54.249.252
-    //public static String HTTP_ADDRESS = "http://192.168.1.100:8080/SocialServer";//宿舍
+   // public static String HTTP_ADDRESS = "http://192.168.199.242:8080/SocialServer";//Topsolve
 
     //http://27.54.249.252:8080/SocialServer/apk/social_0.16.00.apk
     public static String APK_ADDRESS = "http://a.app.qq.com/o/simple.jsp?pkgname=com.allever.social";//APK下载地址1

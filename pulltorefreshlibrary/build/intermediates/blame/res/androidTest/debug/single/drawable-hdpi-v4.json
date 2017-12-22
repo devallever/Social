@@ -1,13 +1,5 @@
 [
     {
-        "merged": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\pulltorefreshlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\indicator_arrow.png",
-        "source": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\pulltorefreshlibrary\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\indicator_arrow.png"
-    },
-    {
-        "merged": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\pulltorefreshlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_flip.png",
-        "source": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\pulltorefreshlibrary\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_flip.png"
-    },
-    {
         "merged": "/home/allever/AndroidStudioProjects/Social/pulltorefreshlibrary/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/default_ptr_rotate.png",
         "source": "/home/allever/AndroidStudioProjects/Social/pulltorefreshlibrary/build/intermediates/bundles/debug/res/drawable-hdpi-v4/default_ptr_rotate.png"
     },
@@ -18,9 +10,5 @@
     {
         "merged": "/home/allever/AndroidStudioProjects/Social/pulltorefreshlibrary/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/default_ptr_flip.png",
         "source": "/home/allever/AndroidStudioProjects/Social/pulltorefreshlibrary/build/intermediates/bundles/debug/res/drawable-hdpi-v4/default_ptr_flip.png"
-    },
-    {
-        "merged": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\pulltorefreshlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_rotate.png",
-        "source": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\pulltorefreshlibrary\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_rotate.png"
     }
 ]

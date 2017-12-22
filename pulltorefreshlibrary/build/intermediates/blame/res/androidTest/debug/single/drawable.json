@@ -4,15 +4,7 @@
         "source": "/home/allever/AndroidStudioProjects/Social/pulltorefreshlibrary/build/intermediates/bundles/debug/res/drawable/indicator_bg_top.xml"
     },
     {
-        "merged": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\pulltorefreshlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
-        "source": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\pulltorefreshlibrary\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
-    },
-    {
         "merged": "/home/allever/AndroidStudioProjects/Social/pulltorefreshlibrary/build/intermediates/res/merged/androidTest/debug/drawable/indicator_bg_bottom.xml",
         "source": "/home/allever/AndroidStudioProjects/Social/pulltorefreshlibrary/build/intermediates/bundles/debug/res/drawable/indicator_bg_bottom.xml"
-    },
-    {
-        "merged": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\pulltorefreshlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
-        "source": "/home/allever/AndroidStudioProjects/Social/F:\\Study\\Android\\ASWorkplace_2_2\\Social\\pulltorefreshlibrary\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
     }
 ]
