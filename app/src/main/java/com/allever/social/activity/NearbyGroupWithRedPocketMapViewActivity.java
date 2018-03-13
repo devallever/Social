@@ -72,11 +72,6 @@ public class NearbyGroupWithRedPocketMapViewActivity  extends BaseActivity imple
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.nearby_group_with_redpocket_mapview_activity_layout);
 
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.setLogo(R.mipmap.ic_arrow_back_white_24dp);
-//        actionBar.setDisplayHomeAsUpEnabled(true);
-//        actionBar.setTitle("附近红包群");OverlayItem
-
         is_first_page = getIntent().getIntExtra("is_first_page",0);
 
         handler = new Handler(){
@@ -94,31 +89,6 @@ public class NearbyGroupWithRedPocketMapViewActivity  extends BaseActivity imple
 
         getRedPocketGroupList();
 
-//        //第一次启动
-//        SharedPreferences sharedPreferences = getSharedPreferences("setting",MODE_PRIVATE);
-//        boolean b = sharedPreferences.getBoolean("first_lanch",true);
-//        if(b){
-//            //Toast.makeText(this,"第一次启动",Toast.LENGTH_LONG).show();;
-//            sharedPreferences.edit().putBoolean("first_lanch", false).commit();
-//            SharedPreferenceUtil.initADSharepreference();
-//            SharedPreferenceUtil.setLocation("113.220583", "23.117193", "广州", "广东省广州市");//设置模拟位置，广州
-//            SharedPreferenceUtil.setADReceiver();
-//
-//            //show red_pocket_dialog
-////            Intent intent = new Intent(this,RedPocketDialogActivity.class);
-////            startActivity(intent);
-//
-//        }else{
-//            // Toast.makeText(this,"不是一次启动",Toast.LENGTH_LONG).show();
-//            Intent intent = new Intent(this,RedPocketDialogActivity.class);
-//            startActivity(intent);
-//        }
-
-        //setMarkerInfo();
-
-        //addOverlay(infos);
-
-        //showBaiduInwoWindows();
     }
 
     private void getRedPocketGroupList(){
@@ -132,9 +102,7 @@ public class NearbyGroupWithRedPocketMapViewActivity  extends BaseActivity imple
         Root root = gson.fromJson(result, Root.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this, "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
-            //listView.onRefreshComplete();
             return;
         }
 
@@ -232,22 +200,7 @@ public class NearbyGroupWithRedPocketMapViewActivity  extends BaseActivity imple
     protected void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
-        //mBaiduMap.re
     }
-
-    //    @Override
-//    public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_BACK) {
-//            moveTaskToBack(false);
-//            return true;
-//        }
-//        if (keyCode == KeyEvent.KEYCODE_HOME) {
-//            moveTaskToBack(false);
-//            return true;
-//        }
-//        return super.onKeyDown(keyCode, event);
-//    }
-
 
     private void setMarkerInfo() {
         infos = new ArrayList<RedPocketGroup>();

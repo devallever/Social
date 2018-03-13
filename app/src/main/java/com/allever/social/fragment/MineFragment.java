@@ -91,37 +91,22 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
 
     private ImageView iv_bg;
 
-    //private LinearLayout ll_modify_user_data;
     private CircleImageView iv_head;
     private TextView tv_nickname;
     private TextView tv_news_count;
     private TextView tv_fans_count;
     private TextView tv_follow_count;
-    //private TextView tv_username;
-    //private RelativeLayout rl_general_setting;
-    //private RelativeLayout rl_account_and_secure;
-//    private RelativeLayout rl_private;
-//    private RelativeLayout rl_feedback;
-//    private RelativeLayout rl_about;
-    //private RelativeLayout rl_recruit;
-//    private ButtonRectangle btn_logout;
-   // private TextView tv_login;
-   // private TextView tv_logout;
     private Handler handler;
 
     private RippleView rv_login;
     private RippleView rv_logout;
 
     private RippleView rv_account_and_secure;
-//    private RippleView rv_recruit;
     private RippleView rv_private;
     private RippleView rv_feedback;
     private RippleView rv_about;
     private RippleView rv_general_setting;
-//    private RippleView rv_vip_center;
     private RippleView rv_visited_user;
-//    private RippleView rv_pocket;
-//    private RippleView rv_red_pocket;
     private RippleView rv_follow;
     private RippleView rv_fans;
     private RippleView rv_news;
@@ -131,7 +116,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
 
     private ImageView iv_onlinestate;
 
-    //private MyGridView gridView1;
     private NewsImgAdapter newsImgAdapter;
 
     private ButtonFlat btn_submit;
@@ -213,18 +197,8 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         rv_about = (RippleView)view.findViewById(R.id.id_mine_fg_rv_about);
         rv_about.setOnRippleCompleteListener(this);
 
-//        rv_vip_center = (RippleView)view.findViewById(R.id.id_mine_fg_rv_vip_center);
-//        if (OkhttpUtil.checkLogin()) rv_vip_center.setOnRippleCompleteListener(this);
-
         rv_visited_user = (RippleView)view.findViewById(R.id.id_mine_fg_rv_visited);
         if (OkhttpUtil.checkLogin())  rv_visited_user.setOnRippleCompleteListener(this);
-
-//        rv_pocket = (RippleView)view.findViewById(R.id.id_mine_fg_rv_pocket);
-//        if (OkhttpUtil.checkLogin())  rv_pocket.setOnRippleCompleteListener(this);
-
-//        rv_red_pocket = (RippleView)view.findViewById(R.id.id_mine_fg_rv_red_pocket);
-//        if (OkhttpUtil.checkLogin())  rv_red_pocket.setOnRippleCompleteListener(this);
-
         rv_logout = (RippleView)view.findViewById(R.id.id_mine_fg_rv_logout);
         rv_logout.setOnRippleCompleteListener(this);
         rv_login = (RippleView)view.findViewById(R.id.id_mine_fg_rv_login);
@@ -249,15 +223,12 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         iv_head = (CircleImageView)view.findViewById(R.id.id_mine_fg_iv_head);
         iv_head.setOnClickListener(this);
         tv_nickname = (TextView)view.findViewById(R.id.id_mine_fg_tv_nickname);
-        //tv_username = (TextView)view.findViewById(R.id.id_setting_fg_tv_username);
         if (OkhttpUtil.checkLogin()){
             //tv_username.setText("账号：" + SharedPreferenceUtil.getUserName());
             tv_nickname.setText(SharedPreferenceUtil.getNickname()+"(" + SharedPreferenceUtil.getUserName() + ")");
             Glide.with(getActivity())
                     .load(WebUtil.HTTP_ADDRESS + SharedPreferenceUtil.getHeadpath())
                     .into(iv_head);
-            //rv_login.setVisibility(View.INVISIBLE);
-            //rv_logout.setVisibility(View.VISIBLE);
             rv_online_state.setVisibility(View.VISIBLE);
         }else{
             rv_online_state.setVisibility(View.GONE);
@@ -287,19 +258,9 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         //----------
         gridView1 = (MyGridView)view.findViewById(R.id.id_mine_fg_gv_photowall);
         list_image_path = new ArrayList<>();
-        //List<String> list_path = new ArrayList<>();
-//        list_path.add(SharedPreferenceUtil.getHeadpath());
-//        list_path.add(SharedPreferenceUtil.getHeadpath());
-//        list_path.add(SharedPreferenceUtil.getHeadpath());
-//        list_path.add(SharedPreferenceUtil.getHeadpath());
-//        list_path.add(SharedPreferenceUtil.getHeadpath());
-//        list_path.add(SharedPreferenceUtil.getHeadpath());
-//        list_path.add(SharedPreferenceUtil.getHeadpath());
-//        list_path.add(SharedPreferenceUtil.getHeadpath());
         if(OkhttpUtil.checkLogin()){
             getPhotoWallList();
         }else{
-            //rl.getBackground().setAlpha(0);
         }
 
         //------------
@@ -369,17 +330,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
                 gridviewClickItemPosition = position;
                 Log.d("AddRecruitAcrivity", "gridviewClickItemPosttion = " + gridviewClickItemPosition);
                 Log.d("AddRecruitAcrivity", "imageItem.size() = " + (imageItem.size() - 1));
-//                if (gridviewClickItemPosition == 0 && imageItem.size() != 1) {
-//                    //dialog(position);
-//                    return;
-//                } else if (imageItem.size() == 9) { //第一张为默认图片
-//                    if (gridviewClickItemPosition != 8) {
-//                       // dialog(position);
-//                    }
-//                    //dialog(position);
-//                    //Toast.makeText(getActivity(), "图片数6张已满", Toast.LENGTH_SHORT).show();
-//                    return;
-//                } else
                 if (gridviewClickItemPosition == (imageItem.size() - 1)) { //点击图片位置为+ 0对应0张图片
                     Toast.makeText(getActivity(), "添加图片", Toast.LENGTH_SHORT).show();
                     //选择图片
@@ -408,22 +358,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
                 Log.d("AddRecruitAcrivity", "gridviewClickItemPosttion = " + gridviewClickItemPosition);
                 Log.d("AddRecruitAcrivity", "imageItem.size() = " + (imageItem.size() - 1));
                 dialog(position);
-//                if (gridviewClickItemPosition == 0 && imageItem.size() != 1) {
-//                    dialog(position);
-//                } else if (imageItem.size() == 9) { //第一张为默认图片
-//                    if (gridviewClickItemPosition != 8) {
-//                        dialog(position);
-//                    }
-//                } else if (gridviewClickItemPosition == (imageItem.size() - 1)) { //点击图片位置为+ 0对应0张图片
-////                    Toast.makeText(getActivity(), "添加图片", Toast.LENGTH_SHORT).show();
-////                    //选择图片
-////                    Intent intent = new Intent(Intent.ACTION_PICK,
-////                            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-////                    startActivityForResult(intent, IMAGE_OPEN);
-//                    //通过onResume()刷新数据
-//                } else {
-//                    dialog(position);
-//                }
                 return true;
             }
         });
@@ -488,8 +422,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         tv_fans_count.setText(root.fans_count+"");
         tv_follow_count.setText(root.follow_count+"");
 
-
-
     }
 
 
@@ -505,7 +437,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         PhotoWallListRoot root = gson.fromJson(result, PhotoWallListRoot.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(getActivity(), "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             return;
         }
@@ -581,27 +512,12 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
                             }
 
                             if ((imageItem.size() - 1) == list_photo_wall.size()) {
-                                //NewsImgAdapter newsImgAdapter = new NewsImgAdapter(getActivity(),R.layout.news_img_item,list_photo_wall);
-                                //gridView1.setAdapter(newsImgAdapter);
                                 gridView1.setAdapter(simpleAdapter);
                                 simpleAdapter.notifyDataSetChanged();
                             }
 
                         }
                     });
-
-//
-//                    System.out.println(result);
-//
-//                    //Bitmap bm = BitmapFactory.decodeByteArray(byte[] data, int offset,int length);//别忘了判断数组是不是为空。
-//                    Bitmap bitmap = BitmapFactory.decodeByteArray(result,0,result.length);
-//                    String filename = path.split("newsimg/")[1];
-//                    System.out.println("filename =  "+filename);
-//                    saveFile(bitmap, filename);
-//
-//                    Message message = new Message();
-//                    message.what = MESSAGE_DOWNLOAD_IMAGE;
-//                    handler.sendMessage(message);
                 }
             }
         });
@@ -662,14 +578,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
                 startActivity(intent);
                 getActivity().finish();
                 break;
-
-//            case R.id.id_mine_fg_iv_head:
-//                if (OkhttpUtil.checkLogin()){
-//                    intent = new Intent(getActivity(), ModifyUserDataActivity.class);
-//                    startActivity(intent);
-//                }else{
-//                }
-//                break;
             case R.id.id_mine_fg_rv_gegeral_setting://通用设置
                 intent = new Intent(getActivity(), GeneralActivity.class);
                 //intent = new Intent(getActivity(), SettingActivity.class);
@@ -703,28 +611,10 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
                 intent = new Intent(getActivity(),LoginActivity.class);
                 startActivity(intent);
                 break;
-//            case R.id.id_mine_fg_rv_recruit:
-//                Toast.makeText(getActivity(), "我的招聘", Toast.LENGTH_LONG).show();
-//                intent = new Intent(getActivity(), MyRecruitActivity.class);
-//                startActivity(intent);
-//                break;
-//            case R.id.id_mine_fg_rv_vip_center:
-//                intent = new Intent(getActivity(), VipCenterActivity.class);
-//                startActivity(intent);
-//                break;
             case R.id.id_mine_fg_rv_visited:
                 intent = new Intent(getActivity(), VisitedUserActivity.class);
                 startActivity(intent);
                 break;
-//            case R.id.id_mine_fg_rv_pocket:
-//                intent = new Intent(getActivity(), PocketActivity.class);
-//                startActivity(intent);
-//                break;
-//            case R.id.id_mine_fg_rv_red_pocket:
-//                Toast.makeText(getActivity(),"未开放",Toast.LENGTH_LONG).show();
-////                if (OkhttpUtil.checkLogin()) RedPacketUtil.startChangeActivity(getActivity());
-////                else Toast.makeText(getActivity(),"先登录",Toast.LENGTH_LONG).show();
-//                break;
             case R.id.id_mine_fg_rv_follow:
                 intent = new Intent(getActivity(), FollowFansCountActivity.class);
                 intent.putExtra("page_position", 0);
@@ -769,7 +659,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         super.onResume();
         StatService.onResume(this);
         if(!TextUtils.isEmpty(pathImage)){
-            //Bitmap addbmp=BitmapFactory.decodeFile(pathImage);
             try {
                 imageItem.ensureCapacity(imageItem.size()+1);
                 Bitmap addbmp= ImageUtil.revitionImageSize(pathImage);
@@ -896,37 +785,11 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         int id = view.getId();
         Intent intent;
         switch (id){
-//            case R.id.id_mine_fg_tv_login:
-//                intent = new Intent(getActivity(), LoginActivity.class);
-//                startActivity(intent);
-//                break;
-//            case R.id.id_mine_fg_tv_logout:
-//                logout();
-//                cleanLocation();
-//                getActivity().finish();
-//                intent = new Intent(getActivity(),LoginActivity.class);
-//                startActivity(intent);
-//                break;
             case R.id.id_mine_fg_iv_head:
                 if (OkhttpUtil.checkLogin()){
                     intent = new Intent(getActivity(), ModifyUserDataActivity.class);
                     startActivity(intent);
                 }else{
-                    //if(!SharedPreferenceUtil.getUserName().equals("") && !SharedPreferenceUtil.getPassword().equals("")){
-                    //OkhttpUtil.autoLogin(handler);
-                    //}else{
-//                    Dialog dialog = new Dialog(getActivity(),"Tips","请登录");
-//                    dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            Intent intent = new Intent(getActivity(),LoginActivity.class);
-//                            startActivity(intent);
-//                        }
-//                    });
-//                    dialog.show();
-                    //}
-
-                    //new Dialog(getActivity(),"Tips", "你还没有登录呢.").show();
                 }
                 break;
 
@@ -936,8 +799,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
     private void cleanLocation(){
         SharedPreferenceUtil.setState("0");
         SharedPreferenceUtil.setSessionId("");
-        // SharedPreferenceUtil.setUserId("");
-        //SharedPreferenceUtil.setPassword("");
     }
 
     private void logout(){
@@ -970,10 +831,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         Log.d("Setting", result);
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         LoginRoot root = gson.fromJson(result, LoginRoot.class);
-//        if(root.seccess = ){
-//
-//        }
-
         //登录成功后为每个用户设置别名：username
         JPushInterface.setAlias(getActivity(), root.user.username, new TagAliasCallback() {
             @Override
@@ -985,9 +842,7 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         Intent intent = new Intent("com.allever.autologin");
         getActivity().sendBroadcast(intent);
         Glide.with(getActivity()).load(WebUtil.HTTP_ADDRESS + SharedPreferenceUtil.getHeadpath()).into(iv_head);
-        //Picasso.with(getActivity()).load(SharedPreferenceUtil.getHeadPath()).into(iv_head);
         tv_nickname.setText(SharedPreferenceUtil.getNickname()+"(" + SharedPreferenceUtil.getUserName() + ")");
-        //tv_username.setText(SharedPreferenceUtil.getUserName());
 
         Intent i = new Intent(getActivity(),ModifyUserDataActivity.class);
         startActivity(i);
@@ -1026,11 +881,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
             //Toast.makeText(getActivity(),"收到广播",Toast.LENGTH_LONG).show();
             String  action = intent.getAction();
             if(action.equals("com.allever.afterlogin")){
-//                tv_nickname.setText(SharedPreferenceUtil.getNickname());
-//                tv_username.setText("账号：" + SharedPreferenceUtil.getUserName());
-//                Picasso.with(getActivity()).load(WebUtil.HTTP_ADDRESS + SharedPreferenceUtil.getHeadPath()).into(iv_head);
-//                btn_logout.setVisibility(View.VISIBLE);
-                ;
                 getActivity().finish();
             }
         }
@@ -1112,7 +962,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         LogoutRoot  root = gson.fromJson(result, LogoutRoot.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(getActivity(), "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             return;
         }
@@ -1122,7 +971,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         }else{
             SharedPreferenceUtil.setState("");
             SharedPreferenceUtil.setSessionId("");
-            //OkhttpUtil.checkLogin();
             logoutIMService();
 
         }

@@ -56,22 +56,14 @@ public class NearbyFragment extends Fragment implements AdapterView.OnItemClickL
     private NewsItemAdapter ad;
     private NewsItemAdapterOne ad_one;
     private NewsItemBaseAdapter ad_base;
-    //private SwipeRefreshLayout swipeRefreshLayout;
     private boolean isloading;
     private Handler handler;
     private Gson gson;
     private Root root;
     private ProgressDialog progressDialog;
-    //private SocialDBAdapter db;
 
     private MyReceiver myReceiver;
     private IntentFilter intentFilter;
-
-//    private ADBarFragment adBarFragment;
-//    private FragmentManager fragmentManager;
-//    private FragmentTransaction fragmentTransaction;
-
-//    private CloseADBarReceiver closeADBarReceiver;
 
     private int selected_position;//点赞记录所选位置
 
@@ -79,9 +71,6 @@ public class NearbyFragment extends Fragment implements AdapterView.OnItemClickL
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.nearby_fragment_layout, container, false);
-//        db= new SocialDBAdapter(getActivity());
-//        db.open();
-
         intentFilter = new IntentFilter();
         intentFilter.addAction("com.allever.social.refresh_nearby_news");
         intentFilter.addAction("com.allever.action_update_like_news");
@@ -89,18 +78,6 @@ public class NearbyFragment extends Fragment implements AdapterView.OnItemClickL
         //intentFilter.addAction("com.allever.social.broadcast_close_ad_bar");
         myReceiver = new MyReceiver();
         getActivity().registerReceiver(myReceiver, intentFilter);
-
-//        fragmentManager = this.getChildFragmentManager();
-//        //测试用---------------
-////        adBarFragment = new ADBarFragment();
-////        fragmentTransaction = fragmentManager.beginTransaction();
-////        fragmentTransaction.add(R.id.id_nearby_fg_fragment_ad_bar_container, adBarFragment);
-////        fragmentTransaction.commit();
-//        //----------------
-//        closeADBarReceiver = new CloseADBarReceiver();
-//        getActivity().registerReceiver(closeADBarReceiver,intentFilter);
-
-
 
         listView = (PullToRefreshListView)view.findViewById(R.id.id_nearby_fg_listview_nearby);
         listView.setOnItemClickListener(this);
@@ -140,14 +117,6 @@ public class NearbyFragment extends Fragment implements AdapterView.OnItemClickL
             }
         });
 
-        //showProgressDialog();
-
-//        swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.id_nearby_fg_refresh);
-//        swipeRefreshLayout.setOnRefreshListener(this);
-//        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary,
-//                com.hyphenate.easeui.R.color.holo_orange_light, com.hyphenate.easeui.R.color.holo_red_light);
-
-
         handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
@@ -164,7 +133,6 @@ public class NearbyFragment extends Fragment implements AdapterView.OnItemClickL
                 }
             }
         };
-        //getADSetting();
 
         getNearbyNews();
 
@@ -241,7 +209,6 @@ public class NearbyFragment extends Fragment implements AdapterView.OnItemClickL
     @Override
     public void onDestroy() {
         super.onDestroy();
-//        db.close();
         getActivity().unregisterReceiver(myReceiver);
     }
 
@@ -253,26 +220,6 @@ public class NearbyFragment extends Fragment implements AdapterView.OnItemClickL
         intent.putExtra("news_id",list_newsItem.get(i-1).getId());
         startActivityForResult(intent, REQUEST_CODE_UPDATE);
     }
-
-//    @Override
-//    public void onRefresh() {
-//        new Handler().postDelayed(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                if (listView.getFirstVisiblePosition() == 0 && !isloading) {
-//                    //Toast.makeText(getActivity(), "正在刷新", Toast.LENGTH_SHORT).show();
-//                    getNearbyNews();
-//                    isloading = false;
-//
-//                } else {
-//                    Toast.makeText(getActivity(), getResources().getString(com.hyphenate.easeui.R.string.no_more_messages),
-//                            Toast.LENGTH_SHORT).show();
-//                }
-//                swipeRefreshLayout.setRefreshing(false);
-//            }
-//        }, 1000);
-//    }
 
     private void getNearbyNews(){
         OkhttpUtil.getNearbyNews(handler,page+"");
@@ -497,15 +444,5 @@ public class NearbyFragment extends Fragment implements AdapterView.OnItemClickL
         int likeCount;
         int islike;
     }
-
-
-//    class CloseADBarReceiver extends BroadcastReceiver{
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            fragmentTransaction = fragmentManager.beginTransaction();
-//            fragmentTransaction.remove(adBarFragment);
-//            fragmentTransaction.commit();
-//        }
-//    }
 
 }

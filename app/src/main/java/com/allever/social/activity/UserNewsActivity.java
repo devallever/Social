@@ -148,8 +148,6 @@ public class UserNewsActivity extends BaseActivity implements AdapterView.OnItem
         Glide.with(this)
                 .load(WebUtil.HTTP_ADDRESS +user_head_path)
                 .into(iv_head);
-        //Picasso.with(this).load(WebUtil.HTTP_ADDRESS + user_head_path).into(iv_head);
-
         if(user_id.equals(SharedPreferenceUtil.getUserId())){
             listView.setOnItemLongClickListener(this);
         }
@@ -159,10 +157,6 @@ public class UserNewsActivity extends BaseActivity implements AdapterView.OnItem
                 .transform(new BlurTransformation(this, 100))
                 .crossFade()
                 .into(iv_bg);
-
-        //ImageUtil.drawShadow(this,iv_bg);
-
-
     }
 
     @Override
@@ -179,7 +173,6 @@ public class UserNewsActivity extends BaseActivity implements AdapterView.OnItem
                         @Override
                         public void onClick(View view) {
                             deleteNews(position);
-                            //new Dialog(UserNewsActivity.this, "提示", "删除成功").show();
                         }
                     });
                     dialog.show();
@@ -231,24 +224,6 @@ public class UserNewsActivity extends BaseActivity implements AdapterView.OnItem
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(this, NewsDetailActivity.class);
-//        com.allever.social.pojo.News news = new com.allever.social.pojo.News();
-//        news.setId(list_newsItem.get(i).getId());
-//        news.setUser_head_path(list_newsItem.get(i).getUser_head_path());
-//        news.setNickname(list_newsItem.get(i).getNickname());
-//        news.setContent(list_newsItem.get(i).getContent());
-//        news.setCity(list_newsItem.get(i).getCity());
-//        news.setUser_id(list_newsItem.get(i).getUser_id());
-//        news.setUsername(list_newsItem.get(i).getUsername());
-//        news.setSex(list_newsItem.get(i).getSex());
-//        news.setAge(list_newsItem.get(i).getAge());
-//        news.setCommentcount(Integer.valueOf(list_newsItem.get(i).getCommentCount()));
-//        news.setDate(list_newsItem.get(i).getTime());
-//        news.setDistance(list_newsItem.get(i).getDistance());
-//        news.setLickcount(Integer.valueOf(list_newsItem.get(i).getLickCount()));
-//        news.setIsLiked(Integer.valueOf(list_newsItem.get(i).getIsLiked()));
-//        news.setNews_image_path(list_newsItem.get(i).getNewsimg_list());
-//        intent.putExtra("news", news);
-//        startActivity(intent);
         intent.putExtra("position",i);
         intent.putExtra("news_id",list_newsItem.get(i).getId());
         startActivityForResult(intent,REQUEST_CODE_UPDATE);
@@ -265,14 +240,12 @@ public class UserNewsActivity extends BaseActivity implements AdapterView.OnItem
         DeleteNewsRoot root = gson.fromJson(result, DeleteNewsRoot.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this,"服务器繁忙，请重试",Toast.LENGTH_LONG).show();
             return;
         }
         if (root.success == false){
             new Dialog(this,"Tips",root.messgae).show();
         }else{
-           // new Dialog(this,"Tips","删除成功").show();
             getUserNews();
         }
     }
@@ -288,7 +261,6 @@ public class UserNewsActivity extends BaseActivity implements AdapterView.OnItem
         root = gson.fromJson(result, Root.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this,"服务器繁忙，请重试",Toast.LENGTH_LONG).show();
             return;
         }
@@ -320,7 +292,6 @@ public class UserNewsActivity extends BaseActivity implements AdapterView.OnItem
             newsItem.setNews_voice(news.news_voice_path);
             list_newsItem.add(newsItem);
         }
-        //ad = new NewsItemAdapter(this,R.layout.news_item,list_newsItem,WebUtil.NEWS_TYPE_HOT);
         ad_base = new NewsItemBaseAdapter(this,list_newsItem,WebUtil.NEWS_TYPE_HOT);
         listView.setAdapter(ad_base);
 

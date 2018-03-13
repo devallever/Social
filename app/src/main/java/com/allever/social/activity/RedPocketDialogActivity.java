@@ -73,8 +73,6 @@ public class RedPocketDialogActivity extends BaseActivity {
         rv_invite.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
-                //RedPocketDialogActivity.this.finish();
-                //getShareInfo();
                 Intent intent = new Intent(RedPocketDialogActivity.this,ShareDialogActivity.class);
                 intent.putExtra("is_first_share",true);
                 startActivityForResult(intent,REQUEST_CODE_SHARE_DIALOG_ACTIVITY);

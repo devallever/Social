@@ -160,15 +160,11 @@ public class ModifyUserDataActivity extends BaseActivity implements View.OnClick
                     }catch (Exception e){
                         e.printStackTrace();
                     }
-                    //setHead(mContent);
-                    //modifyHead(str_user_head_path);
-                    //setHead(mContent);
                     startPhotoZoom(data.getData());
                 }
                 break;
             case REQUESTCODE_CUTTING:
                 if (data != null) {
-                    //str_user_head_path = CommentUtil.getImageFilePath(this,data.getData());
                     setPicToView(data);
                 }
                 break;
@@ -227,7 +223,6 @@ public class ModifyUserDataActivity extends BaseActivity implements View.OnClick
             iv_head.setImageDrawable(drawable);
             head_b = Bitmap2Bytes(photo);
             modifyHead();
-            //uploadUserAvatar(Bitmap2Bytes(photo));
         }
 
     }
@@ -274,8 +269,6 @@ public class ModifyUserDataActivity extends BaseActivity implements View.OnClick
                 str_nickname = et_nickname.getText().toString();
                // str_phone = et_phone.getText().toString();
                 str_signature = et_signature.getText().toString();
-//                if (SharedPreferenceUtil.getSex().equals("男")) rb_man.setChecked(true);
-//                else rb_woman.setChecked(true);
                 if (rb_man.isChecked()) str_sex = "男";
                 else str_sex = "女";
                 str_age = et_age.getText().toString();

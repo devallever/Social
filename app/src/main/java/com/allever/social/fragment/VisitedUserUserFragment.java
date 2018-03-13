@@ -105,21 +105,7 @@ public class VisitedUserUserFragment extends Fragment implements AdapterView.OnI
 
             }
         });
-//        swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.id_visited_user_user_fg_refresh);
-//        swipeRefreshLayout.setOnRefreshListener(this);
-//        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary,
-//                com.hyphenate.easeui.R.color.holo_orange_light, com.hyphenate.easeui.R.color.holo_red_light);
-
         getVisitedForUserList();
-
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(getActivity(), UserDataDetailActivity.class);
-//                intent.putExtra("username", list_user.get(i).getUsername());
-//                startActivity(intent);
-//            }
-//        });
 
         return view;
     }
@@ -129,9 +115,6 @@ public class VisitedUserUserFragment extends Fragment implements AdapterView.OnI
         Intent intent = new Intent(getActivity(), UserDataDetailActivity.class);
         intent.putExtra("username", list_user.get(i-1).getUsername());
         startActivity(intent);
-//        Intent intent = new Intent(getActivity(), UserDataDetailActivity.class);
-//        intent.putExtra("username", list_user.get(i - 1).getUsername());
-//        startActivity(intent);
     }
 
     //下拉刷新
@@ -139,7 +122,6 @@ public class VisitedUserUserFragment extends Fragment implements AdapterView.OnI
     public void onPullDownToRefresh(PullToRefreshBase refreshView) {
         page=1;
         getVisitedForUserList();
-        //if (OkhttpUtil.checkLogin()) checkVideoCall();
     }
 
     //上拉加载
@@ -162,26 +144,6 @@ public class VisitedUserUserFragment extends Fragment implements AdapterView.OnI
         super.onPause();
         StatService.onPause(this);//统计Fragment页面
     }
-
-//    @Override
-//    public void onRefresh() {
-//        new Handler().postDelayed(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                if (listView.getFirstVisiblePosition() == 0 && !isloading) {
-//                    //Toast.makeText(getActivity(), "正在刷新", Toast.LENGTH_SHORT).show();
-//                    getVisitedForUserList();
-//                    isloading = false;
-//
-//                } else {
-//                    Toast.makeText(getActivity(), getResources().getString(com.hyphenate.easeui.R.string.no_more_messages),
-//                            Toast.LENGTH_SHORT).show();
-//                }
-//                swipeRefreshLayout.setRefreshing(false);
-//            }
-//        }, 1000);
-//    }
 
     private void getVisitedForUserList(){
         OkhttpUtil.getVisitedForUserList(handler,page+"");
@@ -231,10 +193,6 @@ public class VisitedUserUserFragment extends Fragment implements AdapterView.OnI
             visitedUserItemBaseAdapter.notifyDataSetChanged();
             listView.onRefreshComplete();
         }
-        //visitedUserItemBaseAdapter = new VisitedUserItemBaseAdapter(getActivity(),list_user);
-        //listView.setAdapter(visitedUserItemBaseAdapter);
-
-
     }
 
 
@@ -242,7 +200,6 @@ public class VisitedUserUserFragment extends Fragment implements AdapterView.OnI
         boolean success;
         String message;
         List<User> visiteduser_list;
-        //List<User> visitednews_list;
     }
 
     class User{

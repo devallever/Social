@@ -297,19 +297,6 @@ public class AddRecruitActivity extends BaseActivity implements View.OnClickList
         sendBroadcast(broadIntent);
         this.finish();
 
-
-
-//        Dialog dialog = new Dialog(this,"Tips", "发布成功，赶紧去添加职位吧.");
-//        dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent("com.allever.social.updateNearbyRecruit");
-//                sendBroadcast(intent);
-//                finish();
-//            }
-//        });
-//
-//        dialog.show();
     }
 
     private void initData(){
@@ -411,11 +398,6 @@ public class AddRecruitActivity extends BaseActivity implements View.OnClickList
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("itemImage", addbmp);
             imageItem.add(gridviewClickItemPosition, map);
-
-//            bmp = BitmapFactory.decodeResource(getResources(), R.drawable.icon_addpic_unfocused);
-//            map.put("itemImage", bmp);
-//            imageItem.add((imageItem.size()-1),map);
-
 
             simpleAdapter = new SimpleAdapter(this, imageItem, R.layout.griditem_addpic, new String[] { "itemImage"}, new int[] { R.id.imageView1});
             simpleAdapter.setViewBinder(new SimpleAdapter.ViewBinder() {

@@ -42,7 +42,6 @@ import java.util.List;
  */
 public class VisitedNewsUserFragment extends Fragment implements AdapterView.OnItemClickListener,PullToRefreshBase.OnRefreshListener2{
 
-    //private ListView listView;
     private PullToRefreshListView listView;
     private VisitedUserItemBaseAdapter visitedUserItemBaseAdapter;
     private List<VisitedUserItem> list_user = new ArrayList<>();
@@ -106,15 +105,6 @@ public class VisitedNewsUserFragment extends Fragment implements AdapterView.OnI
 
         getVisitedForNewsList();
 
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(getActivity(), UserDataDetailActivity.class);
-//                intent.putExtra("username", list_user.get(i).getUsername());
-//                startActivity(intent);
-//            }
-//        });
-
         return view;
     }
 
@@ -130,7 +120,6 @@ public class VisitedNewsUserFragment extends Fragment implements AdapterView.OnI
     public void onPullDownToRefresh(PullToRefreshBase refreshView) {
         page=1;
         getVisitedForNewsList();
-        //if (OkhttpUtil.checkLogin()) checkVideoCall();
     }
 
     //上拉加载
@@ -202,11 +191,6 @@ public class VisitedNewsUserFragment extends Fragment implements AdapterView.OnI
             visitedUserItemBaseAdapter.notifyDataSetChanged();
             listView.onRefreshComplete();
         }
-
-        //visitedUserItemBaseAdapter = new VisitedUserItemBaseAdapter(getActivity(),list_user);
-        //listView.setAdapter(visitedUserItemBaseAdapter);
-
-
     }
 
 

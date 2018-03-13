@@ -97,7 +97,6 @@ public class MyShareRankFragment extends Fragment {
         Root root = gson.fromJson(result, Root.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(getActivity(), "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             return;
         }

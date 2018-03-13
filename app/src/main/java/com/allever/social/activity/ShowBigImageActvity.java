@@ -51,7 +51,6 @@ public class ShowBigImageActvity extends BaseActivity implements View.OnLongClic
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(epv_image);
 
-        //Picasso.with(this).load(image_path).into(epv_image);
         epv_image.setOnLongClickListener(this);
 
     }

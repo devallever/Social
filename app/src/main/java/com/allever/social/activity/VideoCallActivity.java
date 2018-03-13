@@ -136,7 +136,6 @@ public class VideoCallActivity extends CallActivity implements View.OnClickListe
         monitorTextView = (TextView) findViewById(R.id.tv_call_monitor);
         netwrokStatusVeiw = (TextView) findViewById(R.id.tv_network_status);
         recordBtn = (Button) findViewById(R.id.btn_record_video);
-//        toggleVideoBtn = (Button) findViewById(R.id.btn_toggle_video_stream);
 
 
         refuseBtn.setOnClickListener(this);
@@ -194,7 +193,6 @@ public class VideoCallActivity extends CallActivity implements View.OnClickListe
             Log.d("VideoCallActivity"," 我发起的视频聊天请求 --  获取通话时长 和 通话价格");
             getVideoCallMinCount();
         }else{
-            //Toast.makeText(VideoCallActivity.this,"不是我发起的视频聊天请求",Toast.LENGTH_LONG).show();
             Log.d("VideoCallActivity", " ---  不是我发起的视频聊天请求");
         }
 
@@ -211,7 +209,6 @@ public class VideoCallActivity extends CallActivity implements View.OnClickListe
         VideoCallMinCountRoot root = gson.fromJson(result, VideoCallMinCountRoot.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this,"服务器繁忙，请重试",Toast.LENGTH_LONG).show();
             return;
         }

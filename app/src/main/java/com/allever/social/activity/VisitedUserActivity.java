@@ -95,13 +95,6 @@ public class VisitedUserActivity extends BaseActivity {
         tabLayout = (TabLayout)this.findViewById(R.id.id_visited_user_activity_tablayout);
         viewPager = (ViewPager)this.findViewById(R.id.id_visited_user_activity_viewpager);
         adapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
-
-//        adapter.addFragment(new NearbyUserFragment(),"资料");
-//        adapter.addFragment(new NearbyFragment(), "动态");
-//        viewPager.setAdapter(adapter);
-//        //viewPager.removeAllViews();
-//        tabLayout.setupWithViewPager(viewPager);
-
     }
 
     private void getVisitedUserList(){
@@ -126,16 +119,7 @@ public class VisitedUserActivity extends BaseActivity {
         adapter.addFragment(new VisitedUserUserFragment(),"资料(" + root.visiteduser_count + ")");
         adapter.addFragment(new VisitedNewsUserFragment(), "动态(" + root.visitednews_list.size() + ")");
 
-/*        if(SharedPreferenceUtil.getVip().equals("1")){
-            adapter.addFragment(new VisitedUserUserFragment(),"资料(" + root.visiteduser_count + ")");
-            adapter.addFragment(new VisitedNewsUserFragment(), "动态(" + root.visitednews_list.size() + ")");
-        }else{
-            adapter.addFragment(new GetVipFragment(),"资料(" + root.visiteduser_count + ")");
-            adapter.addFragment(new GetVipFragment(), "动态(" + root.visitednews_list.size() + ")");
-        }*/
-
         viewPager.setAdapter(adapter);
-        //viewPager.removeAllViews();
         tabLayout.setupWithViewPager(viewPager);
 
 

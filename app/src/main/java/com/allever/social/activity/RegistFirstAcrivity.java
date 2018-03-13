@@ -51,19 +51,7 @@ public class RegistFirstAcrivity extends BaseActivity {
     private Handler timeHandler;
     private Handler handler;
     private EventHandler eh;
-//    /**
-//     * 倒计时Handler
-//     */
-//    Handler checkCodeHandler = new Handler() {
-//        public void handleMessage(Message msg) {
-//            if (msg.what == RegisterCodeTimer.IN_RUNNING) {// 正在倒计时
-//                tv_get_check_code.setText(msg.obj.toString());
-//            } else if (msg.what == RegisterCodeTimer.END_RUNNING) {// 完成倒计时
-//                rv_check_code.setEnabled(true);
-//                tv_get_check_code.setText(msg.obj.toString());
-//            }
-//        };
-//    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,17 +69,6 @@ public class RegistFirstAcrivity extends BaseActivity {
                 }
             }
         };
-
-//        checkCodeHandler = new Handler() {
-//            public void handleMessage(Message msg) {
-//                if (msg.what == RegisterCodeTimer.IN_RUNNING) {// 正在倒计时
-//                    tv_get_check_code.setText(msg.obj.toString());
-//                } else if (msg.what == RegisterCodeTimer.END_RUNNING) {// 完成倒计时
-//                    rv_check_code.setEnabled(true);
-//                    tv_get_check_code.setText(msg.obj.toString());
-//                }
-//            };
-//        };
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setLogo(R.mipmap.ic_arrow_back_white_24dp);
@@ -129,8 +106,6 @@ public class RegistFirstAcrivity extends BaseActivity {
 
 
     private void initData(){
-//        RegisterCodeTimerService.setHandler(checkCodeHandler);
-//        checkCodeIntent = new Intent(this, RegisterCodeTimerService.class);
 
         tv_get_check_code = (TextView)this.findViewById(R.id.id_regist_first_activity_tv_check_code);
         rv_check_code = (RippleView)this.findViewById(R.id.id_regist_first_activity_rv_check_code);
@@ -152,8 +127,6 @@ public class RegistFirstAcrivity extends BaseActivity {
                         Intent intent = new Intent(RegistFirstAcrivity.this,RegistActivity.class);
                         intent.putExtra("phone",phone);
                         startActivityForResult(intent,REQUEST_CODE_REGIST_FIRST);
-                        // et_checkCode.setText("");
-                        //RegistFirstAcrivity.this.finish();
                     }else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE){
                         //获取验证码成功
                         //Toast.makeText(RegistFirstAcrivity.this,"获取验证码成功",Toast.LENGTH_LONG).show();
@@ -166,9 +139,6 @@ public class RegistFirstAcrivity extends BaseActivity {
                         @Override
                         public void run() {
                             //发布时注释
-//                            Intent intent = new Intent(RegistFirstAcrivity.this,RegistActivity.class);
-//                            intent.putExtra("phone",phone);
-//                            startActivityForResult(intent,REQUEST_CODE_REGIST_FIRST);
                             Toast.makeText(RegistFirstAcrivity.this, "验证码错误或重新获取", Toast.LENGTH_LONG).show();
                         }
                     });
@@ -343,7 +313,6 @@ public class RegistFirstAcrivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //stopService(checkCodeIntent);
         SMSSDK.unregisterEventHandler(eh);
     }
 

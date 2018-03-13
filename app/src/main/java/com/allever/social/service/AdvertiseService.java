@@ -41,9 +41,6 @@ public class AdvertiseService extends Service {
 
         SharedPreferences sharedPreferences = MyApplication.getContext().getSharedPreferences("com.allever.social_preferences", Context.MODE_PRIVATE);
         String str_day = sharedPreferences.getString("pref_setting_ad_day_key", "1");
- //       String str_count = sharedPreferences.getString("pref_setting_ad_count_key","1");
-
- //       Log.d("count before", str_count);
 
         int day = 1;
         if (str_day.equals("1")) day = 1;

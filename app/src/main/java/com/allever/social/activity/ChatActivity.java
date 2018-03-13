@@ -26,12 +26,7 @@ public class ChatActivity extends BaseActivity {
             getSupportActionBar().hide();
         }
 
-//        db = new SocialDBAdapter(this);
-//        db.open();
-
         String friend_id = getIntent().getStringExtra("friend_id");
-
-        //getSupportActionBar().setTitle("与 " +db.getNickName(friend_id) + " 聊天中");
 
 
        // new出EaseChatFragment或其子类的实例
@@ -63,6 +58,5 @@ public class ChatActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        db.close();
     }
 }

@@ -116,9 +116,6 @@ public class FollowUserFragment extends Fragment implements AdapterView.OnItemCl
 
         getFollowUser();
 
-        //followItemBaseAdapter = new FollowItemBaseAdapter(getActivity(),list_user);
-        //listView.setAdapter(followItemBaseAdapter);
-
         return view;
     }
 
@@ -133,7 +130,6 @@ public class FollowUserFragment extends Fragment implements AdapterView.OnItemCl
         Root  root = gson.fromJson(result, Root.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(getActivity(), "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             listView.onRefreshComplete();
             return;
@@ -160,8 +156,6 @@ public class FollowUserFragment extends Fragment implements AdapterView.OnItemCl
             list_user.add(followUserItem);
             SharedPreferenceUtil.saveUserData(user.username, user.nickname, WebUtil.HTTP_ADDRESS + user.user_head_path);
         }
-        //list_user = filledData(list_user);
-        //Collections.sort(list_user, pinyinComparator);
         if (page==1){
             followItemBaseAdapter = new FollowItemBaseAdapter(getActivity(),list_user);
             listView.setAdapter(followItemBaseAdapter);
@@ -190,9 +184,6 @@ public class FollowUserFragment extends Fragment implements AdapterView.OnItemCl
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//        Intent intent = new Intent(getActivity(), UserDataActivity.class);
-//        intent.putExtra("friend_id", list_user.get(i).getUsername());
-//        startActivity(intent);
         Intent intent = new Intent(getActivity(), UserDataDetailActivity.class);
         intent.putExtra("username", list_user.get(i - 1).getUsername());
         startActivity(intent);
@@ -204,7 +195,6 @@ public class FollowUserFragment extends Fragment implements AdapterView.OnItemCl
     public void onPullDownToRefresh(PullToRefreshBase refreshView) {
         page=1;
         getFollowUser();
-        //if (OkhttpUtil.checkLogin()) checkVideoCall();
     }
 
     //上拉加载

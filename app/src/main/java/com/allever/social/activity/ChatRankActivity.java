@@ -98,13 +98,10 @@ public class ChatRankActivity extends BaseActivity implements ViewPager.OnPageCh
                 actionBar.setTitle("聊天排行");
                 break;
         }
-        //Toast.makeText(getActivity(),position+"", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        //this.position = position;
-        //Toast.makeText(getActivity(),position+"", Toast.LENGTH_LONG).show();
     }
 
     @Override

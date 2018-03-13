@@ -34,10 +34,7 @@ public class GeneralActivity extends BaseActivity implements RippleView.OnRipple
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("设置");
 
-
         initData();
-
-
     }
 
     @Override
@@ -50,8 +47,6 @@ public class GeneralActivity extends BaseActivity implements RippleView.OnRipple
         super.onPause();
         StatService.onPause(this);//统计activity页面
     }
-
-
 
 
     private void initData(){

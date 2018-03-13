@@ -57,7 +57,6 @@ public class ShareRankFragment extends Fragment implements AdapterView.OnItemCli
 
     private Handler handler;
 
-    //private FloatingActionButton fab_share;
     private RippleView rv_invite_user;
 
     @Nullable
@@ -105,14 +104,6 @@ public class ShareRankFragment extends Fragment implements AdapterView.OnItemCli
             }
         });
 
-//        fab_share = (FloatingActionButton)view.findViewById(R.id.id_share_rank_fg_fab_share);
-//        fab_share.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                showShare();
-//            }
-//        });
-
         getShareRank();//不显示数据
 
         return view;
@@ -128,7 +119,6 @@ public class ShareRankFragment extends Fragment implements AdapterView.OnItemCli
         ShareInfoRoot root = gson.fromJson(result, ShareInfoRoot.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(getActivity(), "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             return;
         }

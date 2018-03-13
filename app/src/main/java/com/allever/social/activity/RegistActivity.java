@@ -119,10 +119,6 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
         actionBar.setLogo(R.mipmap.ic_arrow_back_white_24dp);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("注册");
-
-        //toolbar = (Toolbar)this.findViewById(R.id.id_regist_toolbar);
-        //CommentUtil.initToolbar(this, toolbar, "注册");
-
         initData();
 
     }

@@ -78,7 +78,6 @@ public class ChooseForwardUserActivity extends BaseActivity implements AdapterVi
         Root root = gson.fromJson(result, Root.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this, "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             return;
         }
@@ -102,20 +101,6 @@ public class ChooseForwardUserActivity extends BaseActivity implements AdapterVi
     private  void initView(){
         listView = (ListView)this.findViewById(R.id.id_choose_forward_user_activity_listview);
         listView.setOnItemClickListener(this);
-
-//        ForwardUserItem forwardUserItem = new ForwardUserItem();
-//        forwardUserItem.setNickname("XM");
-//        forwardUserItem.setUser_head_path(SharedPreferenceUtil.getHeadpath());
-//        forwardUserItem.setUser_id("1");
-//        forwardUserItem.setUsername("xm");
-//        list_forward_user_item.add(forwardUserItem);
-//        list_forward_user_item.add(forwardUserItem);
-//        list_forward_user_item.add(forwardUserItem);
-//        list_forward_user_item.add(forwardUserItem);
-//
-//        forwardUserBaseAdapter = new ForwardUserBaseAdapter(this,list_forward_user_item);
-//        listView.setAdapter(forwardUserBaseAdapter);
-
     }
 
     @Override

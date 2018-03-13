@@ -36,14 +36,11 @@ public class ADBarFragment extends Fragment {
     private Handler handler;
     private List<AdDetail> list_addetail = new ArrayList<>();
 
-   // private ADBarFragmentLitener adbarFragmentListener;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.ad_bar_fragment_layout,container,false);
 
-        //adbarFragmentListener = (ADBarFragmentLitener)getActivity();
         handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
@@ -73,8 +70,6 @@ public class ADBarFragment extends Fragment {
         iv_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(getActivity(), "关闭广告条", Toast.LENGTH_SHORT).show();
-                //adbarFragmentListener.closeADBar(ADBarFragment.this);
                 Intent broadIntent = new Intent("com.allever.social.broadcast_close_ad_bar");
                 getActivity().sendBroadcast(broadIntent);
             }
@@ -109,7 +104,6 @@ public class ADBarFragment extends Fragment {
         ADDetailRoot  root = gson.fromJson(result, ADDetailRoot.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(getActivity(), "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             return;
         }

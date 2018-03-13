@@ -3,7 +3,6 @@ package com.allever.social.activity;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,21 +11,16 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
 import com.allever.social.adapter.PhotoWallImgBaseAdapter;
-import com.allever.social.adapter.RecruitItemBaseAdapter;
-import com.allever.social.db.SocialDBAdapter;
-import com.allever.social.utils.CommentUtil;
 import com.allever.social.utils.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.allever.social.utils.WebUtil;
@@ -34,7 +28,6 @@ import com.allever.social.view.MyGridView;
 import com.andexert.library.RippleView;
 import com.baidu.mobstat.StatService;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;
@@ -67,13 +60,10 @@ public class UserDataActivity extends BaseActivity implements View.OnClickListen
     private ImageView iv_news_img_1;
     private ImageView iv_news_img_2;
     private ImageView iv_news_img_3;
-    //private ImageView iv_sex;
     private CircleImageView iv_head;
     private ButtonRectangle btn_add;
     private ButtonRectangle btn_chat;
     private ButtonRectangle btn_delet;
-   // private TableRow tableRow_news;
-   // private TableRow tableRow_photo;
 
     private RippleView rv_news;
     private RippleView rv_photo;
@@ -95,16 +85,10 @@ public class UserDataActivity extends BaseActivity implements View.OnClickListen
     private PhotoWallImgBaseAdapter photoWallImgBaseAdapter;
 
 
-    //private SocialDBAdapter db;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_data_layout);
-
-//        db = new SocialDBAdapter(this);
-//        db.open();
 
         friend_id = getIntent().getStringExtra("friend_id");//需要username
 
@@ -138,11 +122,7 @@ public class UserDataActivity extends BaseActivity implements View.OnClickListen
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("详细信息");
 
-        //toolbar = (Toolbar)this.findViewById(R.id.id_user_data_toolbar);
-        //CommentUtil.initToolbar(this, toolbar, "详细资料");
-
         initData();
-        //OkhttpUtil.getUserData(friend_id, handler);
 
         getPhotoWallList();
 
@@ -197,7 +177,6 @@ public class UserDataActivity extends BaseActivity implements View.OnClickListen
             }
         }
 
-        //to do
         list_photo_wall = new ArrayList<>();
         for(String path: root.photowalllist){
             list_photo_wall.add(WebUtil.HTTP_ADDRESS + path);
@@ -216,7 +195,6 @@ public class UserDataActivity extends BaseActivity implements View.OnClickListen
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        db.close();
     }
 
     private void handleUserData(Message msg){
@@ -264,23 +242,6 @@ public class UserDataActivity extends BaseActivity implements View.OnClickListen
                 Glide.with(this).load(WebUtil.HTTP_ADDRESS + root.user.list_news_img.get(2)).into(iv_news_img_3);
                 break;
         }
-
-//        if (root.user.list_news_img.size()>0){
-//            if (root.user.list_news_img.get(0) != null){
-//                Glide.with(this).load(WebUtil.HTTP_ADDRESS + root.user.list_news_img.get(0)).into(iv_news_img_1);
-//            }
-//        }
-//        if (root.user.list_news_img.size()>1){
-//            if (root.user.list_news_img.get(1) != null){
-//                Glide.with(this).load(WebUtil.HTTP_ADDRESS + root.user.list_news_img.get(1)).into(iv_news_img_2);
-//            }
-//        }
-//        if (root.user.list_news_img.size()>2){
-//            if (root.user.list_news_img.get(2) != null){
-//                Glide.with(this).load(WebUtil.HTTP_ADDRESS + root.user.list_news_img.get(2)).into(iv_news_img_3);
-//            }
-//        }
-
 
         Glide.with(this)
                 .load(WebUtil.HTTP_ADDRESS + root.user.user_head_path)
@@ -420,12 +381,6 @@ public class UserDataActivity extends BaseActivity implements View.OnClickListen
         btn_add = (ButtonRectangle)this.findViewById(R.id.id_user_data_btn_add);
         btn_chat = (ButtonRectangle)this.findViewById(R.id.id_user_data_btn_chat);
         btn_delet = (ButtonRectangle)this.findViewById(R.id.id_user_data_btn_delete);
-//        tableRow_news = (TableRow)this.findViewById(R.id.id_user_data_tablerow_news);
-//        tableRow_news.setOnClickListener(this);
-//        tableRow_news.setOnTouchListener(this);
-//        tableRow_photo = (TableRow)this.findViewById(R.id.id_user_data_tablerow_photo);
-//        tableRow_photo.setOnClickListener(this);
-//        tableRow_photo.setOnTouchListener(this);
         btn_add.setOnClickListener(this);
         btn_delet.setOnClickListener(this);
         btn_chat.setOnClickListener(this);
@@ -538,8 +493,6 @@ public class UserDataActivity extends BaseActivity implements View.OnClickListen
                                 }catch (HyphenateException e){
                                     e.printStackTrace();
                                 }
-                                //deleteFriend();
-                                //new Dialog(UserNewsActivity.this, "提示", "删除成功").show();
                             }
                         });
                         dialog.show();
@@ -629,7 +582,6 @@ public class UserDataActivity extends BaseActivity implements View.OnClickListen
         FriendRoot root = gson.fromJson(result, FriendRoot.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this,"服务器繁忙，请重试",Toast.LENGTH_LONG).show();
             return;
         }
@@ -653,9 +605,7 @@ public class UserDataActivity extends BaseActivity implements View.OnClickListen
 
 
     private void getUserData(){
-        //
         OkhttpUtil.getUserData(friend_id,handler);
-        //OkhttpUtil.getUserData(db.get);
     }
 
     class Root{

@@ -45,7 +45,6 @@ public class GroupRequestDialogActivity extends BaseActivity implements View.OnC
             public void handleMessage(Message msg) {
                 switch (msg.what){
                     case OkhttpUtil.MESSAGE_JOIN_GROUP:
-                        //Toast.makeText(GroupRequestDialogActivity.this,"",Toast.LENGTH_LONG).show();
                         GroupRequestDialogActivity.this.finish();
                         break;
                 }
@@ -105,17 +104,9 @@ public class GroupRequestDialogActivity extends BaseActivity implements View.OnC
                         }
                     }).start();
                 OkhttpUtil.joinGroup(handler, SharedPreferenceUtil.getGroupid(hx_group_id),applyer);
-                    //this.finish();
                 break;
             case R.id.id_friend_request_dialog_activity_btn_reject:
                 finish();
-//                try {
-//                   // EMClient.getInstance().contactManager().declineInvitation(friend_id);
-//                    //Toast.makeText(this, "已拒绝", Toast.LENGTH_LONG).show();
-//                    this.finish();
-//                }catch (HyphenateException e){
-//                    e.printStackTrace();
-//                }
                 break;
             case R.id.id_friend_request_dialog_activity_iv_head:
                 intent = new Intent(this,UserDataActivity.class);

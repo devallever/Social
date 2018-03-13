@@ -179,14 +179,6 @@ public class MyEaseConversationListFragment extends EaseBaseFragment {
             }
         });
 
-//        setConversationListItemClickListener(new EaseConversationListItemClickListener() {
-//            @Override
-//            public void onListItemClicked(EMConversation conversation) {
-//                Intent intent = new Intent(getActivity(), ChatActivity.class);
-//                intent.putExtra("friend_id", conversation.getUserName());
-//                startActivity(intent);
-//            }
-//        });
     }
 
 
@@ -352,7 +344,6 @@ public class MyEaseConversationListFragment extends EaseBaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        //EMClient.getInstance().removeConnectionListener(connectionListener);
         getActivity().unregisterReceiver(reciever);
     }
 
@@ -389,19 +380,5 @@ public class MyEaseConversationListFragment extends EaseBaseFragment {
             conversationListView.refresh();
         }
     }
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        this.setConversationListItemClickListener(new EaseConversationListItemClickListener() {
-//            @Override
-//            public void onListItemClicked(EMConversation conversation) {
-//                //Toast.makeText(getActivity(),"enter chatting",Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getActivity(), ChatActivity.class);
-//                intent.putExtra("friend_id", conversation.getUserName());
-//                startActivity(intent);
-//            }
-//        });
-//        return inflater.inflate(R.layout.my_ease_fragment_conversation_list, container, false);
-//    }
 
 }

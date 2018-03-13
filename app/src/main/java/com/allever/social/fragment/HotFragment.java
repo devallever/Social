@@ -54,13 +54,8 @@ public class HotFragment extends Fragment implements AdapterView.OnItemClickList
     private NewsItemAdapter ad;
     private NewsItemBaseAdapter ad_base;
     private int page = 1;
-
-   // private SwipeRefreshLayout swipeRefreshLayout;
     private boolean isloading;
 
-    //private String longitude;
-    //private String latitude;
-   // SharedPreferences locationSharedPreferences;
 
     private OkHttpClient okHttpClient;
     private Handler handler;
@@ -130,12 +125,6 @@ public class HotFragment extends Fragment implements AdapterView.OnItemClickList
         session_id = userShpf.getString("session_id", null);
         state = userShpf.getString("state", "0");
 
-//        swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.id_hot_fg_refresh);
-//        swipeRefreshLayout.setOnRefreshListener(this);
-//        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary,
-//                com.hyphenate.easeui.R.color.holo_orange_light, com.hyphenate.easeui.R.color.holo_red_light);
-
-
         handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
@@ -197,12 +186,6 @@ public class HotFragment extends Fragment implements AdapterView.OnItemClickList
         OkhttpUtil.getHotNews(handler,page+"");
     }
 
-//    private void getLocation(){
-//        longitude = SharedPreferenceUtil.getLongitude();
-//        latitude = SharedPreferenceUtil.getLatitude();
-//        Toast.makeText(getActivity(), "经度:" + longitude + "\n纬度:" + latitude, Toast.LENGTH_SHORT).show();
-//    }
-
     private void handleHotNews(Message msg){
         String result = msg.obj.toString();
         Log.d("HotFragment", result);
@@ -245,15 +228,9 @@ public class HotFragment extends Fragment implements AdapterView.OnItemClickList
             newsItem.setNews_voice(news.news_voice_path);
             list_newsItem.add(newsItem);
 
-//            if (db.checkUser(news.username)){
-//                db.updateUserInfo(news.username,news.nickname);
-//            }else{
-//                db.addUser(news.username,news.nickname,WebUtil.HTTP_ADDRESS + news.user_head_path);
-//            }
             SharedPreferenceUtil.saveUserData(news.username,news.nickname,WebUtil.HTTP_ADDRESS +news.user_head_path);
 
         }
-        //ad = new NewsItemAdapter(MyApplication.getContext(),R.layout.news_item,list_newsItem,WebUtil.NEWS_TYPE_HOT);
         if (page == 1){
             ad_base = new NewsItemBaseAdapter(getActivity(),list_newsItem,WebUtil.NEWS_TYPE_NEARBY);
             listView.setAdapter(ad_base);
@@ -305,48 +282,10 @@ public class HotFragment extends Fragment implements AdapterView.OnItemClickList
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
-//        com.allever.social.pojo.News news = new com.allever.social.pojo.News();
-//        news.setId(list_newsItem.get(i).getId());
-//        news.setUser_head_path(list_newsItem.get(i).getUser_head_path());
-//        news.setNickname(list_newsItem.get(i).getNickname());
-//        news.setSex(list_newsItem.get(i).getSex());
-//        news.setAge(list_newsItem.get(i).getAge());
-//        news.setContent(list_newsItem.get(i).getContent());
-//        news.setCity(list_newsItem.get(i).getCity());
-//        news.setUser_id(list_newsItem.get(i).getUser_id());
-//        news.setCommentcount(Integer.valueOf(list_newsItem.get(i).getCommentCount()));
-//        news.setDate(list_newsItem.get(i).getTime());
-//        news.setUsername(list_newsItem.get(i).getUsername());
-//        news.setDistance(list_newsItem.get(i).getDistance());
-//        news.setLickcount(Integer.valueOf(list_newsItem.get(i).getLickCount()));
-//        news.setIsLiked(Integer.valueOf(list_newsItem.get(i).getIsLiked()));
-//        news.setNews_image_path(list_newsItem.get(i).getNewsimg_list());
-//        intent.putExtra("news", news);
-//        startActivity(intent);
         intent.putExtra("position",i-1);
         intent.putExtra("news_id",list_newsItem.get(i-1).getId());
         startActivityForResult(intent,REQUEST_CODE_UPDATE);
     }
-
-//    @Override
-//    public void onRefresh() {
-//        new Handler().postDelayed(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                if (listView.getFirstVisiblePosition() == 0 && !isloading) {
-//                    //Toast.makeText(getActivity(), "正在刷新", Toast.LENGTH_SHORT).show();
-//                    getHotNews();
-//                    isloading = false;
-//
-//                } else {
-//                    Toast.makeText(getActivity(), getResources().getString(com.hyphenate.easeui.R.string.no_more_messages),
-//                            Toast.LENGTH_SHORT).show();
-//                }
-//                swipeRefreshLayout.setRefreshing(false);
-//            }
-//        }, 1000);
-//    }
 
     class Root{
         boolean success;

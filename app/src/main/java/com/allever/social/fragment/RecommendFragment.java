@@ -147,9 +147,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
         flashView_ad.setOnPageClickListener(new FlashViewListener() {
             @Override
             public void onClick(int position) {
-                //Toast.makeText(getActivity(),list_addetail.get(position).url,Toast.LENGTH_LONG).show();
                 if(list_addetail.size()>0) {
-                    //Toast.makeText(WelcomeActivity.this,list_addetail.get(0).url,Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getActivity(), WebViewActivity.class);
                     intent.putExtra("url",list_addetail.get(position).url);
                     if(list_addetail.size()>0) startActivity(intent);
@@ -200,7 +198,6 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
         ADDetailRoot  root = gson.fromJson(result, ADDetailRoot.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(getActivity(), "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             return;
         }
@@ -215,11 +212,6 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
             imageUrls.add(WebUtil.HTTP_ADDRESS + adDetail.ad_path);
         }
         flashView_ad.setImageUris(imageUrls);
-
-//        if (list_addetail.size()>0) Glide.with(this).load(WebUtil.HTTP_ADDRESS+list_addetail.get(0).ad_path).into(iv_ad_bar);
-//        else iv_ad_bar.setImageResource(R.mipmap.ic_ad_bar);
-
-
     }
 
     @Override
@@ -250,16 +242,10 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
                 startActivity(intent);
                 break;
             case R.id.id_found_fg_rv_rank:
-                //Toast.makeText(getActivity(),"该功能未开启",Toast.LENGTH_LONG).show();
-                //intent = new Intent(getActivity(), ChatRankActivity.class);
-                //startActivity(intent);
-
                 intent = new Intent(getActivity(), NearbyUserActivity.class);
                 startActivity(intent);
                 break;
             case R.id.id_found_fg_rv_friend_location:
-                //intent  = new Intent(getActivity(), NearbyGroupWithRedPocketMapViewActivity.class);
-                //startActivity(intent);
                 intent= new Intent(getActivity(), FriendLocationActivity.class);
                 startActivity(intent);
                 break;

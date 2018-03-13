@@ -87,8 +87,6 @@ public class RecommendGroupDialogActivity extends BaseActivity {
 
                 } else {
                     RecommendGroupDialogActivity.this.setResult(RESULT_OK);
-//                    Intent intent = new Intent(RecommendGroupDialogActivity.this, SocialMainActivity.class);
-//                    startActivity(intent);
                     RecommendGroupDialogActivity.this.finish();
                 }
             }
@@ -144,21 +142,6 @@ public class RecommendGroupDialogActivity extends BaseActivity {
     public void onBackPressed() {
         //不允许Back
     }
-
-    //    @Override
-//    public void onBackPressed() {
-//        //super.onBackPressed();
-//        if (cb_join.isChecked()){
-//            //join group
-//        }else{
-//            super.onBackPressed();
-//            setResult(RESULT_OK);
-//            Intent intent = new Intent(this, SocialMainActivity.class);
-//            startActivity(intent);
-//            this.finish();
-//        }
-//
-//    }
 
     class RecommendGroupRoot{
         boolean success;

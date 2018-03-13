@@ -12,8 +12,6 @@ import com.allever.social.R;
 import com.allever.social.adapter.MyFragmentPagerAdapter;
 import com.allever.social.fragment.FansUserFragment;
 import com.allever.social.fragment.FollowUserFragment;
-import com.allever.social.fragment.NearbyFragment;
-import com.allever.social.fragment.NearbyUserFragment;
 import com.baidu.mobstat.StatService;
 
 /**
@@ -74,13 +72,10 @@ public class FollowFansCountActivity extends BaseActivity implements ViewPager.O
                 actionBar.setTitle("粉丝");
                 break;
         }
-        //Toast.makeText(getActivity(),position+"", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        //this.position = position;
-        //Toast.makeText(getActivity(),position+"", Toast.LENGTH_LONG).show();
     }
 
     @Override

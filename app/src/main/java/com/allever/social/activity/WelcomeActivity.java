@@ -62,11 +62,7 @@ public class WelcomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Context context = MyApplication.getContext();
-        //SDKInitializer.initialize(context);
         setContentView(R.layout.welcome_activity_layout);
-
-
-
 
 //        //百度移动统计-----------------------------------------------------------------------------
         initMTJ();
@@ -106,15 +102,6 @@ public class WelcomeActivity extends BaseActivity {
 
         getAdDetail();
 
-        //beginTimeOut();
-
-
-
-
-
-
-
-
         //百度定位-----------------------------------------------------------------------------
         //locate();
         Intent intentService = new Intent(this, BDLocationService.class);
@@ -139,18 +126,11 @@ public class WelcomeActivity extends BaseActivity {
             String date = CommentUtil.getDate();
             SharedPreferenceUtil.setShareRemindRestCount(date, Constants.SHARE_REMIND_SPACE);
 
-
-            //show red_pocket_dialog
-//            Intent intent = new Intent(this,RedPocketDialogActivity.class);
-//            startActivityForResult(intent,REQUEST_CODE_RED_POCKET_DIALOG);
-
             //show First Activity
             Intent intent = new Intent(this,FirstActivity.class);
             startActivity(intent);
             finish();
         }else{
-            // Toast.makeText(this,"不是一次启动",Toast.LENGTH_LONG).show();
-
             if (OkhttpUtil.checkLogin()) beginTimeOut();
             else {
                 Intent intent = new Intent(this,FirstActivity.class);
@@ -158,12 +138,6 @@ public class WelcomeActivity extends BaseActivity {
                 WelcomeActivity.this.finish();
             }
         }
-
-        //开启长连接服务
-        //if (OkhttpUtil.checkLogin()){
-            //Intent intent = new Intent(this, LongConnectionService.class);
-            //startService(intent);
-            //Toast.makeText(this, NativeRuntime.getInstance().stringFromJNI(), Toast.LENGTH_LONG).show();
             String executable = "libhelper.so";
             String aliasfile = "helper";
             String parafind = "/data/data/" + getPackageName() + "/" + aliasfile;
@@ -179,8 +153,6 @@ public class WelcomeActivity extends BaseActivity {
                 }
             }
         }).start();
-
-        //}
 
         //开启广告定时服务
         Intent intentService_ad = new Intent(this, AdvertiseService.class);
@@ -226,9 +198,6 @@ public class WelcomeActivity extends BaseActivity {
                 try {
                     Thread.sleep(5000);
                     if(flag){
-                        //Intent intent = new Intent(WelcomeActivity.this, SocialMainActivity.class);
-                        //startActivity(intent);
-
                         Intent intent = new Intent(WelcomeActivity.this,ShuaShuaActivity.class);
                         intent.putExtra("is_first",true);
                         startActivity(intent);
@@ -248,11 +217,7 @@ public class WelcomeActivity extends BaseActivity {
 
     //百度移动统计
     private void  initMTJ(){
-        //StatService.setAppKey("");//已在manifest设置
-       // StatService.setAppChannel(this,"",false);
-        //StatService.setOn(this,StatService.EXCEPTION_LOG);
         StatService.setLogSenderDelayed(10);
-       // StatService.setSendLogStrategy(this, SendStrategyEnum.APP_START,1,false);
         StatService.setSessionTimeOut(30);
     }
 
@@ -299,7 +264,6 @@ public class WelcomeActivity extends BaseActivity {
 
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this,"服务器繁忙，请重试",Toast.LENGTH_LONG).show();
             return;
         }
@@ -312,26 +276,6 @@ public class WelcomeActivity extends BaseActivity {
 
         if (list_addetail.size()>0) Glide.with(this).load(WebUtil.HTTP_ADDRESS+list_addetail.get(0).ad_path).into(iv_ad);
         else iv_ad.setImageResource(R.mipmap.welcome_ad);
-
-//        //计时线程
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    Thread.sleep(4000);
-//                    if(flag){
-//                        Intent intent = new Intent(WelcomeActivity.this, SocialMainActivity.class);
-//                        startActivity(intent);
-//                        WelcomeActivity.this.finish();
-//                    }
-//
-//                }catch (InterruptedException e){
-//                    e.printStackTrace();
-//                }
-//            }
-//        }).start();
-
-
     }
 
 
@@ -345,13 +289,10 @@ public class WelcomeActivity extends BaseActivity {
         ADSettingRoot  root = gson.fromJson(result, ADSettingRoot.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
-            //Toast.makeText(this,"服务器繁忙，请重试",Toast.LENGTH_LONG).show();
             return;
         }
 
         if (!root.success){
-            //new Dialog(this,"Tips",root.message).show();
             return;
         }
 

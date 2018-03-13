@@ -94,8 +94,6 @@ public class NotificationActivity extends BaseActivity implements NavigationView
                 break;
 
         }
-        //item.setChecked(true);
-        //drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }

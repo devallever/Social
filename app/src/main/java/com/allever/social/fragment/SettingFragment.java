@@ -49,7 +49,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Vi
     private TextView tv_nickname;
     private TextView tv_username;
     private RelativeLayout rl_general_setting;
-   // private RelativeLayout rl_account_and_secure;
     private RelativeLayout rl_private;
     private RelativeLayout rl_feedback;
     private RelativeLayout rl_about;
@@ -71,9 +70,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Vi
         rl_general_setting = (RelativeLayout)view.findViewById(R.id.id_setting_fg_rl_gegeral_setting);
         rl_general_setting.setOnClickListener(this);
         rl_general_setting.setOnTouchListener(this);
-//        rl_account_and_secure = (RelativeLayout)view.findViewById(R.id.id_setting_fg_rl_account_and_secure);
-//        rl_account_and_secure.setOnClickListener(this);
-//        rl_account_and_secure.setOnTouchListener(this);
         rl_private = (RelativeLayout)view.findViewById(R.id.id_setting_fg_rl_private);
         rl_private.setOnClickListener(this);
         rl_private.setOnTouchListener(this);
@@ -249,9 +245,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Vi
                     intent = new Intent(getActivity(), ModifyUserDataActivity.class);
                     startActivity(intent);
                 }else{
-                    //if(!SharedPreferenceUtil.getUserName().equals("") && !SharedPreferenceUtil.getPassword().equals("")){
-                        //OkhttpUtil.autoLogin(handler);
-                    //}else{
                         Dialog dialog = new Dialog(getActivity(),"Tips","请登录");
                         dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
                             @Override
@@ -261,9 +254,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Vi
                             }
                         });
                         dialog.show();
-                    //}
-
-                    //new Dialog(getActivity(),"Tips", "你还没有登录呢.").show();
                 }
                 break;
             case R.id.id_setting_fg_rl_gegeral_setting://通用设置
@@ -288,11 +278,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Vi
                 getActivity().finish();
                 intent = new Intent(getActivity(),LoginActivity.class);
                 startActivity(intent);
-                //tv_nickname.setText("未登录");
-                //tv_username.setText("账号：");
-                //iv_head.setImageDrawable(getResources().getDrawable(R.mipmap.winchen));
-                //btn_logout.setVisibility(View.INVISIBLE);
-                //getActivity().finish();
                 break;
 
         }
@@ -301,8 +286,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Vi
     private void cleanLocation(){
         SharedPreferenceUtil.setState("0");
         SharedPreferenceUtil.setSessionId("");
-        // SharedPreferenceUtil.setUserId("");
-        //SharedPreferenceUtil.setPassword("");
     }
 
     private void logout(){
@@ -335,10 +318,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Vi
         Log.d("Setting", result);
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         LoginRoot root = gson.fromJson(result, LoginRoot.class);
-//        if(root.seccess = ){
-//
-//        }
-
         JPushInterface.setAlias(getActivity(), root.user.username, new TagAliasCallback() {
             @Override
             public void gotResult(int i, String s, Set<String> set) {
@@ -349,7 +328,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Vi
         Intent intent = new Intent("com.allever.autologin");
         getActivity().sendBroadcast(intent);
 
-        //Picasso.with(getActivity()).load(SharedPreferenceUtil.getHeadPath()).into(iv_head);
         tv_nickname.setText(SharedPreferenceUtil.getNickname());
         tv_username.setText(SharedPreferenceUtil.getUserName());
 
@@ -360,14 +338,12 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Vi
     private class  AfterModifyUserDataReceiver extends BroadcastReceiver{
         @Override
         public void onReceive(Context context, Intent intent) {
-            //Toast.makeText(getActivity(),"收到广播",Toast.LENGTH_LONG).show();
             String  action = intent.getAction();
             if(action.equals("com.allever.modifyUserData")){
                 String nickname = intent.getStringExtra("nickname");
                 tv_nickname.setText(nickname+ "(" + SharedPreferenceUtil.getUserName() + ")");
             }else if (action.equals("com.allever.modifyUserHead")){
                 String head_path = intent.getStringExtra("head_path");
-                //Picasso.with(getActivity()).load(head_path).into(iv_head);
             }
         }
     }
@@ -378,11 +354,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Vi
             //Toast.makeText(getActivity(),"收到广播",Toast.LENGTH_LONG).show();
             String  action = intent.getAction();
             if(action.equals("com.allever.afterlogin")){
-//                tv_nickname.setText(SharedPreferenceUtil.getNickname());
-//                tv_username.setText("账号：" + SharedPreferenceUtil.getUserName());
-//                Picasso.with(getActivity()).load(WebUtil.HTTP_ADDRESS + SharedPreferenceUtil.getHeadPath()).into(iv_head);
-//                btn_logout.setVisibility(View.VISIBLE);
-                ;
                 getActivity().finish();
             }
         }

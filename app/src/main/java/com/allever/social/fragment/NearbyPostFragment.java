@@ -110,38 +110,9 @@ public class NearbyPostFragment extends Fragment implements AdapterView.OnItemCl
 
             }
         });
-
-
-//        swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.id_nearby_post_fg_refresh);
-//        swipeRefreshLayout.setOnRefreshListener(this);
-//        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary,
-//                com.hyphenate.easeui.R.color.holo_orange_light, com.hyphenate.easeui.R.color.holo_red_light);
-
         listView.setOnItemClickListener(this);
 
         list_postitem = new ArrayList<NearByPostItem>();
-//        NearByPostItem nearByPostItem = new NearByPostItem();
-//        nearByPostItem.setId("1");
-//        nearByPostItem.setPostname("Android");
-//        nearByPostItem.setSalary("5k");
-//        nearByPostItem.setDistance(2.31);
-//        nearByPostItem.setIs_owner(0);
-//        nearByPostItem.setUser_id("1");
-//        nearByPostItem.setUser_head_path("/images/head/xm.jpg");
-//        nearByPostItem.setRecruit_id("1");
-//        nearByPostItem.setPhone("13800138000");
-//        list_postitem.add(nearByPostItem);
-//        list_postitem.add(nearByPostItem);
-//        list_postitem.add(nearByPostItem);
-//        list_postitem.add(nearByPostItem);
-//        list_postitem.add(nearByPostItem);
-//        list_postitem.add(nearByPostItem);
-//        list_postitem.add(nearByPostItem);
-
-
-//        nearbyPostItemBaseAdapter = new NearbyPostItemBaseAdapter(getActivity(),list_postitem);
-//        listView.setAdapter(nearbyPostItemBaseAdapter);
-
         getNearbyPost();
 
 
@@ -197,7 +168,6 @@ public class NearbyPostFragment extends Fragment implements AdapterView.OnItemCl
         Root root = gson.fromJson(result, Root.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(getActivity(), "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             listView.onRefreshComplete();
             return;
@@ -209,7 +179,6 @@ public class NearbyPostFragment extends Fragment implements AdapterView.OnItemCl
 
         boolean is_success = root.success;
         if (!is_success){
-            //closeProgressDialog();
             new Dialog(getActivity(),"Tips","无法获取附近招聘").show();
             return;
         }else{

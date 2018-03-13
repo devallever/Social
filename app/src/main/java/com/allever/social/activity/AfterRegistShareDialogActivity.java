@@ -119,7 +119,6 @@ public class AfterRegistShareDialogActivity extends BaseActivity implements View
                 shareSina(root.content, root.url, root.img_url);
                 break;
         }
-        //showShare(root.content, root.url, root.img_url);
 
     }
 
@@ -139,17 +138,6 @@ public class AfterRegistShareDialogActivity extends BaseActivity implements View
                 Toast.makeText(AfterRegistShareDialogActivity.this,"分享成功",Toast.LENGTH_LONG).show();
                 AfterRegistShareDialogActivity.this.setResult(RESULT_OK);
                 AfterRegistShareDialogActivity.this.finish();
-//                if (is_first_share){
-//                    ShareDialogActivity.this.setResult(RESULT_OK);
-//                    ShareDialogActivity.this.finish();
-//                }else{
-//                    //分享成功 分享数加1
-//                    addShareRecord();
-//                    //开通一个月会员
-//                    giveVip();
-//                    Toast.makeText(ShareDialogActivity.this,"分享成功",Toast.LENGTH_LONG).show();
-//                }
-
             }
             @Override
             public void onError(Platform platform, int i, Throwable throwable) {
@@ -167,9 +155,6 @@ public class AfterRegistShareDialogActivity extends BaseActivity implements View
         WechatMoments.ShareParams sp = new WechatMoments.ShareParams();
         sp.setTitle(Constants.SHARE_TITLE + username);
         sp.setText(content);
-        //sp.setImageUrl(WebUtil.HTTP_ADDRESS + SharedPreferenceUtil.getHeadpath());
-        //sp.setImageData(this.getResources().getDrawable(R.mipmap.logo)).getBitmap());
-        //sp.imageData = ((BitmapDrawable)this.getResources().getDrawable(R.mipmap.share_red_pocket)).getBitmap();
         sp.setImageUrl(img_url);
         sp.setUrl(url);
         sp.setShareType(Platform.SHARE_WEBPAGE);
@@ -180,16 +165,6 @@ public class AfterRegistShareDialogActivity extends BaseActivity implements View
                 Toast.makeText(AfterRegistShareDialogActivity.this,"分享成功",Toast.LENGTH_LONG).show();
                 AfterRegistShareDialogActivity.this.setResult(RESULT_OK);
                 AfterRegistShareDialogActivity.this.finish();
-//                if (is_first_share) {
-//                    ShareDialogActivity.this.setResult(RESULT_OK);
-//                    ShareDialogActivity.this.finish();
-//                } else {
-//                    //分享成功 分享数加1
-//                    addShareRecord();
-//                    //开通一个月会员
-//                    giveVip();
-//                    Toast.makeText(ShareDialogActivity.this, "分享成功", Toast.LENGTH_LONG).show();
-//                }
             }
 
             @Override
@@ -209,7 +184,6 @@ public class AfterRegistShareDialogActivity extends BaseActivity implements View
     private void shareSina(String content,String url,String img_url){
         SinaWeibo.ShareParams sp = new SinaWeibo.ShareParams();
         sp.setText(content);
-        //sp.setImagePath(“/mnt/sdcard/测试分享的图片.jpg”);
         sp.setUrl(url);
         sp.setImageData(((BitmapDrawable) this.getResources().getDrawable(R.mipmap.share_red_pocket)).getBitmap());
         sp.setShareType(Platform.SHARE_WEBPAGE);
@@ -220,18 +194,6 @@ public class AfterRegistShareDialogActivity extends BaseActivity implements View
                 Toast.makeText(AfterRegistShareDialogActivity.this,"分享成功",Toast.LENGTH_LONG).show();
                 AfterRegistShareDialogActivity.this.setResult(RESULT_OK);
                 AfterRegistShareDialogActivity.this.finish();
-                //SET RESULT
-//                if (is_first_share){
-//                    ShareDialogActivity.this.setResult(RESULT_OK);
-//                    ShareDialogActivity.this.finish();
-//                }else{
-//                    //分享成功 分享数加1
-//                    addShareRecord();
-//                    //开通一个月会员
-//                    giveVip();
-//                    Toast.makeText(ShareDialogActivity.this, "分享成功", Toast.LENGTH_LONG).show();
-//                }
-
             }
 
             @Override

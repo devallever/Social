@@ -187,27 +187,18 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
             }
         };
 
-        //news = (News)getIntent().getSerializableExtra("news");
         news_id = getIntent().getStringExtra("news_id");
 
         from_position = getIntent().getIntExtra("position", 0);
-       // toolbar = (Toolbar)this.findViewById(R.id.id_news_detail_toolbar);
-       // CommentUtil.initToolbar(this, toolbar, "详情");
         ActionBar ab = this.getSupportActionBar();
         ab.setLogo(R.mipmap.ic_arrow_back_white_24dp);
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setTitle("详情");
         initData();
-        //CommentUtil.showProgressDialog(progressDialog, this);
         getNewsDetail();
 
 
     }
-
-
-
-
-
 
     @Override
     protected void onDestroy() {
@@ -287,8 +278,6 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
             return;
         }
 
-       //CommentUtil.closeProgressDialog(progressDialog);
-
         news = root.news;
         updateVisitedNews();//获取newsdetail后调用
         getNewsComment();
@@ -303,7 +292,6 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
         else rv_audio.setVisibility(View.VISIBLE);
 
         news_voice_url = news.news_voice_path;
-        //news_voice_local_path = Environment.getExternalStorageDirectory().getPath() + "/social" + apk_version_name+ ".apk";
         news_voice_local_path = Environment.getExternalStorageDirectory().getPath() + "/social/voice/news_voice/"+ news.id +".arm";
 
 
@@ -319,21 +307,6 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
             //不干嘛
         }
 
-
-//        if(news.distance != null){
-//            Log.d("NewsDetail", "distance = " + news.getDistance());
-//            if(news.getDistance().equals("-1.0")){
-//                tv_distance.setText("距离未知");
-//            }else{
-//                tv_distance.setText("距离 " + news.getDistance() + " km");
-//            }
-//        }else{
-//            if(!news.city.equals("")){
-//                tv_distance.setText(news.getCity());
-//            }else{
-//                tv_distance.setText("距离未知");
-//            }
-//        }
 
         Glide.with(this)
                 .load(WebUtil.HTTP_ADDRESS + news.user_head_path)
@@ -874,10 +847,6 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
             }
         });
 
-
-        //ibtn_add_comment = (ImageButton)this.findViewById(R.id.id_news_detail_btn_add_comment);
-        //ibtn_add_comment.setOnClickListener(this);
-
         rv_add_comment.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
@@ -958,7 +927,6 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
                     //停止播放
                     tv_play_audio.setText("播放");
                     mPlayer.stop();
-                    //mPlayer = null;
                 }
             }
         });
@@ -982,20 +950,7 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.id_news_detail_iv_like:
                 likeNews();
-//                if(OkhttpUtil.checkLogin()){
-//                    likeNews();
-//                }else{
-//                    new Dialog(this,"提示","您还没登录").show();
-//                }
                 break;
-//            case R.id.id_news_detail_btn_add_comment:
-//                content  = et_comment_content.getText().toString();
-//                if(content.equals("") || content.equals("评论")){
-//                    new Dialog(this,"Tips","请输入评论内容").show();
-//                    return;
-//                }
-//                addComment();
-//                break;
         }
     }
 

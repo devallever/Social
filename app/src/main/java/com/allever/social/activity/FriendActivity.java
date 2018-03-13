@@ -114,7 +114,6 @@ public class FriendActivity extends BaseActivity implements NavigationView.OnNav
                 break;
 
         }
-        //item.setChecked(true);
 
         return true;
     }

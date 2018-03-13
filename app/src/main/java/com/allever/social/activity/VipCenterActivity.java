@@ -125,11 +125,6 @@ public class VipCenterActivity extends BaseActivity {
             imageUrls.add(WebUtil.HTTP_ADDRESS + adDetail.ad_path);
         }
         flashView_ad.setImageUris(imageUrls);
-
-//        if (list_addetail.size()>0) Glide.with(this).load(WebUtil.HTTP_ADDRESS+list_addetail.get(0).ad_path).into(iv_ad_bar);
-//        else iv_ad_bar.setImageResource(R.mipmap.ic_ad_bar);
-
-
     }
 
     private void initData(){
@@ -138,9 +133,7 @@ public class VipCenterActivity extends BaseActivity {
         flashView_ad.setOnPageClickListener(new FlashViewListener() {
             @Override
             public void onClick(int position) {
-                //Toast.makeText(getActivity(),list_addetail.get(position).url,Toast.LENGTH_LONG).show();
                 if(list_addetail.size()>0) {
-                    //Toast.makeText(WelcomeActivity.this,list_addetail.get(0).url,Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(VipCenterActivity.this, WebViewActivity.class);
                     intent.putExtra("url",list_addetail.get(position).url);
                     if(list_addetail.size()>0) startActivity(intent);

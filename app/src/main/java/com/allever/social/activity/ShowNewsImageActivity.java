@@ -30,12 +30,6 @@ public class ShowNewsImageActivity extends BaseActivity{
         ad = new MyShowImageViewPagerAdapter(getSupportFragmentManager(),list_path);
         viewPager.setAdapter(ad);
         viewPager.setCurrentItem(position);
-
-        //viewPager.setOnPageChangeListener(this);
-
-        //tv_position = (TextView)this.findViewById(R.id.id_show_news_image_activity_tv_position);
-
-
     }
 
     @Override

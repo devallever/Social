@@ -76,11 +76,6 @@ public class ManageFriendGroupActivity extends BaseActivity implements SwipeMenu
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("分组管理");
 
-//        swipeRefreshLayout = (SwipeRefreshLayout)this.findViewById(R.id.id_manage_friendgroup_activity_refresh);
-//        swipeRefreshLayout.setOnRefreshListener(this);
-//        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary,
-//                com.hyphenate.easeui.R.color.holo_orange_light, com.hyphenate.easeui.R.color.holo_red_light);
-
         rv_add_friendgroup = (RippleView)this.findViewById(R.id.id_manage_friendgroup_activity_rv_add_friendgroup);
         rv_add_friendgroup.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
@@ -209,26 +204,6 @@ public class ManageFriendGroupActivity extends BaseActivity implements SwipeMenu
         listView.setMenuCreator(creator);
         System.out.print("");
     }
-
-//    @Override
-//    public void onRefresh() {
-//        new Handler().postDelayed(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                if (listView.getFirstVisiblePosition() == 0 && !isloading) {
-//                    // Toast.makeText(getActivity(), "正在刷新", Toast.LENGTH_SHORT).show();
-//                    //getFriendGroupList();
-//                    isloading = false;
-//
-//                } else {
-//                    Toast.makeText(ManageFriendGroupActivity.this, getResources().getString(com.hyphenate.easeui.R.string.no_more_messages),
-//                            Toast.LENGTH_SHORT).show();
-//                }
-//                swipeRefreshLayout.setRefreshing(false);
-//            }
-//        }, 1000);
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

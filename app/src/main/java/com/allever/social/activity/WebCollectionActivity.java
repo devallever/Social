@@ -98,15 +98,6 @@ public class WebCollectionActivity extends BaseActivity implements AdapterView.O
 
     private void initView(){
         listView = (ListView)this.findViewById(R.id.id_webcollection_activity_listview);
-
-//        listView.setMode(PullToRefreshBase.Mode.BOTH);
-//        listView.getLoadingLayoutProxy(false, true).setPullLabel(
-//                getString(R.string.pull_to_load));
-//        listView.getLoadingLayoutProxy(false, true).setRefreshingLabel(
-//                getString(R.string.loading));
-//        listView.getLoadingLayoutProxy(false, true).setReleaseLabel(
-//                getString(R.string.release_to_load));
-//        listView.setOnRefreshListener(this);
         listView.setOnItemClickListener(this);
         listView.setOnItemLongClickListener(this);
 
@@ -146,49 +137,10 @@ public class WebCollectionActivity extends BaseActivity implements AdapterView.O
 
         webCollectionItemBaseAdapter = new WebCollectionItemBaseAdapter(this,list_webcollection_item);
         listView.setAdapter(webCollectionItemBaseAdapter);
-
-//        if (page==1){
-//            webCollectionItemBaseAdapter = new WebCollectionItemBaseAdapter(this,list_webcollection_item);
-//            listView.setAdapter(webCollectionItemBaseAdapter);
-//            listView.onRefreshComplete();
-//        }else{
-//            webCollectionItemBaseAdapter.notifyDataSetChanged();
-//            listView.onRefreshComplete();
-//        }
-
-
     }
-
-
-
-
-//    //下拉刷新
-//    @Override
-//    public void onPullDownToRefresh(PullToRefreshBase refreshView) {
-//        page=1;
-//        getWebcollectionList();
-//        //listView.onRefreshComplete();
-//    }
-//
-//    //上拉
-//    @Override
-//    public void onPullUpToRefresh(PullToRefreshBase refreshView) {
-//        page ++ ;
-//        getWebcollectionList();
-//        //listView.onRefreshComplete();
-//    }
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        //Intent intent = new Intent(this, UserDataDetailActivity.class);
-        //intent.putExtra("username", list_share_rank_item.get(i - 1).getUsername());
-        //startActivity(intent);
-
-//        //下拉刷新
-//        Intent intent = new Intent(this,WebViewActivity.class);
-//        intent.putExtra("url",list_webcollection_item.get(i-1).getUrl());
-//        startActivity(intent);
-
         //刷新
         Intent intent = new Intent(this,WebViewActivity.class);
         intent.putExtra("url",list_webcollection_item.get(i).getUrl());

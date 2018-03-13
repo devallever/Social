@@ -170,9 +170,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
                 Log.d("MyEaseChatFragment", "username = "  + username + "\n" + "tochatUser = "+ toChatUsername);
                 if (username.equals(toChatUsername)) {
                     messageList.refreshSelectLast();
-                    // 声音和震动提示有新消息
-                    //Toast.makeText(getActivity(),"声音和震动提示有新消息",Toast.LENGTH_LONG).show();
-                    //EaseUI.getInstance().getNotifier().viberateAndPlayTone(message);
                 } else {
                     // 如果消息不是和当前聊天ID的消息
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(getContext());
@@ -196,11 +193,8 @@ public class MyEaseChatFragment extends EaseBaseFragment{
                     //EaseUI.getInstance().getNotifier().viberateAndPlayTone(messages.get(0));
                     //应用在后台，通知栏提示新消息
                     if(!EaseUI.getInstance().hasForegroundActivies()){
-                        //聊天界面不显示播
-                        //notificationManager.notify(4, builder.build());
                     }
 
-                    //EaseUI.getInstance().getNotifier().onNewMsg(message);
                 }
             }
         }
@@ -236,10 +230,7 @@ public class MyEaseChatFragment extends EaseBaseFragment{
     private Handler this_handler;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       // EMClient.getInstance().chatManager().addMessageListener(msgListener);
-//        db = new SocialDBAdapter(getActivity());
-//        db.open();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {;
         this_handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
@@ -281,18 +272,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
         messageCount = root.messageCount;
         isVip = root.isVip;
 
-        //不作处理
-/*        if (root.isVip==0){
-            if (messageCount>0){
-            }else{
-                showVipDialog();
-            }
-        }*/
-
-    }
-
-    private void updateMessageCount(){
-        //OkhttpUtil.updateMessageCount(this_handler);
     }
 
     private void handleUpdateMessageCount(Message msg){
@@ -301,7 +280,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
         MessageCountRoot root = gson.fromJson(result, MessageCountRoot.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(getActivity(), "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             return;
         }
@@ -363,19 +341,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
             public void onSendMessage(String content) {
                 // 发送文本消息
                 sendTextMessage(content);
-/*                if (isVip == 1) {
-                    sendTextMessage(content);
-                } else {
-                    Log.d("MessageCount", "MessageCount = " + messageCount);
-                    if (messageCount > 0) {
-                        sendTextMessage(content);
-                        //更新messageCount
-                        updateMessageCount();
-                    } else {
-                        //弹出对话框
-                        showVipDialog();
-                    }
-                }*/
             }
 
             @Override
@@ -386,18 +351,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
                     public void onVoiceRecordComplete(String voiceFilePath, int voiceTimeLength) {
                         // 发送语音消息
                         sendVoiceMessage(voiceFilePath, voiceTimeLength);
-/*                        if (isVip == 1) sendVoiceMessage(voiceFilePath, voiceTimeLength);
-                        else {
-                            if (messageCount > 0) {
-                                sendVoiceMessage(voiceFilePath, voiceTimeLength);
-                                //更新messageCount
-                                updateMessageCount();
-                            } else {
-                                //弹出对话框
-                                showVipDialog();
-                            }
-                        }*/
-
                     }
                 });
             }
@@ -406,19 +359,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
             public void onBigExpressionClicked(EaseEmojicon emojicon) {
                 //发送大表情(动态表情)
                 sendBigExpressionMessage(emojicon.getName(), emojicon.getIdentityCode());
-/*                if (isVip == 1)
-                    sendBigExpressionMessage(emojicon.getName(), emojicon.getIdentityCode());
-                else {
-                    if (messageCount > 0) {
-                        sendBigExpressionMessage(emojicon.getName(), emojicon.getIdentityCode());
-                        //更新messageCount
-                        updateMessageCount();
-                    } else {
-                        //弹出对话框
-                        showVipDialog();
-                    }
-                }*/
-
             }
         });
 
@@ -498,8 +438,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
 
         setRefreshLayoutListener();
 
-        // show forward message if the message is not null
-        //String forward_msg_id = getArguments().getString("forward_msg_id");
         String forward_msg_id = fragmentArgs.getString("forward_msg_id");
         if (forward_msg_id != null) {
             // 发送要转发的消息
@@ -509,10 +447,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
 
 
         ((EaseEmojiconMenu)inputMenu.getEmojiconMenu()).addEmojiconGroup(QQFaceGroupData.getData());
-        //((EaseEmojiconMenu)inputMenu.getEmojiconMenu()).addEmojiconGroup(QQFaceGroupData.getData());
-
-
-
     }
 
     /**
@@ -527,9 +461,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
             inputMenu.registerExtendMenuItem(R.string.attach_voice_call, R.mipmap.em_chat_voice_call_normal, ITEM_VOICE_CALL, extendMenuItemClickListener);
             //inputMenu.registerExtendMenuItem(R.string.attach_video_call, R.drawable.em_chat_video_call_selector, ITEM_VIDEO_CALL, extendMenuItemClickListener);
         }
-//        if (chatType != Constant.CHATTYPE_CHATROOM) {
-//            inputMenu.registerExtendMenuItem(R.string.attach_red_packet, R.drawable.em_chat_red_packet_selector, ITEM_RED_PACKET, extendMenuItemClickListener);
-//        }
     }
 
 
@@ -554,8 +485,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
     }
 
     protected void onMessageListInit(){
-//        messageList.init(toChatUsername, chatType, chatFragmentListener != null ?
-//                chatFragmentListener.onSetCustomChatRowProvider() : null);
         messageList.init(toChatUsername,chatType,new CustomChatRowProvider());
         //设置list item里的控件的点击事件
         setListItemClickListener();
@@ -609,7 +538,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
                 startActivityForResult((new Intent(getActivity(), ContextMenuActivity.class)).putExtra("message", message), REQUEST_CODE_CONTEXT_MENU);
                 if(chatFragmentListener != null){
                     chatFragmentListener.onMessageBubbleLongClick(message);
-                    //startActivityForResult((new Intent(getActivity(), ContextMenuActivity.class)).putExtra("message", message), REQUEST_CODE_CONTEXT_MENU);
                 }
             }
 
@@ -618,23 +546,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
                 if(chatFragmentListener != null){
                     return chatFragmentListener.onMessageBubbleClick(message);
                 }
-//                if (message.getBooleanAttribute(RedPacketConstant.MESSAGE_ATTR_IS_RED_PACKET_MESSAGE, false)){
-//                    if (SharedPreferenceUtil.getRecommended().equals("1")){
-//                        RedPacketUtil.openRedPacket(getActivity(), chatType, message, toChatUsername, messageList);
-//                    }else{
-//                        Dialog dialog = new Dialog(getActivity(),"提示","首次拆红包需要完成新手任务");
-//                        dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//                                Intent intent = new Intent(getActivity(), NewerTaskActivity.class);
-//                                startActivity(intent);
-//                            }
-//                        });
-//                        dialog.show();
-//                    }
-//                    //RedPacketUtil.openRedPacket(getActivity(), chatType, message, toChatUsername, messageList);
-//                    return true;
-//                }
                 return false;
             }
 
@@ -714,11 +625,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
                 isVip = 1;
                 messageCount = 10;
             }else if(requestCode == REQUEST_CODE_SEND_RED_PACKET){
-//                if (data != null){
-//                    sendMessage(RedPacketUtil.createRPMessage(getActivity(), data, toChatUsername));
-//                    //群红包 发红包数加一
-//                    if(hx_group_id!=null) addRedPocketGroupCount();
-//                }
             }
         }
 
@@ -756,84 +662,7 @@ public class MyEaseChatFragment extends EaseBaseFragment{
     }
 
     private void withdrawMsg(){
-//        EMMessage cmdMsg = EMMessage.createSendMessage(EMMessage.Type.CMD);
-//        // 如果是群聊，设置chattype，默认是单聊
-//        if (chatType == EaseConstant.CHATTYPE_GROUP){
-//            cmdMsg.setChatType(EMMessage.ChatType.GroupChat);
-//        }
-//        String action="REVOKE_FLAG";
-//        EMCmdMessageBody cmdBody=new EMCmdMessageBody(action);
-//        // 设置消息body
-//        cmdMsg.addBody(cmdBody);
-//        // 设置要发给谁，用户username或者群聊groupid
-//        cmdMsg.setReceipt(toChatUsername);
-//
-//        // 通过扩展字段添加要撤回消息的id
-//        cmdMsg.setAttribute("msgId", contextMenuMessage.getMsgId());
-//        //Toast.makeText(getActivity(), "msgId = " + contextMenuMessage.getMsgId(), Toast.LENGTH_LONG).show();
-//        EMClient.getInstance().chatManager().sendMessage(cmdMsg);
-//        //Toast.makeText(getActivity(),"msgId = " + contextMenuMessage.getMsgId(),Toast.LENGTH_LONG).show();
     }
-
-
-
-
-
-//    private EMMessageListener msgListener = new EMMessageListener() {
-//
-//        @Override
-//        public void onMessageReceived(List<EMMessage> messages) {
-//            Log.d("MyEaseChatFragmetn", "新消息！！！！！！！！！");
-//            for (EMMessage message : messages) {
-//                String username = null;
-//                // 群组消息
-//                if (message.getChatType() == EMMessage.ChatType.GroupChat || message.getChatType() == EMMessage.ChatType.ChatRoom) {
-//                    username = message.getTo();
-//                } else {
-//                    // 单聊消息
-//                    username = message.getFrom();
-//                }
-//
-//                // 如果是当前会话的消息，刷新聊天页面
-//                Log.d("MyEaseChatFragment", "username = "  + username + "\n" + "tochatUser = "+ toChatUsername);
-//                if (username.equals(toChatUsername)) {
-//                    messageList.refreshSelectLast();
-//                    // 声音和震动提示有新消息
-//                    //Toast.makeText(getActivity(),"声音和震动提示有新消息",Toast.LENGTH_LONG).show();
-//                    EaseUI.getInstance().getNotifier().viberateAndPlayTone(message);
-//                } else {
-//                    // 如果消息不是和当前聊天ID的消息
-//                    EaseUI.getInstance().getNotifier().onNewMsg(message);
-//                }
-//            }
-//        }
-//
-//        @Override
-//        public void onCmdMessageReceived(List<EMMessage> messages) {
-//
-//        }
-//
-//        @Override
-//        public void onMessageReadAckReceived(List<EMMessage> messages) {
-//            if(isMessageListInited) {
-//                messageList.refresh();
-//            }
-//        }
-//
-//        @Override
-//        public void onMessageDeliveryAckReceived(List<EMMessage> message) {
-//            if(isMessageListInited) {
-//                messageList.refresh();
-//            }
-//        }
-//
-//        @Override
-//        public void onMessageChanged(EMMessage message, Object change) {
-//            if(isMessageListInited) {
-//                messageList.refresh();
-//            }
-//        }
-//    };
 
     @Override
     public void onResume() {
@@ -991,77 +820,17 @@ public class MyEaseChatFragment extends EaseBaseFragment{
             switch (itemId) {
                 case ITEM_TAKE_PICTURE: // 拍照
                     selectPicFromCamera();
-                    /*if (isVip==1) selectPicFromCamera();
-                    else{
-                        if (messageCount>0){
-                            selectPicFromCamera();
-                            //更新messageCount
-                            updateMessageCount();
-                        }else{
-                            //弹出对话框
-                            showVipDialog();
-                        }
-                    }*/
                     break;
                 case ITEM_PICTURE:
                     selectPicFromLocal(); // 图库选择图片
-                    /*if (isVip==1) selectPicFromLocal(); // 图库选择图片
-                    else{
-                        if (messageCount>0){
-                            selectPicFromLocal(); // 图库选择图片
-                            //更新messageCount
-                            updateMessageCount();
-                        }else{
-                            //弹出对话框
-                            showVipDialog();
-                        }
-                    }*/
                     break;
                 case ITEM_LOCATION: // 位置
                     startActivityForResult(new Intent(getActivity(), EaseBaiduMapActivity.class), REQUEST_CODE_MAP);
-                    /*if (isVip==1) startActivityForResult(new Intent(getActivity(), EaseBaiduMapActivity.class), REQUEST_CODE_MAP);
-                    else{
-                        if (messageCount>0){
-                            startActivityForResult(new Intent(getActivity(), EaseBaiduMapActivity.class), REQUEST_CODE_MAP);
-                            //更新messageCount
-                            updateMessageCount();
-                        }else{
-                            //弹出对话框
-                            showVipDialog();
-                        }
-                    }*/
                     break;
                 case ITEM_VOICE_CALL: //音频通话
                     startVoiceCall();
-                   /* if (isVip==1) startVoiceCall();
-                    else{
-                        if (messageCount>0){
-                            startVoiceCall();
-                            //更新messageCount
-                            updateMessageCount();
-                        }else{
-                            //弹出对话框
-                            showVipDialog();
-                        }
-                    }*/
                     break;
                 case ITEM_RED_PACKET:
-                    //RedPacketUtil.startRedPacketActivityForResult(MyEaseChatFragment.this, chatType, toChatUsername, REQUEST_CODE_SEND_RED_PACKET);
-                   // RedPacketUtil.startRedPacketActivityForResult(MyEaseChatFragment.this, chatType, toChatUsername, REQUEST_CODE_SEND_RED_PACKET);
-//                    if (SharedPreferenceUtil.getRecommended().equals("1")){
-//                        RedPacketUtil.startRedPacketActivityForResult(MyEaseChatFragment.this, chatType, toChatUsername, REQUEST_CODE_SEND_RED_PACKET);
-//                    }else{
-//                        Dialog dialog = new Dialog(getActivity(),"提示","首次拆红包需要完成新手任务");
-//                        dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//                                Intent intent = new Intent(getActivity(), NewerTaskActivity.class);
-//                                startActivity(intent);
-//                            }
-//                        });
-//                        dialog.show();
-//                    }
-
                     break;
 
                 default:
@@ -1253,16 +1022,10 @@ public class MyEaseChatFragment extends EaseBaseFragment{
         if (!EMClient.getInstance().isConnected()) {
             Toast.makeText(getActivity(), R.string.not_connect_to_server, 0).show();
         } else {
-//            Intent intent = new Intent(getActivity(), VoiceeCallActivity.class);
-//            startActivity(intent);
-
             Intent intent = new Intent(getActivity(),VoiceeCallActivity.class);
             intent.putExtra("username", toChatUsername);
             intent.putExtra("isComingCall", false);
             startActivity(intent);
-//            startActivity(new Intent(getActivity(), VoiceCallActivityyy.class).putExtra("username", toChatUsername)
-//                    .putExtra("isComingCall", false));
-            // voiceCallBtn.setEnabled(false);
             inputMenu.hideExtendMenuContainer();
         }
     }
@@ -1297,7 +1060,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
         if (chatType == EaseConstant.CHATTYPE_GROUP) {
             EMGroup group = EMClient.getInstance().groupManager().getGroup(toChatUsername);
             if (group == null) {
-                //Toast.makeText(getActivity(), com.hyphenate.easeui.R.string.gorup_not_found, 0).show();
                 return;
             }
             if(chatFragmentListener != null){
@@ -1443,98 +1205,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
         EaseCustomChatRowProvider onSetCustomChatRowProvider();
     }
 
-
-    //
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        return inflater.inflate(R.layout.my_ease_fragment_chat, container, false);
-//    }
-//
-//    @Override
-//    protected void initView() {
-//        super.initView();
-//        //Toast.makeText(getActivity(),"okk",Toast.LENGTH_LONG).show();
-//        inputMenu.setChatInputMenuListener(new EaseChatInputMenu.ChatInputMenuListener() {
-//            @Override
-//            public void onSendMessage(String content) {
-//                // 发送文本消息
-//                sendTextMessage(content);
-//            }
-//
-//            @Override
-//            public boolean onPressToSpeakBtnTouch(View v, MotionEvent event) {
-//                return voiceRecorderView.onPressToSpeakBtnTouch(v, event, new EaseVoiceRecorderView.EaseVoiceRecorderCallback() {
-//
-//                    @Override
-//                    public void onVoiceRecordComplete(String voiceFilePath, int voiceTimeLength) {
-//                        Toast.makeText(getActivity(), "暂不支持发送语言", Toast.LENGTH_LONG).show();
-//                        // 发送语音消息
-//                        //sendVoiceMessage(voiceFilePath, voiceTimeLength);
-//                    }
-//                });
-//            }
-//
-//            @Override
-//            public void onBigExpressionClicked(EaseEmojicon emojicon) {
-//                //发送大表情(动态表情)
-//                sendBigExpressionMessage(emojicon.getName(), emojicon.getIdentityCode());
-//            }
-//        });
-//
-//        setListItemClickListener();
-//
-//    }
-//
-//    protected void setListItemClickListener() {
-//        messageList.setItemClickListener(new EaseChatMessageList.MessageListItemClickListener() {
-//
-//            @Override
-//            public void onUserAvatarClick(String username) {
-//                //点击头像事件
-//                //Toast.makeText(getActivity(),username  + "的头像", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getActivity(), UserDataActivity.class);
-//                intent.putExtra("friend_id", username);
-//                startActivity(intent);
-//                if (chatFragmentListener != null) {
-//                    chatFragmentListener.onAvatarClick(username);
-//                }
-//            }
-//
-//            @Override
-//            public void onResendClick(final EMMessage message) {
-//                new EaseAlertDialog(getActivity(), com.hyphenate.easeui.R.string.resend, com.hyphenate.easeui.R.string.confirm_resend, null, new EaseAlertDialog.AlertDialogUser() {
-//                    @Override
-//                    public void onResult(boolean confirmed, Bundle bundle) {
-//                        if (!confirmed) {
-//                            return;
-//                        }
-//                        //重发消息按钮点击事件
-//                        Toast.makeText(getActivity(), "重发消息按钮点击事件", Toast.LENGTH_SHORT).show();
-//                        resendMessage(message);
-//                    }
-//                }, true).show();
-//            }
-//
-//            @Override
-//            public void onBubbleLongClick(EMMessage message) {
-//                contextMenuMessage = message;
-//                //气泡框长按事件
-//                Toast.makeText(getActivity(), "气泡框长按事件", Toast.LENGTH_SHORT).show();
-//                if (chatFragmentListener != null) {
-//                    chatFragmentListener.onMessageBubbleLongClick(message);
-//                }
-//            }
-//
-//            @Override
-//            public boolean onBubbleClick(EMMessage message) {
-//                if (chatFragmentListener != null) {
-//                    return chatFragmentListener.onMessageBubbleClick(message);
-//                }
-//                return false;
-//            }
-//        });
-//    }
-
     private void showVipDialog(){
         Dialog dialog = new Dialog(getActivity(),"提示","邀请好友免费开通VIP会员");
         dialog.setCancelable(false);
@@ -1565,16 +1235,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
 
         @Override
         public EaseChatRow getCustomChatRow(EMMessage message, int position, BaseAdapter adapter) {
-            // voice call or video call
-            //red packet code : 红包消息和红包回执消息的chat row
-
-//            if (message.getBooleanAttribute(RedPacketConstant.MESSAGE_ATTR_IS_RED_PACKET_MESSAGE, false)) {//发送红包消息
-//                return new ChatRowRedPacket(getActivity(), message, position, adapter);
-//            } else if (message.getBooleanAttribute(RedPacketConstant.MESSAGE_ATTR_IS_RED_PACKET_ACK_MESSAGE, false)) {//open redpacket message
-//                return new ChatRowRedPacketAck(getActivity(), message, position, adapter);
-//            }
-
-            //end of red packet code
         return null;
         }
 
@@ -1588,17 +1248,6 @@ public class MyEaseChatFragment extends EaseBaseFragment{
                     //video call
                     return message.direct() == EMMessage.Direct.RECEIVE ? MESSAGE_TYPE_RECV_VIDEO_CALL : MESSAGE_TYPE_SENT_VIDEO_CALL;
                 }
-                //red packet code : 红包消息和红包回执消息的chat row type
-
-//                else if (message.getBooleanAttribute(RedPacketConstant.MESSAGE_ATTR_IS_RED_PACKET_MESSAGE, false)) {
-//                    //发送红包消息
-//                    return message.direct() == EMMessage.Direct.RECEIVE ? MESSAGE_TYPE_RECV_RED_PACKET : MESSAGE_TYPE_SEND_RED_PACKET;
-//                } else if (message.getBooleanAttribute(RedPacketConstant.MESSAGE_ATTR_IS_RED_PACKET_ACK_MESSAGE, false)) {
-//                    //领取红包消息
-//                    return message.direct() == EMMessage.Direct.RECEIVE ? MESSAGE_TYPE_RECV_RED_PACKET_ACK : MESSAGE_TYPE_SEND_RED_PACKET_ACK;
-//                }
-
-                //end of red packet code
             }
             return 0;
         }

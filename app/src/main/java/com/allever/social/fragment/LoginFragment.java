@@ -160,18 +160,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
                 login();
                 break;
             case R.id.id_login_fg_iv_qq_login:
-                //mTencent.login(getActivity(),"",new QQIUiListener());
-                //mTencent = Tencent.createInstance("", this.getApplicationContext());
                 mTencent.login(getActivity(),"all",loginListener);
                 break;
             default:
                 break;
         }
     }
-
-//    public String getResult() {
-//        return result;
-//    }
 
     private void handleLogin(Message msg){
         result = msg.obj.toString();

@@ -96,34 +96,24 @@ public class ShareDialogActivity extends BaseActivity implements View.OnClickLis
         int id = view.getId();
         switch (id){
             case R.id.id_share_dialog_activity_iv_qzone:
-                //Toast.makeText(this,"分享QQ空间",Toast.LENGTH_LONG).show();
                 share_type = 1;
                 getShareInfo();
-                //shareQqone();
                 break;
             case R.id.id_share_dialog_activity_iv_wechat_moment:
-                //Toast.makeText(this,"分享朋友圈",Toast.LENGTH_LONG).show();
                 share_type = 2;
                 getShareInfo();
-                //shareWechatMoment();
                 break;
             case R.id.id_share_dialog_activity_iv_sina:
-               // Toast.makeText(this,"分享到新浪微博",Toast.LENGTH_LONG).show();
                 share_type = 3;
                 getShareInfo();
-                //shareSina();
                 break;
             case R.id.id_share_dialog_activity_iv_qq:
-                //Toast.makeText(this,"分享到新浪微博",Toast.LENGTH_LONG).show();
                 share_type = 4;
                 getShareInfo();
-                //shareSina();
                 break;
             case R.id.id_share_dialog_activity_iv_wechat:
-                //Toast.makeText(this,"分享到新浪微博",Toast.LENGTH_LONG).show();
                 share_type = 5;
                 getShareInfo();
-                //shareSina();
                 break;
         }
     }
@@ -137,7 +127,6 @@ public class ShareDialogActivity extends BaseActivity implements View.OnClickLis
         ShareInfoRoot root = gson.fromJson(result, ShareInfoRoot.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this, "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             return;
         }
@@ -159,7 +148,6 @@ public class ShareDialogActivity extends BaseActivity implements View.OnClickLis
                 shareWechat(root.content,root.url,root.img_url);
                 break;
         }
-        //showShare(root.content, root.url, root.img_url);
 
     }
 

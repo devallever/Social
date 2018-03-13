@@ -108,39 +108,6 @@ public class ContactFragment2 extends Fragment implements SwipeRefreshLayout.OnR
         intentFilter.addAction("com.allever.updateFriend");
         getActivity().registerReceiver(myReceiver,intentFilter);
 
-
-//        List<FriendItem> list_friendItem = new ArrayList<>();
-//        FriendItem friendItem = new FriendItem();
-//        friendItem.setUser_id("1");
-//        friendItem.setUser_head_path("/images/head/xm.jpg");
-//        friendItem.setNickname("xm");
-//        friendItem.setSignature("没个性不签名");
-//        list_friendItem.add(friendItem);
-//        list_friendItem.add(friendItem);
-//        list_friendItem.add(friendItem);
-//
-//        FriendGroupItem friendGroupItem_1 = new FriendGroupItem();
-//        friendGroupItem_1.setId("1");
-//        friendGroupItem_1.setFriendgroup_name("我的好友");
-//        friendGroupItem_1.setList_friend(list_friendItem);
-//
-//        FriendGroupItem friendGroupItem_2 = new FriendGroupItem();
-//        friendGroupItem_2.setId("1");
-//        friendGroupItem_2.setFriendgroup_name("家人");
-//        friendGroupItem_2.setList_friend(list_friendItem);
-//
-//        FriendGroupItem friendGroupItem_3 = new FriendGroupItem();
-//        friendGroupItem_3.setId("1");
-//        friendGroupItem_3.setFriendgroup_name("朋友");
-//        friendGroupItem_3.setList_friend(list_friendItem);
-//
-//        list_friendgroupItem.add(friendGroupItem_1);
-//        list_friendgroupItem.add(friendGroupItem_2);
-//        list_friendgroupItem.add(friendGroupItem_3);
-
-//        friendGroupItemExpandableBaseAdapter = new FriendGroupItemExpandableBaseAdapter(getActivity(),list_friendgroupItem);
-//        expandableListView.setAdapter(friendGroupItemExpandableBaseAdapter);
-
         readContact();
 
         getFriendGroupList();
@@ -211,15 +178,11 @@ public class ContactFragment2 extends Fragment implements SwipeRefreshLayout.OnR
         if (root.success == false){
             if (root.message.equals("无记录")){
                 list_friendgroupItem.clear();
-                //ad = new FriendItemAdapter(getActivity(),R.layout.friend_item,list_friend);
-                //listView.setAdapter(ad);
                 return;
             }
             if(root.message.equals("未登录")){
-                //OkhttpUtil.autoLogin(handler);
                 new Dialog(getActivity(),"Tips","未登录").show();
                 return;
-                //new Dialog(getActivity(),"提示",root.message).show();
             }
 
         }
@@ -247,13 +210,6 @@ public class ContactFragment2 extends Fragment implements SwipeRefreshLayout.OnR
 
         friendGroupItemExpandableBaseAdapter = new FriendGroupItemExpandableBaseAdapter(getActivity(),list_friendgroupItem);
         expandableListView.setAdapter(friendGroupItemExpandableBaseAdapter);
-
-        //展开所有分组
-//        for (int i =0;i<list_friendgroupItem.size();i++){
-//            expandableListView.expandGroup(i);
-//        }
-
-
     }
 
     @Override
@@ -278,10 +234,7 @@ public class ContactFragment2 extends Fragment implements SwipeRefreshLayout.OnR
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        //menu.setHeaderTitle("人物简介");
         menu.add(0, ITEM1, 0, "分组管理");
-        //menu.add(0, ITEM2_MODIFY, 0, "修改");
-        //menu.add(0, ITEM3_DELETE, 0, "删除");
     }
 
     @Override

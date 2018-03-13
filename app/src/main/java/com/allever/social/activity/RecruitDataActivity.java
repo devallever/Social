@@ -51,10 +51,6 @@ public class RecruitDataActivity extends BaseActivity implements View.OnClickLis
     private TextView tv_link;
     private TextView tv_address;
     private TextView tv_requirement;
-//    private ButtonRectangle btn_dail;
-//    private ButtonRectangle btn_chat;
-//    private ButtonRectangle btn_add_post;
-//    private ButtonRectangle btn_delete_recruit;
     private FloatingActionButton fab_chat;
     private FloatingActionButton fab_dail;
     private FloatingActionButton fab_add_post;
@@ -144,11 +140,6 @@ public class RecruitDataActivity extends BaseActivity implements View.OnClickLis
         tv_link = (TextView)this.findViewById(R.id.id_recruit_data_activity_tv_link);
         tv_requirement = (TextView)this.findViewById(R.id.id_recruit_data_activity_tv_requirement);
 
-//        btn_add_post = (ButtonRectangle)this.findViewById(R.id.id_recruit_data_activity_btn_add_post);
-//        btn_dail = (ButtonRectangle)this.findViewById(R.id.id_recruit_data_activity_btn_dail);
-//        btn_delete_recruit = (ButtonRectangle)this.findViewById(R.id.id_recruit_data_activity_btn_delete_recruit);
-//        btn_chat = (ButtonRectangle)this.findViewById(R.id.id_recruit_data_activity_btn_chat);
-
         fab_chat = (FloatingActionButton)this.findViewById(R.id.id_recruit_data_activity_fab_chat);
         //fab_chat.setSize(FloatingActionButton.SIZE_MINI);
         fab_chat.setColorNormalResId(R.color.colorGreen_300);
@@ -197,8 +188,6 @@ public class RecruitDataActivity extends BaseActivity implements View.OnClickLis
 
         flashView = (FlashView)this.findViewById(R.id.id_recruit_data_activity_flash_view);
         imageUrls = new ArrayList<String>();
-//        flashView.setImageUris(imageUrls);
-//        flashView.setEffect(EffectConstants.ACCORDTION_EFFECT);//更改图片切换的动画效果
         flashView.setOnPageClickListener(new FlashViewListener() {
             @Override
             public void onClick(int position) {

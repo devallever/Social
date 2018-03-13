@@ -63,16 +63,6 @@ public class NearbyRecruitFragment extends Fragment implements SwipeRefreshLayou
                 com.hyphenate.easeui.R.color.holo_orange_light, com.hyphenate.easeui.R.color.holo_red_light);
 
         list_recruit = new ArrayList<>();
-//        NearByRecruitItem nearByRecruitItem = new NearByRecruitItem();
-//        nearByRecruitItem.setId("1");
-//        nearByRecruitItem.setCommanyname("某公司");
-//        nearByRecruitItem.setDistance(0.23);
-//        nearByRecruitItem.setHead_img("/images/head/xm.jpg");
-//        list_recruit.add(nearByRecruitItem);
-//        list_recruit.add(nearByRecruitItem);
-//        list_recruit.add(nearByRecruitItem);
-//        list_recruit.add(nearByRecruitItem);
-//        list_recruit.add(nearByRecruitItem);
 
         intentFilter = new IntentFilter();
         intentFilter.addAction("com.allever.social.updateNearbyRecruit");
@@ -104,14 +94,6 @@ public class NearbyRecruitFragment extends Fragment implements SwipeRefreshLayou
 
             }
         });
-
-
-
-
-//        recruitItemBaseAdapter = new RecruitItemBaseAdapter(getActivity(),list_recruit);
-//        listView.setAdapter(recruitItemBaseAdapter);
-        //setListViewHeight(listView);
-
         handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {

@@ -46,7 +46,6 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
         viewPager.removeAllViews();
 
         rv_add = (RippleView)view.findViewById(R.id.id_main_fragment_rv_add);
-        //rv_add.setOnClickListener(this);
         rv_add.setOnRippleCompleteListener(this);
 
         iv_add = (ImageView)view.findViewById(R.id.id_main_fragment_iv_add);
@@ -98,8 +97,6 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        //this.position = position;
-        //Toast.makeText(getActivity(),position+"", Toast.LENGTH_LONG).show();
     }
 
     @Override

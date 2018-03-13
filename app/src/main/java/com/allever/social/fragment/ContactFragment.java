@@ -67,7 +67,6 @@ public class ContactFragment extends Fragment implements AdapterView.OnItemClick
     private SwipeRefreshLayout swipeRefreshLayout;
     private boolean isloading;
 
-    //private SocialDBAdapter db;
     private ADBarFragment adBarFragment;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
@@ -125,18 +124,6 @@ public class ContactFragment extends Fragment implements AdapterView.OnItemClick
 
 
         fragmentManager = this.getChildFragmentManager();
-        //测试用---------------
-//        adBarFragment = new ADBarFragment();
-//        fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.add(R.id.id_near_by_user_fg_fragment_ad_bar_container, adBarFragment);
-//        fragmentTransaction.commit();
-        //----------------
-
-
-
-        //getADSetting();
-
-
 
         list_friend = new ArrayList<>();
 
@@ -144,12 +131,6 @@ public class ContactFragment extends Fragment implements AdapterView.OnItemClick
         listView.setOnItemClickListener(this);
 
         getFriendList();//如果自动登录的就不用先判断是否登录
-//        if (OkhttpUtil.checkLogin()){
-//            getFriendList();
-//        }else{
-//            new Dialog(getActivity(),"提示","未登录").show();
-//        }
-
 
         intentFilter = new IntentFilter();
         intentFilter.addAction("com.allever.updateFriend");
@@ -216,13 +197,11 @@ public class ContactFragment extends Fragment implements AdapterView.OnItemClick
         LoginRoot  root = gson.fromJson(result, LoginRoot.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(getActivity(), "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             return;
         }
 
         if (root.seccess){
-            //contactFragmentListener.autoLogin(root.session_id, );
             getFriendList();
         }
 
@@ -255,10 +234,8 @@ public class ContactFragment extends Fragment implements AdapterView.OnItemClick
                 return;
             }
             if(root.message.equals("未登录")){
-                //OkhttpUtil.autoLogin(handler);
                 new Dialog(getActivity(),"Tips","未登录").show();
                 return;
-                //new Dialog(getActivity(),"提示",root.message).show();
             }
 
         }
@@ -281,9 +258,6 @@ public class ContactFragment extends Fragment implements AdapterView.OnItemClick
             SharedPreferenceUtil.saveUserData(friend.username,friend.nickname,WebUtil.HTTP_ADDRESS+ friend.head_path);
 
         }
-
-        //list_friend = filledData(list_friend);
-        //Collections.sort(list_friend, pinyinComparator);
         ad = new FriendItemAdapter(getActivity(),R.layout.friend_item,list_friend);
         listView.setAdapter(ad);
 
@@ -303,8 +277,6 @@ public class ContactFragment extends Fragment implements AdapterView.OnItemClick
             }else{
                 list_friendItem.get(i).setSortLetters("#");
             }
-
-            //mSortList.add(sortModel);
         }
         return list_friendItem;
 
@@ -344,8 +316,6 @@ public class ContactFragment extends Fragment implements AdapterView.OnItemClick
                 SharedPreferenceUtil.updateADshow(false,"ad_bar");
             }
         }
-
-
 
     }
 

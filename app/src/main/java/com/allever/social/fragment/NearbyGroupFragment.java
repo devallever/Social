@@ -45,14 +45,12 @@ import java.util.List;
  */
 public class NearbyGroupFragment extends Fragment implements AdapterView.OnItemClickListener,PullToRefreshBase.OnRefreshListener2 {
     private PullToRefreshListView listView;
-   // private NearbyGroupBaseAdapter nearbyGroupBaseAdapter;
     private GroupItemArrayAdapter groupItemArrayAdapter;
     private int page = 1;
     private List<GroupItem> list_group = new ArrayList<GroupItem>();
     private Handler handler;
     private Gson gson;
     private Root root;
-    //private SwipeRefreshLayout swipeRefreshLayout;
     private boolean isloading;
 
     private IntentFilter intentFilter;
@@ -130,11 +128,6 @@ public class NearbyGroupFragment extends Fragment implements AdapterView.OnItemC
 
         getNearbyGroupList();
 
-//        swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.id_nearby_group_fg_refresh);
-//        swipeRefreshLayout.setOnRefreshListener(this);
-//        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary,
-//                com.hyphenate.easeui.R.color.holo_orange_light, com.hyphenate.easeui.R.color.holo_red_light);
-
         intentFilter = new IntentFilter();
         intentFilter.addAction("com.allever.social.refresh_group_list");
         intentFilter.addAction("com.allever.social.REFRESH_NEARBY_GROUP");
@@ -176,26 +169,6 @@ public class NearbyGroupFragment extends Fragment implements AdapterView.OnItemC
         getActivity().unregisterReceiver(receiver);
         getActivity().unregisterReceiver(refreshNearbyGroupReceiver);
     }
-
-//    @Override
-//    public void onRefresh() {
-//        new Handler().postDelayed(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                if (listView.getFirstVisiblePosition() == 0 && !isloading) {
-//                    //Toast.makeText(getActivity(), "正在刷新", Toast.LENGTH_SHORT).show();
-//                    getNearbyGroupList();
-//                    isloading = false;
-//
-//                } else {
-//                    Toast.makeText(getActivity(), getResources().getString(com.hyphenate.easeui.R.string.no_more_messages),
-//                            Toast.LENGTH_SHORT).show();
-//                }
-//                swipeRefreshLayout.setRefreshing(false);
-//            }
-//        }, 1000);
-//    }
 
     private void getNearbyGroupList(){
         OkhttpUtil.getNearbyGroup(handler,page+"");
@@ -306,7 +279,6 @@ public class NearbyGroupFragment extends Fragment implements AdapterView.OnItemC
         public void onReceive(Context context, Intent intent) {
             page = 1;
             getNearbyGroupList();
-            //listView.setSelection(position);
         }
     }
 
@@ -315,7 +287,6 @@ public class NearbyGroupFragment extends Fragment implements AdapterView.OnItemC
         public void onReceive(Context context, Intent intent) {
             page = 1;
             getNearbyGroupList();
-            //listView.setSelection(position);
         }
     }
 }

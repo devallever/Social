@@ -60,10 +60,6 @@ public class FriendRequestDialogActivity extends BaseActivity implements View.On
 
         cb_share_location = (CheckBox)this.findViewById(R.id.id_friend_request_dialog_activity_cb_share_location);
 
-
-
-
-        //getSupportActionBar().hide();
     }
 
     @Override

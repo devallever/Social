@@ -40,12 +40,7 @@ public class ChatFragment extends Fragment {
                 }
             }
         };
-
-
-
         getADSetting();
-
-
 
         return view;
     }
@@ -68,7 +63,6 @@ public class ChatFragment extends Fragment {
     private void getADSetting(){
         OkhttpUtil.getADSetting(handler);
     }
-
 
     private void handleADSetting(Message msg){
         String result = msg.obj.toString();
@@ -96,8 +90,6 @@ public class ChatFragment extends Fragment {
                 SharedPreferenceUtil.updateADshow(false,"ad_bar");
             }
         }
-
-
 
     }
 

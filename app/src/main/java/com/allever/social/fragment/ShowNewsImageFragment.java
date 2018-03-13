@@ -66,8 +66,6 @@ public class ShowNewsImageFragment extends Fragment implements View.OnLongClickL
         Glide.with(this)
                 .load(news_img_path)
                 .into(easePhotoView);
-
-        //Picasso.with(getActivity()).load(news_img_path).into(easePhotoView);
         return view;
     }
 
@@ -92,7 +90,6 @@ public class ShowNewsImageFragment extends Fragment implements View.OnLongClickL
                 dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //Toast.makeText(ShowBigImageActvity.this,"okkk",Toast.LENGTH_LONG).show();
                         OkhttpUtil.downloadNewsImage(handler,news_img_path);
                     }
                 });

@@ -50,10 +50,6 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
     private TextView tv_phone;
     private TextView tv_address;
 
-//    private ButtonRectangle btn_dail;
-//    private ButtonRectangle btn_chat;
-//    private ButtonRectangle btn_add_post;
-//    private ButtonRectangle btn_delete_post;
     private FloatingActionButton fab_chat;
     private FloatingActionButton fab_dail;
     private  FloatingActionButton fab_add_post;
@@ -140,10 +136,6 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
         tv_address = (TextView)this.findViewById(R.id.id_post_detail_activity_tv_address);
         tv_location = (TextView)this.findViewById(R.id.id_post_detail_activity_tv_location);
 
-//        btn_dail = (ButtonRectangle)this.findViewById(R.id.id_post_detail_activity_btn_dail);
-//        btn_chat = (ButtonRectangle)this.findViewById(R.id.id_post_detail_activity_btn_chat);
-//        btn_add_post = (ButtonRectangle)this.findViewById(R.id.id_post_detail_activity_btn_add_post);
-//        btn_delete_post = (ButtonRectangle)this.findViewById(R.id.id_post_detail_activity_btn_delete_post);
         fab_chat = (FloatingActionButton)this.findViewById(R.id.id_post_detail_activity_fab_chat);
         //fab_chat.setSize(FloatingActionButton.SIZE_MINI);
         fab_chat.setColorNormalResId(R.color.colorGreen_300);
@@ -185,26 +177,14 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
         fab_delete_post.setStrokeVisible(false);
         fab_delete_post.setOnClickListener(this);
 
-//        btn_dail.setOnClickListener(this);
-//        btn_chat.setOnClickListener(this);
-//        btn_add_post.setOnClickListener(this);
-//        btn_delete_post.setOnClickListener(this);
 
 
         flashView = (FlashView)this.findViewById(R.id.id_post_detail_activity_flash_view);
         imageUrls = new ArrayList<String>();
-//        imageUrls.add(WebUtil.HTTP_ADDRESS + "/images/head/xm.jpg");
-//        imageUrls.add(WebUtil.HTTP_ADDRESS + "/images/head/xm.jpg");
-//        imageUrls.add(WebUtil.HTTP_ADDRESS + "/images/head/xm.jpg");
-//        imageUrls.add(WebUtil.HTTP_ADDRESS + "/images/head/xm.jpg");
-//
-//        flashView.setImageUris(imageUrls);
-//        flashView.setEffect(EffectConstants.ACCORDTION_EFFECT);//更改图片切换的动画效果
 
         flashView.setOnPageClickListener(new FlashViewListener() {
             @Override
             public void onClick(int position) {
-                // Toast.makeText(getApplicationContext(), "你的点击的是第"+(position+1)+"张图片！", Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(PostDetailActivity.this, ShowNewsImageActivity.class);
                 if(arr_recruit_img.length>=1){
@@ -285,7 +265,6 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
         Root root = gson.fromJson(result, Root.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this,"服务器繁忙，请重试",Toast.LENGTH_LONG).show();
             return;
         }
@@ -366,7 +345,6 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
                 imageUrls.add(arr_recruit_img[i]);
             }
         }else{
-            //flashView.setVisibility(View.GONE);
             arr_recruit_img = new String[1];
             arr_recruit_img[0] = WebUtil.HTTP_ADDRESS + recruit.user_head_path;
             imageUrls.add(arr_recruit_img[0]);

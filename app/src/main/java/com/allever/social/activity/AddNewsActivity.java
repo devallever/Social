@@ -98,8 +98,6 @@ public class AddNewsActivity extends BaseActivity implements View.OnClickListene
     private Uri imageUri;
     private String imagepathTemp;
 
-    //SharedPreferences locationSharedPreferences;
-    //private SharedPreferences sessionSharedPreferences;
     private String result;
     private Root root;
     private Gson gson;
@@ -173,9 +171,6 @@ public class AddNewsActivity extends BaseActivity implements View.OnClickListene
             havedLocation = 0;
             tv_showCity.setVisibility(View.INVISIBLE);
         }
-
-//        audio_path = Environment.getExternalStorageDirectory().getPath();
-//        audio_path += "/audio_temp.arm";
 
         rv_record.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
@@ -256,8 +251,6 @@ public class AddNewsActivity extends BaseActivity implements View.OnClickListene
                     //停止播放
                     tv_play_audio.setText("播放录音");
                     mPlayer.stop();
-                    //mPlayer.release();
-                    //mPlayer = null;
                 }
 
             }
@@ -411,8 +404,6 @@ public class AddNewsActivity extends BaseActivity implements View.OnClickListene
             mPlayer = null;
         }
     }
-
-
 
     //刷新图片
     @Override
@@ -572,8 +563,6 @@ public class AddNewsActivity extends BaseActivity implements View.OnClickListene
                     new Dialog(this, "提示", "请输入内容").show();
                     return;
                 }
-//                getLocation();
-//                getSession_id();
                 showProgressDialog();;
                 addNews();
                 break;

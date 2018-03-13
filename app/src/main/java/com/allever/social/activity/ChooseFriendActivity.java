@@ -111,17 +111,6 @@ public class ChooseFriendActivity extends BaseActivity {
                 inviteFriend();
             }
         });
-//        ChooseFriendItem chooseFriendItem = new ChooseFriendItem();
-//        chooseFriendItem.setUsername("xm");
-//        chooseFriendItem.setNickname("XM");
-//        chooseFriendItem.setUser_head_path("/images/head/xm.jpg");
-//
-//        list_chooseFriendItem.add(chooseFriendItem);
-//        list_chooseFriendItem.add(chooseFriendItem);
-        //list_chooseFriendItem.add(chooseFriendItem);
-
-        //chooseFriendItemBaseAdapter = new ChooseFriendItemBaseAdapter(this,list_chooseFriendItem);
-        //listView.setAdapter(chooseFriendItemBaseAdapter);
     }
 
     private void inviteFriend(){
@@ -140,7 +129,6 @@ public class ChooseFriendActivity extends BaseActivity {
         Root root = gson.fromJson(result, Root.class);
 
         if(root==null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this,"服务器繁忙，请重试",Toast.LENGTH_LONG).show();
             return ;
         }

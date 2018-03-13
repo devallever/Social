@@ -113,7 +113,6 @@ public class VideoCallSettingActivity extends BaseActivity {
         Root root = gson.fromJson(result, Root.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this,"服务器繁忙，请重试",Toast.LENGTH_LONG).show();
             return;
         }
@@ -180,10 +179,6 @@ public class VideoCallSettingActivity extends BaseActivity {
             new Dialog(this,"Tips",root.message).show();
             return;
         }
-
-        //发送广播 更附近人列表
-        //Intent broadcastIntent = new Intent("com.allever.social.UPDATE_VIDEO_SETTINT");
-        //sendBroadcast(broadcastIntent);
 
         Toast.makeText(this,"保存成功",Toast.LENGTH_LONG).show();
         this.finish();

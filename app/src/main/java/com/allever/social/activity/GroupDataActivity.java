@@ -19,7 +19,6 @@ import com.allever.social.utils.WebUtil;
 import com.andexert.library.RippleView;
 import com.baidu.mobstat.StatService;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;

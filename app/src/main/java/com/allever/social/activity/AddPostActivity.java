@@ -163,9 +163,6 @@ public class AddPostActivity extends BaseActivity implements View.OnClickListene
             return ;
         }
 
-        //closeProgressDialog();
-        //this.finish();
-
         final Dialog dialog = new Dialog(this,"Tips", "添加成功.");
         dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
             @Override

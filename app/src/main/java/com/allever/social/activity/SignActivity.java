@@ -36,29 +36,6 @@ public class SignActivity extends BaseActivity {
 
     private ProgressBarDeterminate progressBarDeterminate;
     private TextView tv_already_sign;
-
-//    private RelativeLayout rl_progress_1;
-//    private RelativeLayout rl_progress_2;
-//    private RelativeLayout rl_progress_3;
-//    private RelativeLayout rl_progress_4;
-//    private RelativeLayout rl_progress_5;
-//    private RelativeLayout rl_progress_6;
-//    private RelativeLayout rl_progress_7;
-//    private RelativeLayout rl_progress_8;
-//    private RelativeLayout rl_progress_9;
-//    private RelativeLayout rl_progress_10;
-//
-//    private TextView tv_day_count_1;
-//    private TextView tv_day_count_2;
-//    private TextView tv_day_count_3;
-//    private TextView tv_day_count_4;
-//    private TextView tv_day_count_5;
-//    private TextView tv_day_count_6;
-//    private TextView tv_day_count_7;
-//    private TextView tv_day_count_8;
-//    private TextView tv_day_count_9;
-//    private TextView tv_day_count_10;
-
     private RippleView rv_sign;
     private RippleView rv_already_sign;
     private TextView tv_day_count;
@@ -116,8 +93,6 @@ public class SignActivity extends BaseActivity {
                 .into(iv_head);
 
         progressBarDeterminate = (ProgressBarDeterminate)this.findViewById(R.id.id_sign_activity_progress_bar);
-//        progressBarDeterminate.setMax(100);
-//        progressBarDeterminate.setMin(0);
         progressBarDeterminate.setBackgroundColor(getResources().getColor(R.color.colorIndigo_700));
 
         tv_already_sign = (TextView)this.findViewById(R.id.id_sign_activity_tv_already_sign);

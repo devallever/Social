@@ -148,10 +148,6 @@ public class SelectedNearbyUserDialogActivity extends BaseActivity implements Ri
                         SharedPreferenceUtil.getSelectedNearbyUserMinage() + "\n" +
                         SharedPreferenceUtil.getSelectedNearbyUserMaxage() + "\n" +
                         SharedPreferenceUtil.getSelectedNearbyUserDistance());
-//                Toast.makeText(this, SharedPreferenceUtil.getSelectedNearbyUserSex() + "\n" +
-//                        SharedPreferenceUtil.getSelectedNearbyUserMinage() + "\n" +
-//                        SharedPreferenceUtil.getSelectedNearbyUserMaxage() + "\n" +
-//                        SharedPreferenceUtil.getSelectedNearbyUserDistance(), Toast.LENGTH_LONG).show();
                 setResult(RESULT_OK);
                 finish();
                 break;

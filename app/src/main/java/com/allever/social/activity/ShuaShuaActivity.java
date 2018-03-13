@@ -126,59 +126,6 @@ public class ShuaShuaActivity extends BaseActivity implements View.OnClickListen
         swipeFlingAdapterView = (SwipeFlingAdapterView)this.findViewById(R.id.id_shuashua_activity_swipe_fling_adapter_view);
         list_swipe_card_items = new ArrayList<>();
 
-//        final List<String> list_images = new ArrayList<>();
-//        list_images.add("/images/head/xm.jpg");
-//        list_images.add("/images/head/baobao.jpg");
-//        list_images.add("/images/head/xsx.jpg");
-//        list_images.add("/images/head/meimei.jpg");
-//
-//        swipeCardItem_1 = new SwipeCardItem();
-//        swipeCardItem_1.setUsername("xm");
-//        swipeCardItem_1.setNickname("XM");
-//        swipeCardItem_1.setSex("女");
-//        swipeCardItem_1.setOccupation("制造");
-//        swipeCardItem_1.setAge(21);
-//        swipeCardItem_1.setDistance("1.0");
-//        swipeCardItem_1.setSignature("没个性，不签名");
-//        swipeCardItem_1.setList_imgs(list_images);
-//
-//
-//        swipeCardItem_2 = new SwipeCardItem();
-//        swipeCardItem_2.setUsername("baobao");
-//        swipeCardItem_2.setNickname("Light and Heart");
-//        swipeCardItem_2.setSex("男");
-//        swipeCardItem_2.setOccupation("学生");
-//        swipeCardItem_2.setAge(23);
-//        swipeCardItem_2.setDistance("3.0");
-//        swipeCardItem_2.setSignature("我是第二个卡片");
-//        swipeCardItem_2.setList_imgs(list_images);
-//
-//        swipeCardItem_3 = new SwipeCardItem();
-//        swipeCardItem_3.setUsername("xsx");
-//        swipeCardItem_3.setNickname("淑得起，要开欣");
-//        swipeCardItem_3.setSex("女");
-//        swipeCardItem_3.setOccupation("金融");
-//        swipeCardItem_3.setAge(21);
-//        swipeCardItem_3.setDistance("2.0");
-//        swipeCardItem_3.setSignature("我是第3个卡片");
-//        swipeCardItem_3.setList_imgs(list_images);
-//
-//
-//        swipeCardItem_4 = new SwipeCardItem();
-//        swipeCardItem_4.setUsername("meimei");
-//        swipeCardItem_4.setNickname("Lois");
-//        swipeCardItem_4.setSex("男");
-//        swipeCardItem_4.setOccupation("空姐");
-//        swipeCardItem_4.setAge(20);
-//        swipeCardItem_4.setDistance("4.0");
-//        swipeCardItem_4.setSignature("我是第四个卡片");
-//        swipeCardItem_4.setList_imgs(list_images);
-//
-//        list_swipe_card_items.add(swipeCardItem_1);
-//        list_swipe_card_items.add(swipeCardItem_2);
-//        list_swipe_card_items.add(swipeCardItem_3);
-//        list_swipe_card_items.add(swipeCardItem_4);
-
         swipeCardItemBaseAdapter = new SwipeCardItemBaseAdapter(this,list_swipe_card_items);
         swipeFlingAdapterView.setAdapter(swipeCardItemBaseAdapter);
 
@@ -292,13 +239,9 @@ public class ShuaShuaActivity extends BaseActivity implements View.OnClickListen
             list_swipe_card_items.add(swipeCardItem);
         }
 
-        //swipeCardItemBaseAdapter = new SwipeCardItemBaseAdapter(this,list_swipe_card_items);
-        //swipeFlingAdapterView.setAdapter(swipeCardItemBaseAdapter);
         swipeCardItemBaseAdapter.notifyDataSetChanged();
         if (list_swipe_card_items.size() > 0) swipeCardItem_present = list_swipe_card_items.get(0);
         else Toast.makeText(this,"已刷完",Toast.LENGTH_LONG).show();
-        //Toast.makeText(this,list_swipe_card_items.get(0).getNickname(),Toast.LENGTH_LONG).show();
-
     }
 
     @Override

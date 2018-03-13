@@ -123,13 +123,11 @@ public class AddGroupActivity extends BaseActivity implements View.OnClickListen
                     }catch (Exception e){
                         e.printStackTrace();
                     }
-                    //setHead(mContent);
                     startPhotoZoom(data.getData());
                 }
                 break;
             case REQUESTCODE_CUTTING:
                 if (data != null) {
-                    //str_user_head_path = CommentUtil.getImageFilePath(this,data.getData());
                     setPicToView(data);
                 }
                 break;
@@ -239,7 +237,6 @@ public class AddGroupActivity extends BaseActivity implements View.OnClickListen
         Root root = gson.fromJson(result, Root.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this, "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             return;
         }
@@ -286,7 +283,6 @@ public class AddGroupActivity extends BaseActivity implements View.OnClickListen
             Drawable drawable = new BitmapDrawable(getResources(), photo);
             iv_group_img.setImageDrawable(drawable);
             group_img_b = Bitmap2Bytes(photo);
-            //uploadUserAvatar(Bitmap2Bytes(photo));
         }
     }
 

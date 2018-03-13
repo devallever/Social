@@ -14,7 +14,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,8 +53,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FriendLocationActivity extends BaseActivity {
 
-    //private ListView listView;
-    //private FriendLocationItemBaseAdapter friendLocationItemBaseAdapter;
     private List<FriendLocationItem> list_friend_locationItems = new ArrayList<>();
     private RecyclerView recyclerView;
     private FriendLocationRecyclerViewAdapter friendLocationRecyclerViewAdapter;
@@ -106,17 +103,6 @@ public class FriendLocationActivity extends BaseActivity {
 
 
     private void initView(){
-//        listView = (ListView)this.findViewById(R.id.id_friend_location_activity_list_view);
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                position = i;
-//                addOverlay();
-//                Toast.makeText(FriendLocationActivity.this,"longitude = " + list_friend_locationItems.get(i).getLongitude() + "\n" +
-//                        "latitude = " + list_friend_locationItems.get(i).getLatitude() + "\n" + "username = " + list_friend_locationItems.get(i).getUsername(), Toast.LENGTH_LONG).show();
-//            }
-//        });
-
         recyclerView = (RecyclerView)this.findViewById(R.id.id_friend_location_activity_recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -125,15 +111,12 @@ public class FriendLocationActivity extends BaseActivity {
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int i) {
-                //Toast.makeText(FriendLocationActivity.this,"Click",Toast.LENGTH_LONG).show();
                 position = i;
                 addOverlay();
             }
 
             @Override
             public void onItemLongClick(View view, int i) {
-                //Toast.makeText(FriendLocationActivity.this,"LongClick",Toast.LENGTH_LONG).show();
-                //position = i;
             }
         }));
 
@@ -165,7 +148,6 @@ public class FriendLocationActivity extends BaseActivity {
         Root root = gson.fromJson(result, Root.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this,"服务器繁忙，请重试",Toast.LENGTH_LONG).show();
             return;
         }
@@ -186,9 +168,6 @@ public class FriendLocationActivity extends BaseActivity {
             friendLocationItem.setAddress(friend.address);
             list_friend_locationItems.add(friendLocationItem);
         }
-
-        //friendLocationItemBaseAdapter = new FriendLocationItemBaseAdapter(this,list_friend_locationItems);
-        //listView.setAdapter(friendLocationItemBaseAdapter);
 
         friendLocationRecyclerViewAdapter = new FriendLocationRecyclerViewAdapter(this,list_friend_locationItems);
         recyclerView.setAdapter(friendLocationRecyclerViewAdapter);

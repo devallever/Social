@@ -200,7 +200,6 @@ public class LoginActivity extends BaseActivity implements LoginFragment.LoginFr
 
     private void login(){
         OkhttpUtil.login(handler, username, password);
-        //Toast.makeText(this,SharedPreferenceUtil.getAddress(),Toast.LENGTH_LONG).show();
     }
 
     private void handleLogin(Message msg){
@@ -209,7 +208,6 @@ public class LoginActivity extends BaseActivity implements LoginFragment.LoginFr
         root = gson.fromJson(result, Root.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this, "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             return;
         }
@@ -284,31 +282,16 @@ public class LoginActivity extends BaseActivity implements LoginFragment.LoginFr
             Intent intent = new Intent("com.allever.afterlogin");
             sendBroadcast(intent);
             setResult(RESULT_OK);
-            //Intent intent1 = new Intent(this, SocialMainActivity.class);
-            //startActivity(intent1);
             finish();
         }else{
             Intent intent = new Intent("com.allever.afterlogin");
             //sendBroadcast(intent);
             setResult(RESULT_OK);
-            //Intent intent1 = new Intent(this, SocialMainActivity.class);
-            //startActivity(intent1);
             Intent intent1 = new Intent(this,ShuaShuaActivity.class);
             intent1.putExtra("is_first",true);
             startActivity(intent1);
             finish();
         }
-
-        //loginFragmentCallback.loginSuccessCallback();
-//        Intent intent = new Intent("com.allever.afterlogin");
-//        sendBroadcast(intent);
-//        setResult(RESULT_OK);
-//        Intent intent1 = new Intent(this, SocialMainActivity.class);
-//        startActivity(intent1);
-//        finish();
-
-        //SharedPreferenceUtil.getUserName();
-
 
     }
 
@@ -337,8 +320,6 @@ public class LoginActivity extends BaseActivity implements LoginFragment.LoginFr
         }
 
         if (requestCode == REQUEST_CODE_REGIST && resultCode ==RESULT_OK){
-//            Intent intent = new Intent(this,SocialMainActivity.class);
-//            startActivity(intent);
             Intent intent = new Intent(this,ShuaShuaActivity.class);
             intent.putExtra("is_first",true);
             startActivity(intent);
@@ -382,7 +363,6 @@ public class LoginActivity extends BaseActivity implements LoginFragment.LoginFr
 
         Intent intent = new Intent("com.allever.afterlogin");
         sendBroadcast(intent);
-        //this.setResult(RESULT_OK);
         Intent intent1 = new Intent(this, SocialMainActivity.class);
         startActivity(intent1);
         finish();
@@ -410,42 +390,9 @@ public class LoginActivity extends BaseActivity implements LoginFragment.LoginFr
 
                 checkExistOpenId();
 
-                //看服务器是否存在该openid
-                //有：直接登录
-                //无： 获取用户信息 静默注册
-
-//                qqToken = mTencent.getQQToken();
-//                userInfo = new UserInfo(MyApplication.mContext,qqToken);
-//                userInfo.getUserInfo(new IUiListener() {
-//                    @Override
-//                    public void onComplete(Object object) {
-//                        Log.d("QQinfo","获取成功");
-//                        JSONObject jsonObject = (JSONObject)object;
-//                        System.out.println(jsonObject);
-//                        try {
-//                            String nickname = jsonObject.getString("nickname");
-//                            Log.d("QQinfo","nickname = " + nickname);
-//                        }catch (JSONException e){
-//                            e.printStackTrace();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(UiError uiError) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancel() {
-//
-//                    }
-//                });
-
             }catch (JSONException e){
                 e.printStackTrace();
             }
-
-            //mTencent.requestAsync("get_simple_userinfo",null,Constants.HTTP_GET,qqInfoListener,null);
         }
 
         @Override
@@ -489,7 +436,6 @@ public class LoginActivity extends BaseActivity implements LoginFragment.LoginFr
             intent.putExtra("openid",openid);
             intent.putExtra("access_token",access_token);
             intent.putExtra("expires",expires);
-            //startActivity(intent);
             startActivityForResult(intent,REQUEST_CODE_SET_ACCOUNT);
 
         }else{

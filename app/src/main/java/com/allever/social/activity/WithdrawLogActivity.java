@@ -72,23 +72,6 @@ public class WithdrawLogActivity extends BaseActivity {
     private void initData(){
         listView = (ListView)this.findViewById(R.id.id_withdraw_log_activity_listview);
         list_withdrawItem = new ArrayList<>();
-//        WithdrawItem withdrawItem = new WithdrawItem();
-//        withdrawItem.setDate("2016-06-13");
-//        withdrawItem.setId("1");
-//        withdrawItem.setMoney("100");
-//        withdrawItem.setState("0");
-//        list_withdrawItem.add(withdrawItem);
-//        list_withdrawItem.add(withdrawItem);
-//        list_withdrawItem.add(withdrawItem);
-//        list_withdrawItem.add(withdrawItem);
-//        list_withdrawItem.add(withdrawItem);
-//        list_withdrawItem.add(withdrawItem);
-//        list_withdrawItem.add(withdrawItem);
-//        list_withdrawItem.add(withdrawItem);
-//
-//        withdrawItemArrarAdapter = new WithdrawItemArrarAdapter(this,R.layout.withdraw_item,list_withdrawItem);
-//        listView.setAdapter(withdrawItemArrarAdapter);
-
     }
 
     private void getWithdrawlog(){
@@ -126,10 +109,6 @@ public class WithdrawLogActivity extends BaseActivity {
 
         withdrawItemArrarAdapter = new WithdrawItemArrarAdapter(this,R.layout.withdraw_item,list_withdrawItem);
         listView.setAdapter(withdrawItemArrarAdapter);
-
-
-
-
     }
 
     @Override
@@ -141,8 +120,6 @@ public class WithdrawLogActivity extends BaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 
     class Root{
         boolean success;

@@ -47,7 +47,6 @@ public class BDLocationService extends Service {
             e.printStackTrace();
         }
 
-        //super.onDestroy();
         return super.onStartCommand(intent, flags, startId);
     }
 

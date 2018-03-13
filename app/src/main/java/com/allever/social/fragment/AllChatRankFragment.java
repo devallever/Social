@@ -74,9 +74,6 @@ public class AllChatRankFragment extends Fragment implements AdapterView.OnItemC
 
         list_chat_rank_item = new ArrayList<>();
 
-
-
-        //getAllCharRank();//不显示数据
         listView.setVisibility(View.GONE);
 
         return view;
@@ -99,7 +96,6 @@ public class AllChatRankFragment extends Fragment implements AdapterView.OnItemC
     public void onPullDownToRefresh(PullToRefreshBase refreshView) {
         page=1;
         getAllCharRank();
-        //listView.onRefreshComplete();
     }
 
     //上拉
@@ -107,7 +103,6 @@ public class AllChatRankFragment extends Fragment implements AdapterView.OnItemC
     public void onPullUpToRefresh(PullToRefreshBase refreshView) {
         page ++ ;
         getAllCharRank();
-        //listView.onRefreshComplete();
     }
 
     @Override
@@ -128,7 +123,6 @@ public class AllChatRankFragment extends Fragment implements AdapterView.OnItemC
         Root root = gson.fromJson(result, Root.class);
 
         if (root == null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(getActivity(), "服务器繁忙，请重试", Toast.LENGTH_LONG).show();
             listView.onRefreshComplete();
             return;

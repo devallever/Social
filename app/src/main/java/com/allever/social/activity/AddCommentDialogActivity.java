@@ -223,10 +223,6 @@ public class AddCommentDialogActivity extends BaseActivity{
             @Override
             public void onComplete(RippleView rippleView) {
                 content = et_content.getText().toString();
-//                if (content.equals("")){
-//                    Toast.makeText(AddCommentDialogActivity.this,"请输入评论",Toast.LENGTH_LONG).show();
-//                    return;
-//                }
                 if (audio_path.equals("") && content.equals("")){
                     if(content.equals("") || content.equals("评论")){
                         new Dialog(AddCommentDialogActivity.this,"Tips","请输入评论内容").show();
@@ -273,7 +269,6 @@ public class AddCommentDialogActivity extends BaseActivity{
         AddCommentRoot root = gson.fromJson(result, AddCommentRoot.class);
 
         if(root==null){
-            //new Dialog(this,"错误","链接服务器失败").show();
             Toast.makeText(this,"服务器繁忙，请重试",Toast.LENGTH_LONG).show();
             return ;
         }
