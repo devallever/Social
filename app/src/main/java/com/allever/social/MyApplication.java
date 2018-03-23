@@ -71,7 +71,7 @@ public class MyApplication extends Application {
         //初始化百度定位
         SDKInitializer.initialize(context);
 
-       // RedPacket.getInstance().initContext(applicationContext);
+       // RedPacket.getInstance().initContext(applicationContext);W
         //打开Log开关 正式发布时请关闭
        // RedPacket.getInstance().setDebugMode(true);
 

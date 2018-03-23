@@ -63,11 +63,11 @@ public class SocialMainActivity extends BaseActivity implements View.OnClickList
     private TextView tv_hot;
     private TextView tv_mine;
     private FrameLayout ly_content;
-    private RecommendFragment recommendFragment;
+    private RecommendFragment recommendFragment;//推荐
    // private SettingFragment settingFragment;
-    private MineFragment mineFragment;
-    private MainFragment mainFragment;
-    private FriendFragment friendFragment;
+    private MineFragment mineFragment;//我的
+    private MainFragment mainFragment;//附近
+    private FriendFragment friendFragment;//聊天
     private FragmentManager fManager;
 
     private String apk_version_name;

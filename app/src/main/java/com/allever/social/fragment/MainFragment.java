@@ -70,7 +70,7 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
 
     private void setupViewPager(ViewPager viewPager) {
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new UserListFragment(), "人");
+        adapter.addFragment(new UserListFragment(), "用户");
         adapter.addFragment(new NewsListFragment(), "动态");
         //adapter.addFragment(new NearbyGroupFragment(), "群组");
         //adapter.addFragment(new HotFragment(), "推荐");
