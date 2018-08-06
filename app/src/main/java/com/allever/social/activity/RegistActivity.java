@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
+import com.allever.social.bean.Response;
 import com.allever.social.utils.CommentUtil;
 import com.allever.social.utils.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
@@ -83,7 +84,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
 
     private Handler handler;
     private String result;
-    private Root root;
+    private Response root;
     private Gson gson;
     private String img_path;
     private Uri imageUri;
@@ -389,7 +390,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
     private void handleRegist(Message msg){
         result = msg.obj.toString();
         gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-        root = gson.fromJson(result, Root.class);
+        root = gson.fromJson(result, Response.class);
 
         if (root == null){
             //new Dialog(this,"错误","链接服务器失败").show();
@@ -397,8 +398,8 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
             return;
         }
 
-        if (!root.seccess){
-            new Dialog(this,"提示",root.message).show();
+        if (!root.isSuccess()){
+            new Dialog(this,"提示",root.getMessage()).show();
             if(progressDialog.isShowing()){
                 //progressDialog.cancel();
                 closeProgressDialog();

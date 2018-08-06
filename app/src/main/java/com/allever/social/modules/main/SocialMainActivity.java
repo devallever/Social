@@ -656,4 +656,9 @@ public class SocialMainActivity extends BaseActivity implements View.OnClickList
             }
         }
     }
+
+    public static void startSelf(Context context){
+        Intent intent = new Intent(context, SocialMainActivity.class);
+        context.startActivity(intent);
+    }
 }

@@ -1,5 +1,7 @@
 package com.allever.social.utils;
 
+import com.allever.social.R;
+
 /**
  * Created by XM on 2016/10/8.
  */
@@ -12,5 +14,13 @@ public class Constants {
 
 
     public static final int SHARE_REMIND_SPACE = 5;
+
+    public static final String MSG_SERVER_ERROR = "服务器异常";
+
+    public static final String MSG_ERROR = "错误";
+
+    public static final String HX_DEFAULT_PASSWORD = "123456";
+
+    public static final String ACTION_BROADCAST_AFTER_LOGIN = "com.allever.afterlogin";
 
 }

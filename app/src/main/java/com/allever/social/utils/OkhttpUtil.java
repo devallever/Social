@@ -134,7 +134,6 @@ public class OkhttpUtil {
     public static final int MESSAGE_GET_MESSAGE_COUNT = 96;
     public static final int MESSAGE_UPDATE_MESSAGE_COUNT = 97;
     public static final int MESSAGE_GIVE_VIP = 98;
-    public static final int MESSAGE_CHECK_QQ_OPEN_ID = 99;
     public static final int MESSAGE_CHECK_USERNAME = 100;
     public static final int MESSAGE_DOWNLOAD_QQ_HEAD = 101;
     public static final int MESSAGE_REGIST_WITH_QQ_OPEN_ID = 102;
@@ -152,6 +151,67 @@ public class OkhttpUtil {
     public static final int MESSAGE_ACCEPT_FRIEND_LOCATION = 114;
     public static final int MESSAGE_USER_LIST = 115;
     public static final int MESSAGE_NEWS_LIST = 116;
+
+
+    //--------------------------------------------------------------------------------------------
+    private OkHttpClient mClient;
+    private OkhttpUtil(){
+        mClient = new OkHttpClient();
+    }
+
+    private static class Holder{
+        private static final OkhttpUtil INS = new OkhttpUtil();
+    }
+
+    public static OkhttpUtil getIns(){
+        return Holder.INS;
+    }
+
+    public void login(String username, String password, Callback callback){
+        RequestBody formBody = new FormEncodingBuilder()
+                .add("username", username)
+                .add("password", password)
+                .add("longitude",SharedPreferenceUtil.getLongitude())
+                .add("latitude",SharedPreferenceUtil.getLatitude())
+                .add("address",SharedPreferenceUtil.getAddress())
+                .add("jpush_registration_id", JPushInterface.getRegistrationID(MyApplication.mContext))
+                .build();
+        Request request = new Request.Builder()
+                .url(WebUtil.HTTP_ADDRESS + "/LoginServlet")
+                .post(formBody)
+                .build();
+        mClient.newCall(request).enqueue(callback);
+    }
+
+    public void checkQQOpenId(String open_id, Callback callback){
+        RequestBody formBody = new FormEncodingBuilder()
+                .add("open_id", open_id)
+                .build();
+        Request request = new Request.Builder()
+                .url(WebUtil.HTTP_ADDRESS + "/CheckQQOpenIdServlet")
+                .post(formBody)
+                .build();
+        mClient.newCall(request).enqueue(callback);
+    }
+
+
+    public void loginWithQQopenid(String qq_open_id, Callback callback){
+        RequestBody formBody = new FormEncodingBuilder()
+                .add("qq_open_id", qq_open_id)
+                .add("longitude",SharedPreferenceUtil.getLongitude())
+                .add("latitude", SharedPreferenceUtil.getLatitude())
+                .add("jpush_registration_id", JPushInterface.getRegistrationID(MyApplication.mContext))
+                .build();
+        Request request = new Request.Builder()
+                .url(WebUtil.HTTP_ADDRESS + "/LoginWithQQopenidServlet")
+                .post(formBody)
+                .build();
+
+        mClient.newCall(request).enqueue(callback);
+
+    }
+
+    //----------------------------------------------------------------------------------------------
 
 
     public static void acceptRequestFriendLocation(final Handler handler,String to_username){
@@ -623,37 +683,39 @@ public class OkhttpUtil {
 
     }
 
-    public static void checkQQOpenId(final Handler handler,String open_id){
-        OkHttpClient okHttpClient = new OkHttpClient();
-        RequestBody formBody = new FormEncodingBuilder()
-                .add("open_id", open_id)
-                .build();
-        Request request = new Request.Builder()
-                .url(WebUtil.HTTP_ADDRESS + "/CheckQQOpenIdServlet")
-                .post(formBody)
-                .build();
-        okHttpClient.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Request request, IOException e) {
 
-            }
 
-            @Override
-            public void onResponse(Response response) throws IOException {
-                //NOT UI Thread
-                if (response.isSuccessful()) {
-                    System.out.println(response.code());
-                    String result = response.body().string();
-                    Message message = new Message();
-                    message.what = MESSAGE_CHECK_QQ_OPEN_ID;
-                    message.obj = result;
-                    handler.sendMessage(message);
-                    System.out.println(result);
-                }
-            }
-        });
-
-    }
+//    public static void checkQQOpenId(final Handler handler,String open_id){
+//        OkHttpClient okHttpClient = new OkHttpClient();
+//        RequestBody formBody = new FormEncodingBuilder()
+//                .add("open_id", open_id)
+//                .build();
+//        Request request = new Request.Builder()
+//                .url(WebUtil.HTTP_ADDRESS + "/CheckQQOpenIdServlet")
+//                .post(formBody)
+//                .build();
+//        okHttpClient.newCall(request).enqueue(new Callback() {
+//            @Override
+//            public void onFailure(Request request, IOException e) {
+//
+//            }
+//
+//            @Override
+//            public void onResponse(Response response) throws IOException {
+//                //NOT UI Thread
+//                if (response.isSuccessful()) {
+//                    System.out.println(response.code());
+//                    String result = response.body().string();
+//                    Message message = new Message();
+//                    message.what = MESSAGE_CHECK_QQ_OPEN_ID;
+//                    message.obj = result;
+//                    handler.sendMessage(message);
+//                    System.out.println(result);
+//                }
+//            }
+//        });
+//
+//    }
 
     public static void giveVip(final Handler handler){
         OkHttpClient okHttpClient = new OkHttpClient();
@@ -3291,33 +3353,6 @@ public class OkhttpUtil {
                         message.obj = result;
                         handler.sendMessage(message);
                         System.out.println(result);
-
-//                        //登录app服务器成功后登录环信服务器
-//                        EMClient.getInstance().login(SharedPreferenceUtil.getUserName(), SharedPreferenceUtil.getPassword(), new EMCallBack() {//回调
-//                            @Override
-//                            public void onSuccess() {
-//                                new Thread(new Runnable() {
-//                                    @Override
-//                                    public void run() {
-//                                        EMClient.getInstance().groupManager().loadAllGroups();
-//                                        EMClient.getInstance().chatManager().loadAllConversations();
-//                                        Log.d("LoninFragment", "登陆聊天服务器成功！");
-//                                    }
-//                                }).start();
-//
-//                            }
-//
-//                            @Override
-//                            public void onProgress(int progress, String status) {
-//
-//                            }
-//
-//                            @Override
-//                            public void onError(int code, String message) {
-//                                Log.d("LoninFragment", "登陆聊天服务器失败！");
-//                            }
-//                        });
-
                     }
                 }
             }
@@ -3348,8 +3383,6 @@ public class OkhttpUtil {
                 if (response.isSuccessful()) {
                     System.out.println(response.code());
                     String result = response.body().string();
-                    //String result = response.body().string();
-                    //Toast.makeText(getContext(),result, Toast.LENGTH_LONG).show();
                     Message message = new Message();
                     message.what = MESSAGE_LOGOUT;
                     message.obj = result;
@@ -3362,7 +3395,6 @@ public class OkhttpUtil {
 
     public static void getNewsComment(final Handler handler, String news_id){
         OkHttpClient okHttpClient = new OkHttpClient();
-        // okHttpClient.setCookieHandler(new CookieManager(new PersistentCookieStore(MyApplication.getContext()),CookiePolicy.ACCEPT_ALL));
         RequestBody formBody = new FormEncodingBuilder()
                 .add("news_id", news_id)
                 .build();
@@ -3450,73 +3482,6 @@ public class OkhttpUtil {
                 }
             }
         });
-
-    }
-
-
-    public static void regist(final Handler handler, String username, String password, String str_user_head_path){
-        OkHttpClient okHttpClient = new OkHttpClient();
-        File file = new File(str_user_head_path);
-        Log.d("ResgistActivity", "path = " + str_user_head_path);
-
-        //----------
-        Bitmap bitmap;
-        byte[] bytes;
-        RequestBody fileBody;
-        Request request;
-        try {
-            bitmap = ImageUtil.revitionImageSize(str_user_head_path);
-
-            bytes = CommentUtil.Bitmap2Bytes(bitmap);
-            fileBody = RequestBody.create(MediaType.parse("application/octet-stream"), bytes);
-
-            RequestBody requestBody = new MultipartBuilder()
-                    .type(MultipartBuilder.FORM)
-                    .addPart(Headers.of(
-                                    "Content-Disposition",
-                                    "form-data; name=\"username\""),
-                            RequestBody.create(null, username))
-                    .addPart(Headers.of(
-                                    "Content-Disposition",
-                                    "form-data; name=\"password\""),
-                            RequestBody.create(null, password))
-                    .addPart(Headers.of(
-                            "Content-Disposition",
-                            "form-data; name=\"photo\""), fileBody)
-                    .build();
-
-            request = new Request.Builder()
-                    .url(WebUtil.HTTP_ADDRESS + "/RegistServlet")
-                    .post(requestBody)
-                    .build();
-
-            okHttpClient.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(Request request, IOException e) {
-
-                }
-
-                @Override
-                public void onResponse(Response response) throws IOException {
-                    //NOT UI Thread
-                    if (response.isSuccessful()) {
-                        System.out.println(response.code());
-                        String result = response.body().string();
-                        Message message = new Message();
-                        message.what = MESSAGE_REGIST;
-                        message.obj = result;
-                        handler.sendMessage(message);
-                        System.out.println(result);
-                    }
-                }
-            });
-
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
-
-        //---------
 
     }
 
@@ -3850,38 +3815,6 @@ public class OkhttpUtil {
             }
         });
     }
-//
-//    public static void deleteRecruit(final Handler handler,String recruit_id){
-//        OkHttpClient okHttpClient = new OkHttpClient();
-//        RequestBody formBody = new FormEncodingBuilder()
-//                .add("recruit_id", recruit_id)
-//                .build();
-//        Request request = new Request.Builder()
-//                .url(WebUtil.HTTP_ADDRESS + "/DeletePostServlet")
-//                .post(formBody)
-//                .addHeader("Cookie", "JSESSIONID=" + SharedPreferenceUtil.getSessionId())
-//                .build();
-//        okHttpClient.newCall(request).enqueue(new Callback() {
-//            @Override
-//            public void onFailure(Request request, IOException e) {
-//
-//            }
-//
-//            @Override
-//            public void onResponse(Response response) throws IOException {
-//                //NOT UI Thread
-//                if (response.isSuccessful()) {
-//                    System.out.println(response.code());
-//                    String result = response.body().string();
-//                    Message message = new Message();
-//                    message.what = MESSAGE_DELETE_POST;
-//                    message.obj = result;
-//                    handler.sendMessage(message);
-//                    System.out.println(result);
-//                }
-//            }
-//        });
-//    }
 
     public static void addPost(final Handler handler,String recruit_id,String postname,String salary,String requirement,String description){
         OkHttpClient okHttpClient = new OkHttpClient();
