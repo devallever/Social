@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
+import com.allever.social.ui.activity.LoginActivity;
 import com.andexert.library.RippleView;
 
 /**

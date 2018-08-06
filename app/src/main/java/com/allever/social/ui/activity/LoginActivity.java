@@ -1,4 +1,4 @@
-package com.allever.social.activity;
+package com.allever.social.ui.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +11,8 @@ import android.widget.ImageView;
 
 import com.allever.social.MyApplication;
 import com.allever.social.R;
+import com.allever.social.activity.RegistActivity;
+import com.allever.social.activity.ShuaShuaActivity;
 import com.allever.social.modules.main.SocialMainActivity;
 import com.allever.social.mvp.base.BaseMVPActivity;
 import com.allever.social.mvp.presenter.LoginPresenter;
@@ -26,16 +28,14 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import static com.allever.social.utils.Constants.ACTION_BROADCAST_AFTER_LOGIN;
 
 /**
  * Created by XM on 2016/4/17.
  */
-public class LoginActivity extends BaseMVPActivity<ILoginView, LoginPresenter> implements View.OnClickListener ,
-ILoginView{
+public class LoginActivity extends BaseMVPActivity<ILoginView, LoginPresenter> implements
+        View.OnClickListener,
+        ILoginView{
     private static final String TAG = "LoginActivity";
 
     public final static int REQUEST_CODE_SET_ACCOUNT = 1000;

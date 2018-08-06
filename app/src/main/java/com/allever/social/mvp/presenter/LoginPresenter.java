@@ -34,7 +34,7 @@ import java.util.Set;
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.TagAliasCallback;
 
-import static com.allever.social.activity.LoginActivity.REQUEST_CODE_SET_ACCOUNT;
+import static com.allever.social.ui.activity.LoginActivity.REQUEST_CODE_SET_ACCOUNT;
 
 public class LoginPresenter extends BasePresenter<ILoginView> {
 

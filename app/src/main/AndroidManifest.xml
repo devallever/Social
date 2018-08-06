@@ -577,7 +577,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:label="登录"/>
         <activity
             android:name=".activity.RegistActivity"

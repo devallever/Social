@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allever.social.R;
-import com.allever.social.activity.LoginActivity;
+import com.allever.social.ui.activity.LoginActivity;
 import com.allever.social.activity.ModifyUserDataActivity;
 import com.allever.social.activity.SettingActivity;
 import com.allever.social.utils.OkhttpUtil;
