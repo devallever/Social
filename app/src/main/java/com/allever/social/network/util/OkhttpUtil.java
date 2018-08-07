@@ -41,6 +41,9 @@ import cn.jpush.android.api.JPushInterface;
  * Created by XM on 2016/4/20.
  */
 public class OkhttpUtil {
+
+    private static final String TAG = "OkhttpUtil";
+
     public static final int MESSAGE_FRIEND_LIST = 0;
     public static final int MESSAGE_USER_DATA = 1;
     public static final int MESSAGE_NEARBY_NEWS = 2;
@@ -3341,6 +3344,7 @@ public class OkhttpUtil {
     }
 
     public static void autoLogin(final Handler handler){
+        Log.d(TAG, "autoLogin: ");
         OkHttpClient okHttpClient = new OkHttpClient();
         RequestBody formBody = new FormEncodingBuilder()
                 .add("username", SharedPreferenceUtil.getUserName())
@@ -3369,6 +3373,7 @@ public class OkhttpUtil {
                     LoginRoot root = gson.fromJson(result,LoginRoot.class);
                     if (root.seccess){
                         SharedPreferenceUtil.setSessionId(root.session_id);
+                        Log.d(TAG, "onResponse: session id = " + SharedPreferenceUtil.getSessionId());
                         SharedPreferenceUtil.setState("1");
                         Message message = new Message();
                         message.what = MESSAGE_AUTO_LOGIN;
@@ -4667,6 +4672,8 @@ public class OkhttpUtil {
 
 
     public static boolean checkLogin(){
+        Log.d(TAG, "checkLogin: session id = " + SharedPreferenceUtil.getSessionId());
+        Log.d(TAG, "checkLogin: ");
         if(SharedPreferenceUtil.getSessionId().equals("") ||
                 SharedPreferenceUtil.getState().equals("")){
             return false;
@@ -4675,13 +4682,9 @@ public class OkhttpUtil {
     }
 
     public static void pollServive(final Handler handler){
+        Log.d(TAG, "pollServive: session_id = " + SharedPreferenceUtil.getSessionId());
         OkHttpClient okHttpClient = new OkHttpClient();
         RequestBody formBody = new FormEncodingBuilder()
-                .add("user_id", SharedPreferenceUtil.getUserId())
-                .add("longitude",SharedPreferenceUtil.getLongitude())
-                .add("latitude",SharedPreferenceUtil.getLatitude())
-                .add("address",SharedPreferenceUtil.getAddress())
-                .add("jpush_registration_id", JPushInterface.getRegistrationID(MyApplication.mContext))
                 .build();
         Request request = new Request.Builder()
                 .url(WebUtil.HTTP_ADDRESS + "/ConnectionServlet")
@@ -4698,42 +4701,11 @@ public class OkhttpUtil {
             public void onResponse(Response response) throws IOException {
                 //NOT UI Thread
                 if (response.isSuccessful()) {
-                    System.out.println(response.code());
                     String result = response.body().string();
                     Message message = new Message();
                     message.what = MESSAGE_POLL_SERVICE;
                     message.obj = result;
                     handler.sendMessage(message);
-                    System.out.println(result);
-
-                    if (SharedPreferenceUtil.getUserName()!=null && SharedPreferenceUtil.getPassword()!=null){
-                        //每隔10分钟登录环信服务器
-//                        EMClient.getInstance().login(SharedPreferenceUtil.getUserName(), SharedPreferenceUtil.getPassword(), new EMCallBack() {//回调
-//                            @Override
-//                            public void onSuccess() {
-//                                new Thread(new Runnable() {
-//                                    @Override
-//                                    public void run() {
-//                                        EMClient.getInstance().groupManager().loadAllGroups();
-//                                        EMClient.getInstance().chatManager().loadAllConversations();
-//                                        Log.d("pool to service", "登陆聊天服务器成功！");
-//                                    }
-//                                }).start();
-//
-//                            }
-//
-//                            @Override
-//                            public void onProgress(int progress, String status) {
-//
-//                            }
-//
-//                            @Override
-//                            public void onError(int code, String message) {
-//                                Log.d("pool to service", "登陆聊天服务器失败！");
-//                            }
-//                        });
-                    }
-
                 }
             }
         });

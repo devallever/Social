@@ -13,7 +13,6 @@ import android.util.Log;
 
 import com.allever.social.MyApplication;
 import com.allever.social.receiver.AdvertiseReciever;
-import com.allever.social.receiver.LongConnectionAlarmReceiver;
 import com.allever.social.utils.SharedPreferenceUtil;
 
 /**

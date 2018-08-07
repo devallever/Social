@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.allever.social.MyApplication;
 import com.allever.social.R;
@@ -237,14 +238,18 @@ public class LoginActivity extends BaseMVPActivity<ILoginView, LoginPresenter> i
     }
 
     @Override
-    public void showTipsDialog(String msg) {
-        new Dialog(this, msg,msg).show();
+    public void showTipsDialog(final String msg) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override
     public void loginSuccess() {
-        Log.d(TAG, "loginSuccess: ");
-
         SocialMainActivity.startSelf(this);
 
         Intent intent = new Intent(ACTION_BROADCAST_AFTER_LOGIN);

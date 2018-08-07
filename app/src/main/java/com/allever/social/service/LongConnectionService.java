@@ -15,11 +15,8 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
 
-//import com.hyphenate.chat.EMClient;
-
 import com.allever.social.R;
 import com.allever.social.bean.Response;
-import com.allever.social.bean.User;
 import com.allever.social.network.NetResponse;
 import com.allever.social.network.NetService;
 import com.allever.social.network.impl.OkHttpService;
@@ -45,7 +42,7 @@ import cn.jpush.android.api.TagAliasCallback;
 public class LongConnectionService extends Service {
     private Handler handler;
     private int count;
-    private final String TAG = "ConnectionService";
+    private final String TAG = "LongConnectionService";
 
     private NetService mNetService;
 
@@ -57,7 +54,6 @@ public class LongConnectionService extends Service {
 
     @Override
     public void onCreate() {
-        handler = new Handler();
 
         mNetService = new OkHttpService();
 
@@ -136,27 +132,35 @@ public class LongConnectionService extends Service {
 
 
     private void handlePollService(Message msg){
+        Log.d(TAG, "handlePollService: ");
         String  result = msg.obj.toString();
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         Root root = gson.fromJson(result, Root.class);
-        Log.d("LongConnection",result);
+        Log.d("LongConnection",result + "TTTT");
 
         if (root!=null || !root.success){
             if(root.message.equals("未登录")){
+                Log.d(TAG, "handlePollService: AAAAAAAAAAAA");
                 //断线自动重连
                 //OkhttpUtil.autoLogin(handler);
                 mNetService.autoLogin(new NetCallback() {
                     @Override
                     public void onSuccess(NetResponse response) {
+                        Log.d(TAG, "autoLogin onSuccess: ");
                         handleAutoLogin(response);
                     }
                     @Override
-                    public void onFail(String msg) { }
+                    public void onFail(String msg) {
+                        Log.d(TAG, "autoLogin onFail: ");
+                    }
                 });
                 return;
+            }else {
+                Log.d(TAG, "handlePollService: BBBBBBBBBBB");
             }
             return ;
         }else{
+            Log.d(TAG, "handlePollService: CCCCCCCCC");
             SharedPreferenceUtil.setVip(root.is_vip+"");
             SharedPreferenceUtil.setRecommend(root.is_recommended+"");
         }
@@ -171,16 +175,21 @@ public class LongConnectionService extends Service {
     }
 
     private void handleAutoLogin(NetResponse netResponse){
+        Log.d(TAG, "handleAutoLogin: ");
         String result = netResponse.getString();
-        System.out.println(result);
+        Log.d(TAG, "handleAutoLogin: result = " + result);
 
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         Type type = new TypeToken<Response<com.allever.social.bean.User>>() {}.getType();
         com.allever.social.bean.Response<com.allever.social.bean.User> root = gson.fromJson(result,type);
 
         if (root.isSuccess()){
+            Log.d(TAG, "handleAutoLogin: autoLogin success");
             SharedPreferenceUtil.setSessionId(root.getSession_id());
+            Log.d(TAG, "handleAutoLogin: set session_id = " + root.getSession_id());
             SharedPreferenceUtil.setState("1");
+        }else {
+            Log.d(TAG, "handleAutoLogin: autoLogin fail");
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);

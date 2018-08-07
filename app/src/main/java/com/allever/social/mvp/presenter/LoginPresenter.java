@@ -68,12 +68,12 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
                 String result = response.getString();
                 if (result != null){
                     handleLogin(context, result, pwd);
-                    mViewRef.get().loginSuccess();
                 }
             }
 
             @Override
             public void onFail(String msg) {
+                Log.d(TAG, "onFail: ");
                 mViewRef.get().showTipsDialog(msg);
             }
         });
@@ -86,14 +86,16 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
         Response<User> root = gson.fromJson(result,type);
 
         if (root == null){
-            mViewRef.get().showErrorMessageToast(Constants.MSG_SERVER_ERROR);
+            mViewRef.get().showErrorMessageToast(root.getMessage());
             return;
         }
 
         if (!root.isSuccess()){
-            mViewRef.get().showTipsDialog(Constants.MSG_ERROR);
+            mViewRef.get().showTipsDialog(root.getMessage());
             return ;
         }
+
+        mViewRef.get().loginSuccess();
 
         //登录成功后为每个用户设置别名：username
         User user = root.getData();

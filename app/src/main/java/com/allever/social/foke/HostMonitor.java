@@ -16,14 +16,22 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.allever.social.R;
+import com.allever.social.bean.Response;
+import com.allever.social.bean.User;
+import com.allever.social.network.NetResponse;
+import com.allever.social.network.NetService;
+import com.allever.social.network.impl.OkHttpService;
+import com.allever.social.network.listener.NetCallback;
 import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 
+import java.lang.reflect.Type;
 import java.util.Set;
 
 import cn.jpush.android.api.JPushInterface;
@@ -37,6 +45,9 @@ public class HostMonitor extends Service {
     private int count;
     private final String TAG = "ConnectionService";
 
+
+    private NetService mNetService;
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -45,31 +56,16 @@ public class HostMonitor extends Service {
 
     @Override
     public void onCreate() {
-        handler = new Handler();
-        //Toast.makeText(this, "服务已被重启", Toast.LENGTH_LONG).show();
+        super.onCreate();
         count=0;
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Glide.get(HostMonitor.this).clearDiskCache();
-            }
-        }).start();
-
-//        Intent intentEMService = new Intent(this, EMChatService.class);
-//        startService(intentEMService);
-//
-//        Intent intentJPushService = new Intent(this, PushService.class);
-//        startService(intentJPushService);
-
-        super.onCreate();
+        mNetService = new OkHttpService();
     }
 
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
         //每隔一分钟自动登录一次
         count++;
-        //Toast.makeText(this,"每隔1分钟登录一次\n已登录" + count + "次.",Toast.LENGTH_LONG).show();
         Log.d(TAG,"每隔1分钟登录一次\n已登录" + count + "次.");
 
         handler = new Handler(){
@@ -80,9 +76,6 @@ public class HostMonitor extends Service {
                     case OkhttpUtil.MESSAGE_POLL_SERVICE:
                         handlePollService(msg);
                         break;
-                    case OkhttpUtil.MESSAGE_AUTO_LOGIN:
-                        handleAutoLogin(msg);
-                        break;
                 }
             }
         };
@@ -91,30 +84,6 @@ public class HostMonitor extends Service {
             OkhttpUtil.pollServive(handler);
         }
 
-        //模拟信息-----------------------------------------------------------------------------
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setTicker("This is ticker text");
-        builder.setContentTitle("Social");
-        builder.setContentText("已开启长连接服务");
-        builder.setSmallIcon(R.mipmap.logo);
-        builder.setContentInfo("This is content info");
-        builder.setAutoCancel(true);
-////        Intent intent = new Intent(this, NotificationPendingIntentActivity.class);
-////        PendingIntent pendingIntent = PendingIntent.getActivity(this,1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-////        builder.setContentIntent(pendingIntent);
-        NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-        //notificationManager.notify(1, builder.build());
-        //--------------------------------------------------------------------------------------
-
-
-        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
-        int ten_min = 60*1000*1;//1分钟;
-        //int ten_min = 30*1000;
-        long triggerAtTime = SystemClock.elapsedRealtime() + ten_min;
-        //Intent i = new Intent(this,LongConnectionAlarmReceiver.class);
-        Intent i = new Intent(this,PhoneStatReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,0,i,0);
-        //alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,triggerAtTime,pendingIntent);
         flags = START_STICKY;
         return super.onStartCommand(intent, flags, startId);
     }
@@ -122,34 +91,27 @@ public class HostMonitor extends Service {
 
 
     private void handlePollService(Message msg){
+        Log.d(TAG, "handlePollService: ");
         String  result = msg.obj.toString();
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         Root root = gson.fromJson(result, Root.class);
-        Log.d("LongConnection",result);
+        Log.d(TAG, "handlePollService: result = " + result);
 
 
         if (root==null) return;
 
         if (!root.success){
-            if(root.message.equals("未登录")){
-                //断线自动重连自己的服务器
-                OkhttpUtil.autoLogin(handler);
-                return;
-            }
-//
-//            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-//            builder.setTicker("登录失败");
-//            builder.setContentTitle("Social");
-//            builder.setContentText("请重新登录");
-//            builder.setSmallIcon(R.mipmap.logo);
-//            builder.setContentInfo("");
-//            builder.setAutoCancel(true);
-//////        Intent intent = new Intent(this, NotificationPendingIntentActivity.class);
-//////        PendingIntent pendingIntent = PendingIntent.getActivity(this,1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-//////        builder.setContentIntent(pendingIntent);
-//            NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-//            //notificationManager.notify(1, builder.build());
-            return ;
+            mNetService.autoLogin(new NetCallback() {
+                @Override
+                public void onSuccess(NetResponse response) {
+                    Log.d(TAG, "autoLogin onSuccess: ");
+                    handleAutoLogin(response);
+                }
+                @Override
+                public void onFail(String msg) {
+                    Log.d(TAG, "autoLogin onFail: ");
+                }
+            });
         }else{
             //登录自己服务器：
             SharedPreferenceUtil.setVip(root.is_vip+"");
@@ -157,7 +119,6 @@ public class HostMonitor extends Service {
             //登录环信和极光推送
             loginHuanxinAndJpush();
         }
-        //this.stopSelf();
     }
 
     @Override
@@ -168,9 +129,22 @@ public class HostMonitor extends Service {
         startService(intent);
     }
 
+    private void handleAutoLogin(NetResponse netResponse) {
+        String result = netResponse.getString();
+        Log.d(TAG, "handleAutoLogin: result = " + result);
 
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+        Type type = new TypeToken<Response<User>>() {}.getType();
+        com.allever.social.bean.Response<com.allever.social.bean.User> root = gson.fromJson(result, type);
 
-    private void handleAutoLogin(Message msg){
+        if (root==null) return;
+        if (root.isSuccess()==false) return;
+
+        SharedPreferenceUtil.setSessionId(root.getSession_id());
+        SharedPreferenceUtil.setState("1");
+
+        loginHuanxinAndJpush();//登录环信和极光推送
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setTicker("自动登录");
         builder.setContentTitle("Social");
@@ -179,29 +153,8 @@ public class HostMonitor extends Service {
         builder.setAutoCancel(true);
         NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(4, builder.build());
-
-        String  result = msg.obj.toString();
-        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-        LoginRoot root = gson.fromJson(result, LoginRoot.class);
-
-        if (root==null) return;
-        if (root.seccess==false) return;
-
-        SharedPreferenceUtil.setSessionId(root.session_id);
-        SharedPreferenceUtil.setState("1");
-
-        loginHuanxinAndJpush();//登录环信和极光推送
-
-//        //登录成功后为每个用户设置别名：username
-//        JPushInterface.setAlias(this, root.user.username, new TagAliasCallback() {
-//            @Override
-//            public void gotResult(int i, String s, Set<String> set) {
-//
-//            }
-//        });
-
-        Log.d("LongConnection", result);
     }
+
 
     private void loginHuanxinAndJpush(){
         //登录环信
@@ -250,36 +203,4 @@ public class HostMonitor extends Service {
         int is_vip;
         int is_recommended;
     }
-
-    public class LoginRoot{
-        boolean seccess;
-        String message;
-        String session_id;
-        User user;
-    }
-
-    public class User{
-        String id;
-        String username;
-        String nickname;
-        String imagepath;
-        double longitude;
-        double latiaude;
-        String phone;
-        String email;
-        String user_head_path;
-        String signature;
-        String city;
-        String sex;
-        int age;
-        String occupation;
-        String constellation;
-        String hight;
-        String weight;
-        String figure;
-        String emotion;
-        int is_vip;
-    }
-
-
 }
