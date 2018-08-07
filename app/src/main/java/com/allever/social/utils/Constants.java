@@ -23,4 +23,6 @@ public class Constants {
 
     public static final String ACTION_BROADCAST_AFTER_LOGIN = "com.allever.afterlogin";
 
+    public static final String EVENT_FINISH_ACTIVITY = "EVENT_FINISH_ACTIVITY";
+
 }

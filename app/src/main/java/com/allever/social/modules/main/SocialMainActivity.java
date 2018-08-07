@@ -57,6 +57,9 @@ import java.io.FileOutputStream;
  * Created by XM on 2016/5/7.
  */
 public class SocialMainActivity extends BaseActivity implements View.OnClickListener{
+
+    private static final String TAG = "SocialMainActivity";
+
     private TextView tv_nearby;
     private TextView tv_chat;
     //private TextView txt_topbar;
@@ -275,14 +278,18 @@ public class SocialMainActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        Log.d(TAG, "onKeyDown: ");
         if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Log.d(TAG, "onKeyDown: BACK");
             moveTaskToBack(false);
             return true;
         }
         if (keyCode == KeyEvent.KEYCODE_HOME) {
+            Log.d(TAG, "onKeyDown: HOME");
             moveTaskToBack(false);
             return true;
         }
+        Log.d(TAG, "onKeyDown: " + keyCode);
         return super.onKeyDown(keyCode, event);
     }
 
@@ -303,8 +310,6 @@ public class SocialMainActivity extends BaseActivity implements View.OnClickList
         }catch(PackageManager.NameNotFoundException e){
             e.printStackTrace();;
         }
-
-        //OkhttpUtil.checkVersion(handler, );
     }
 
     private void handleVersion(Message msg){
@@ -312,10 +317,6 @@ public class SocialMainActivity extends BaseActivity implements View.OnClickList
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         final Root  root = gson.fromJson(result, Root.class);
         if (root==null ||!root.success){
-//            new Dialog(this,"Tips",root.message).show();
-//            if(root.message.equals("未登录")){
-//                if(!SharedPreferenceUtil.getSessionId().equals("")) OkhttpUtil.autoLogin();
-//            }
             return ;
         }else{
             final Dialog dialog = new Dialog(this,"Tips","发现新版本"+root.version.version_name+"\n"+root.version.description);
@@ -615,19 +616,6 @@ public class SocialMainActivity extends BaseActivity implements View.OnClickList
         String description;
         String app_path;
     }
-
-//    class ADSettingRoot{
-//        boolean success;
-//        String message;
-//        ADSetting ad_setting;
-//    }
-//
-//    class ADSetting{
-//        String id;
-//        int day_space;
-//        int count;
-//        int isshow;
-//    }
 
     class LogoutRoot{
         public Boolean success;

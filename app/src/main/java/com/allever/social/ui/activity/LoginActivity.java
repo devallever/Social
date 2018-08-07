@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import com.allever.social.MyApplication;
 import com.allever.social.R;
 import com.allever.social.activity.RegistActivity;
-import com.allever.social.activity.ShuaShuaActivity;
 import com.allever.social.modules.main.SocialMainActivity;
 import com.allever.social.mvp.base.BaseMVPActivity;
 import com.allever.social.mvp.presenter.LoginPresenter;
@@ -27,6 +26,8 @@ import com.tencent.connect.common.Constants;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
+
+import org.greenrobot.eventbus.EventBus;
 
 import static com.allever.social.utils.Constants.ACTION_BROADCAST_AFTER_LOGIN;
 
@@ -179,9 +180,7 @@ public class LoginActivity extends BaseMVPActivity<ILoginView, LoginPresenter> i
         }
 
         if (requestCode == REQUEST_CODE_REGIST && resultCode ==RESULT_OK){
-            Intent intent = new Intent(this,ShuaShuaActivity.class);
-            intent.putExtra("is_first",true);
-            startActivity(intent);
+            SocialMainActivity.startSelf(this);
             finish();
         }
 
@@ -247,7 +246,10 @@ public class LoginActivity extends BaseMVPActivity<ILoginView, LoginPresenter> i
 
         Intent intent = new Intent(ACTION_BROADCAST_AFTER_LOGIN);
         sendBroadcast(intent);
-        setResult(RESULT_OK);
+
+//        setResult(RESULT_OK);
+        //发送一个事件通知FirstActivity结束自己
+        EventBus.getDefault().post(com.allever.social.utils.Constants.EVENT_FINISH_ACTIVITY);
         finish();
     }
 }

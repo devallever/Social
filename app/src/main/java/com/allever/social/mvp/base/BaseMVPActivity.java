@@ -14,7 +14,7 @@ public abstract class BaseMVPActivity<V, P extends BasePresenter<V>> extends App
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.d("BaseActivity", getClass().getSimpleName());
+        Log.d("BaseActivity", getClass().getSimpleName() + ": " + getClass().getSimpleName().hashCode());
         ActivityCollector.addActivity(this);
 
         //绑定Presenter
@@ -26,8 +26,9 @@ public abstract class BaseMVPActivity<V, P extends BasePresenter<V>> extends App
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresenter.detchView();
+        Log.d("BaseActivity", getClass().getSimpleName() + " Destroy");
         ActivityCollector.removeActivity(this);
+        mPresenter.detchView();
     }
 
     public abstract P createPresenter();

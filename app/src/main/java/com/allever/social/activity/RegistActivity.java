@@ -38,6 +38,8 @@ import com.hyphenate.chat.EMClient;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -228,7 +230,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                 break;
             case REQUEST_CODE_REGIST_COMPLETE:
                 if (resultCode == RESULT_OK){
-                    setResult(RESULT_OK);
+                    EventBus.getDefault().post(com.allever.social.utils.Constants.EVENT_FINISH_ACTIVITY);
                     finish();
                 }
                 break;
@@ -522,34 +524,6 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
         Intent intent = new Intent(this,RegistCompleteDialogActivity.class);
         intent.putExtra("username", root.user.username);
         startActivityForResult(intent, REQUEST_CODE_REGIST_COMPLETE);
-
-
-//        if (isFromFirstActivity){
-//            Intent intent = new Intent("com.allever.afterlogin");
-//            sendBroadcast(intent);
-//            setResult(RESULT_OK);
-//            //Intent intent1 = new Intent(this, SocialMainActivity.class);
-//            //startActivity(intent1);
-//            finish();
-//        }else{
-//            Intent intent = new Intent("com.allever.afterlogin");
-//            sendBroadcast(intent);
-//            setResult(RESULT_OK);
-//            Intent intent1 = new Intent(this, SocialMainActivity.class);
-//            startActivity(intent1);
-//            finish();
-//        }
-
-        //loginFragmentCallback.loginSuccessCallback();
-//        Intent intent = new Intent("com.allever.afterlogin");
-//        sendBroadcast(intent);
-//        setResult(RESULT_OK);
-//        Intent intent1 = new Intent(this, SocialMainActivity.class);
-//        startActivity(intent1);
-//        finish();
-
-        //SharedPreferenceUtil.getUserName();
-
 
     }
 

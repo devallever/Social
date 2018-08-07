@@ -868,7 +868,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
         <activity
-            android:name=".activity.FirstActivity"
+            android:name=".ui.activity.FirstActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
         <activity

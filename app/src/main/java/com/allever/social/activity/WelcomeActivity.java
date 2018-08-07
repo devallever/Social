@@ -15,8 +15,10 @@ import com.allever.social.BaseActivity;
 import com.allever.social.MyApplication;
 import com.allever.social.R;
 import com.allever.social.foke.NativeRuntime;
+import com.allever.social.modules.main.SocialMainActivity;
 import com.allever.social.service.AdvertiseService;
 import com.allever.social.service.BDLocationService;
+import com.allever.social.ui.activity.FirstActivity;
 import com.allever.social.utils.CommentUtil;
 import com.allever.social.utils.Constants;
 import com.allever.social.utils.FileUtils;
@@ -127,14 +129,12 @@ public class WelcomeActivity extends BaseActivity {
             SharedPreferenceUtil.setShareRemindRestCount(date, Constants.SHARE_REMIND_SPACE);
 
             //show First Activity
-            Intent intent = new Intent(this,FirstActivity.class);
-            startActivity(intent);
+            FirstActivity.startSelf(this);
             finish();
         }else{
             if (OkhttpUtil.checkLogin()) beginTimeOut();
             else {
-                Intent intent = new Intent(this,FirstActivity.class);
-                startActivity(intent);
+                FirstActivity.startSelf(this);
                 WelcomeActivity.this.finish();
             }
         }
@@ -179,11 +179,8 @@ public class WelcomeActivity extends BaseActivity {
         switch (requestCode){
             case REQUEST_CODE_RED_POCKET_DIALOG:
                 if (resultCode == RESULT_OK){
-                    //Intent intent = new Intent(WelcomeActivity.this, SocialMainActivity.class);
-                    //startActivity(intent);
-                    Intent intent = new Intent(WelcomeActivity.this,ShuaShuaActivity.class);
-                    intent.putExtra("is_first",true);
-                    startActivity(intent);
+
+                    SocialMainActivity.startSelf(WelcomeActivity.this);
                     WelcomeActivity.this.finish();
                 }
                 break;
@@ -198,9 +195,7 @@ public class WelcomeActivity extends BaseActivity {
                 try {
                     Thread.sleep(5000);
                     if(flag){
-                        Intent intent = new Intent(WelcomeActivity.this,ShuaShuaActivity.class);
-                        intent.putExtra("is_first",true);
-                        startActivity(intent);
+                        SocialMainActivity.startSelf(WelcomeActivity.this);
 
                         WelcomeActivity.this.finish();
                     }
