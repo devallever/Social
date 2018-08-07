@@ -1,7 +1,5 @@
 package com.allever.social.activity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,14 +10,11 @@ import android.widget.Toast;
 
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
-import com.allever.social.utils.WebUtil;
 import com.allever.social.view.MySquareImageView;
-import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.tencent.connect.share.QQShare;
 
 import java.util.HashMap;
 

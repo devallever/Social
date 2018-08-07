@@ -14,9 +14,8 @@ import com.allever.social.BaseActivity;
 import com.allever.social.R;
 import com.allever.social.adapter.OnlineStateItemBaseAdapter;
 import com.allever.social.pojo.OnlineStateItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
-import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

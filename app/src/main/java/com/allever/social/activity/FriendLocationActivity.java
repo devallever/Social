@@ -23,7 +23,7 @@ import com.allever.social.R;
 import com.allever.social.listener.RecyclerItemClickListener;
 import com.allever.social.adapter.FriendLocationRecyclerViewAdapter;
 import com.allever.social.pojo.FriendLocationItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.WebUtil;
 import com.andexert.library.RippleView;
 import com.baidu.mapapi.SDKInitializer;

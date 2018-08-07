@@ -12,9 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
@@ -22,7 +20,7 @@ import com.allever.social.adapter.GroupItemArrayAdapter;
 import com.allever.social.adapter.NearbyUserItemAdapter;
 import com.allever.social.pojo.GroupItem;
 import com.allever.social.pojo.NearByUserItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.allever.social.utils.WebUtil;
 import com.allever.social.view.MyListView;
@@ -31,7 +29,6 @@ import com.baidu.mobstat.StatService;
 import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.ArrayList;
 import java.util.List;

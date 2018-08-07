@@ -15,7 +15,7 @@ import com.allever.social.R;
 import com.allever.social.listener.RecyclerItemClickListener;
 import com.allever.social.adapter.RequestFriendLocationItemRecyclerViewAdapter;
 import com.allever.social.pojo.RequestFriendLocationItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

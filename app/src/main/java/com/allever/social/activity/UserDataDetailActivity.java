@@ -23,14 +23,13 @@ import com.allever.social.BaseActivity;
 import com.allever.social.R;
 import com.allever.social.adapter.PhotoWallImgBaseAdapter;
 import com.allever.social.utils.Constants;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.allever.social.utils.WebUtil;
 import com.allever.social.view.MyGridView;
 import com.andexert.library.RippleView;
 import com.baidu.mobstat.StatService;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;
@@ -43,8 +42,6 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;

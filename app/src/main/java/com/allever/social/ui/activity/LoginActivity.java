@@ -44,17 +44,20 @@ public class LoginActivity extends BaseMVPActivity<ILoginView, LoginPresenter> i
 
     private String force_logout;
 
-    private MaterialEditText et_username;
-    private MaterialEditText et_password;
-    private ButtonFlat btn_login;
-    private ButtonFlat btn_forget;
-    private ButtonFlat btn_regist;
-    private String username;
-    private String password;
+    private MaterialEditText mEtUsername;
+    private MaterialEditText mEtPassword;
 
-    private ImageView iv_qq_login;
+    private ButtonFlat mBtnLogin;
+    private ButtonFlat mBtnForget;
+    private ButtonFlat mBtnRegister;
+
+    private String mUsername;
+    private String mPassword;
+
+    private ImageView mIvQqLogin;
 
     private Tencent mTencent;
+
     private IUiListener loginListener;
 
     private static final String QQ_APP_ID = "1105431865";
@@ -84,20 +87,20 @@ public class LoginActivity extends BaseMVPActivity<ILoginView, LoginPresenter> i
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("登录");
 
-        btn_login = (ButtonFlat)this.findViewById(R.id.id_login_activity_btn_login);
-        btn_login.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-        btn_regist = (ButtonFlat)this.findViewById(R.id.id_login_activity_btn_regist);
-        btn_regist.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-        btn_forget = (ButtonFlat)this.findViewById(R.id.id_login_activity_btn_forget);
-        btn_forget.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-        et_password = (MaterialEditText)this.findViewById(R.id.id_login_activity_et_password);
-        et_username = (MaterialEditText)this.findViewById(R.id.id_login_activity_et_username);
+        mBtnLogin = (ButtonFlat)this.findViewById(R.id.id_login_activity_btn_login);
+        mBtnLogin.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        mBtnRegister = (ButtonFlat)this.findViewById(R.id.id_login_activity_btn_regist);
+        mBtnRegister.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        mBtnForget = (ButtonFlat)this.findViewById(R.id.id_login_activity_btn_forget);
+        mBtnForget.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        mEtPassword = (MaterialEditText)this.findViewById(R.id.id_login_activity_et_password);
+        mEtUsername = (MaterialEditText)this.findViewById(R.id.id_login_activity_et_username);
 
-        iv_qq_login = (ImageView)this.findViewById(R.id.id_login_activity_iv_qq_login);
-        iv_qq_login.setOnClickListener(this);
+        mIvQqLogin = (ImageView)this.findViewById(R.id.id_login_activity_iv_qq_login);
+        mIvQqLogin.setOnClickListener(this);
 
-        btn_regist.setOnClickListener(this);
-        btn_login.setOnClickListener(this);
+        mBtnRegister.setOnClickListener(this);
+        mBtnLogin.setOnClickListener(this);
     }
 
     @Override
@@ -111,10 +114,10 @@ public class LoginActivity extends BaseMVPActivity<ILoginView, LoginPresenter> i
 
         SharedPreferences sharedPreferences = getSharedPreferences("user",MODE_PRIVATE);
         if (sharedPreferences != null){
-            password = SharedPreferenceUtil.getPassword();
-            username = SharedPreferenceUtil.getUserName();
-            et_password.setText(password);
-            et_username.setText(username);
+            mPassword = SharedPreferenceUtil.getPassword();
+            mUsername = SharedPreferenceUtil.getUserName();
+            mEtPassword.setText(mPassword);
+            mEtUsername.setText(mUsername);
         }
     }
 
@@ -152,9 +155,9 @@ public class LoginActivity extends BaseMVPActivity<ILoginView, LoginPresenter> i
     }
 
     private void login(){
-        username = et_username.getText().toString();
-        password = et_password.getText().toString();
-        mPresenter.login(this, username,password);
+        mUsername = mEtUsername.getText().toString();
+        mPassword = mEtPassword.getText().toString();
+        mPresenter.login(this, mUsername, mPassword);
     }
 
     @Override
@@ -213,7 +216,7 @@ public class LoginActivity extends BaseMVPActivity<ILoginView, LoginPresenter> i
         @Override
         public void onComplete(Object response) {
             Log.d("QQLogin", "QQ登录成功0000");
-            password = com.allever.social.utils.Constants.HX_DEFAULT_PASSWORD;
+            mPassword = com.allever.social.utils.Constants.HX_DEFAULT_PASSWORD;
             mPresenter.handleLoginQQSuccess(response, mTencent, LoginActivity.this);
         }
 
@@ -247,8 +250,6 @@ public class LoginActivity extends BaseMVPActivity<ILoginView, LoginPresenter> i
         Intent intent = new Intent(ACTION_BROADCAST_AFTER_LOGIN);
         sendBroadcast(intent);
 
-//        setResult(RESULT_OK);
-        //发送一个事件通知FirstActivity结束自己
         EventBus.getDefault().post(com.allever.social.utils.Constants.EVENT_FINISH_ACTIVITY);
         finish();
     }

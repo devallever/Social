@@ -9,25 +9,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allever.social.R;
-import com.allever.social.adapter.ChatRankItemBaseAdapter;
-import com.allever.social.pojo.ChargeItem;
-import com.allever.social.pojo.ChatRankItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.WebUtil;
 import com.baidu.mobstat.StatService;
 import com.bumptech.glide.Glide;
 import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-
-import java.util.List;
-import java.util.WeakHashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

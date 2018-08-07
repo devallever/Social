@@ -45,7 +45,7 @@ import com.allever.social.adapter.NewsImgAdapter;
 import com.allever.social.utils.BlurTransformation;
 import com.allever.social.utils.CommentUtil;
 import com.allever.social.utils.ImageUtil;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.allever.social.utils.WebUtil;
 import com.allever.social.view.MyGridView;

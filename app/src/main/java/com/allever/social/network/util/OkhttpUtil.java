@@ -1,4 +1,4 @@
-package com.allever.social.utils;
+package com.allever.social.network.util;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,9 +8,14 @@ import android.os.Message;
 import android.util.Log;
 
 import com.allever.social.MyApplication;
+import com.allever.social.utils.CommentUtil;
+import com.allever.social.utils.Constants;
+import com.allever.social.utils.FileUtil;
+import com.allever.social.utils.ImageUtil;
+import com.allever.social.utils.SharedPreferenceUtil;
+import com.allever.social.utils.WebUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMMessage;
 import com.squareup.okhttp.Callback;
@@ -171,7 +176,7 @@ public class OkhttpUtil {
         RequestBody formBody = new FormEncodingBuilder()
                 .add("username", username)
                 .add("password", password)
-                .add("longitude",SharedPreferenceUtil.getLongitude())
+                .add("longitude", SharedPreferenceUtil.getLongitude())
                 .add("latitude",SharedPreferenceUtil.getLatitude())
                 .add("address",SharedPreferenceUtil.getAddress())
                 .add("jpush_registration_id", JPushInterface.getRegistrationID(MyApplication.mContext))

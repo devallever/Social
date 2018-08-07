@@ -2,14 +2,10 @@ package com.allever.social.service;
 
 import android.app.Service;
 import android.content.Intent;
-import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.allever.social.MyApplication;
-import com.allever.social.utils.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;

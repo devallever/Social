@@ -21,7 +21,7 @@ import android.widget.Toast;
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
 import com.allever.social.utils.CommentUtil;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.baidu.mobstat.StatService;
 import com.gc.materialdesign.views.ButtonRectangle;

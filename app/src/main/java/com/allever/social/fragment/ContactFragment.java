@@ -26,8 +26,7 @@ import com.allever.social.R;
 import com.allever.social.activity.UserDataDetailActivity;
 import com.allever.social.adapter.FriendItemAdapter;
 import com.allever.social.pojo.FriendItem;
-import com.allever.social.pojo.NearByUserItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.allever.social.utils.WebUtil;
 import com.allever.social.view.sortlistview.CharacterParser;
@@ -38,7 +37,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 

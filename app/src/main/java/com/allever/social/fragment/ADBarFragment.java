@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.allever.social.R;
 import com.allever.social.activity.WebViewActivity;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.WebUtil;
 import com.baidu.mobstat.StatService;
 import com.bumptech.glide.Glide;

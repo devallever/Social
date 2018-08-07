@@ -1,4 +1,4 @@
-package com.allever.social.network;
+package com.allever.social.network.util;
 
 
 

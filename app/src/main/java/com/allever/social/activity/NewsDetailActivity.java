@@ -20,7 +20,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -31,29 +30,23 @@ import android.widget.Toast;
 
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
-import com.allever.social.adapter.CommentItemAdapter;
 import com.allever.social.adapter.CommentItemBaseAdapter;
 import com.allever.social.pojo.CommentItem;
-import com.allever.social.pojo.News;
 import com.allever.social.utils.CommentUtil;
 import com.allever.social.utils.Constants;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.allever.social.utils.WebUtil;
 import com.allever.social.view.MyListView;
 import com.andexert.library.RippleView;
 import com.baidu.mobstat.StatService;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import org.w3c.dom.Text;
-
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;

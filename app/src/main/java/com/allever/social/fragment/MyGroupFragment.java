@@ -22,7 +22,7 @@ import com.allever.social.R;
 import com.allever.social.activity.GroupDataActivity;
 import com.allever.social.adapter.MyGroupItemArrayAdapter;
 import com.allever.social.pojo.MyGroupItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.allever.social.utils.WebUtil;
 import com.baidu.mobstat.StatService;

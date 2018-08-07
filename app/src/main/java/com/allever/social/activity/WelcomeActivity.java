@@ -22,7 +22,7 @@ import com.allever.social.ui.activity.FirstActivity;
 import com.allever.social.utils.CommentUtil;
 import com.allever.social.utils.Constants;
 import com.allever.social.utils.FileUtils;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.allever.social.utils.WebUtil;
 import com.baidu.location.BDLocation;

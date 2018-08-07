@@ -6,18 +6,16 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.util.TypedValue;
 import android.view.MenuItem;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
 import com.allever.social.adapter.FriendGroupNameBaseAdapter;
 import com.allever.social.pojo.FriendGroupNameItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.andexert.library.RippleView;
 import com.baidu.mobstat.StatService;
 import com.baoyz.swipemenulistview.SwipeMenu;
@@ -27,8 +25,6 @@ import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import org.apache.http.conn.scheme.HostNameResolver;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -19,12 +19,8 @@ import com.allever.social.MyApplication;
 import com.allever.social.R;
 import com.allever.social.activity.UserDataDetailActivity;
 import com.allever.social.adapter.FansItemBaseAdapter;
-import com.allever.social.adapter.FollowItemBaseAdapter;
-import com.allever.social.adapter.NearbyUserItemAdapter;
 import com.allever.social.pojo.FansUserItem;
-import com.allever.social.pojo.FollowUserItem;
-import com.allever.social.pojo.NearByUserItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.allever.social.utils.WebUtil;
 import com.baidu.mobstat.StatService;
@@ -35,7 +31,6 @@ import com.google.gson.GsonBuilder;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,8 +1,6 @@
 package com.allever.social.service;
 
-import android.app.ActivityManager;
 import android.app.AlarmManager;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -21,15 +19,12 @@ import android.widget.Toast;
 
 import com.allever.social.R;
 import com.allever.social.receiver.LongConnectionAlarmReceiver;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
-import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.hyphenate.EMCallBack;
-import com.hyphenate.EMConnectionListener;
 import com.hyphenate.chat.EMClient;
-import com.hyphenate.util.EMLog;
 
 import java.util.Set;
 

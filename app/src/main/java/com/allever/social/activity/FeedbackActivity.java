@@ -6,13 +6,12 @@ import android.os.Message;
 import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.baidu.mobstat.StatService;
 import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;

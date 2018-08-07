@@ -23,7 +23,7 @@ import com.allever.social.R;
 import com.allever.social.ui.activity.LoginActivity;
 import com.allever.social.activity.ModifyUserDataActivity;
 import com.allever.social.activity.SettingActivity;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.andexert.library.RippleView;
 import com.baidu.mobstat.StatService;

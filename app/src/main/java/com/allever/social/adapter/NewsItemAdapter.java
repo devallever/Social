@@ -12,26 +12,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.allever.social.MyApplication;
 import com.allever.social.R;
-import com.allever.social.activity.UserDataActivity;
 import com.allever.social.activity.UserDataDetailActivity;
 import com.allever.social.pojo.NewsItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.WebUtil;
 import com.bumptech.glide.Glide;
-import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
 
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;

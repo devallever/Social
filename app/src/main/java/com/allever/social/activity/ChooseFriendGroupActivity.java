@@ -15,13 +15,11 @@ import com.allever.social.BaseActivity;
 import com.allever.social.R;
 import com.allever.social.adapter.FriendGroupNameBaseAdapter;
 import com.allever.social.pojo.FriendGroupNameItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.baidu.mobstat.StatService;
 import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;

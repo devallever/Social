@@ -35,7 +35,7 @@ import com.allever.social.service.BDLocationService;
 import com.allever.social.utils.CommentUtil;
 import com.allever.social.utils.Constants;
 import com.allever.social.utils.FileUtil;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.baidu.mobstat.StatService;
 import com.gc.materialdesign.widgets.Dialog;

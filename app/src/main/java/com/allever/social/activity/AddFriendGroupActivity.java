@@ -1,6 +1,5 @@
 package com.allever.social.activity;
 
-import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,7 +11,7 @@ import android.widget.Toast;
 
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.baidu.mobstat.StatService;
 import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;

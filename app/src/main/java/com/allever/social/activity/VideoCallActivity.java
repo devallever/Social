@@ -22,8 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allever.social.R;
-import com.allever.social.utils.OkhttpUtil;
-import com.allever.social.utils.SharedPreferenceUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.baidu.mobstat.StatService;
 import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;

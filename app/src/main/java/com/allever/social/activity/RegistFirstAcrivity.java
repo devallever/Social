@@ -1,12 +1,10 @@
 package com.allever.social.activity;
 
-import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBar;
-import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -14,18 +12,13 @@ import android.widget.Toast;
 
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
-import com.allever.social.pojo.PostItem;
-import com.allever.social.service.RegisterCodeTimerService;
-import com.allever.social.utils.OkhttpUtil;
-import com.allever.social.utils.RegisterCodeTimer;
+import com.allever.social.network.util.OkhttpUtil;
 import com.andexert.library.RippleView;
 import com.baidu.mobstat.StatService;
 import com.gc.materialdesign.widgets.Dialog;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.rengwuxian.materialedittext.MaterialEditText;
-
-import java.util.concurrent.ConcurrentHashMap;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;

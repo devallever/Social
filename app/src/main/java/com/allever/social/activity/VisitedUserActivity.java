@@ -4,29 +4,21 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.ViewParent;
 import android.widget.Toast;
 
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
 import com.allever.social.adapter.MyFragmentPagerAdapter;
-import com.allever.social.fragment.GetVipFragment;
-import com.allever.social.fragment.NearbyFragment;
-import com.allever.social.fragment.NearbyPostFragment;
-import com.allever.social.fragment.NearbyUserFragment;
 import com.allever.social.fragment.VisitedNewsUserFragment;
 import com.allever.social.fragment.VisitedUserUserFragment;
-import com.allever.social.utils.OkhttpUtil;
-import com.allever.social.utils.SharedPreferenceUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.baidu.mobstat.StatService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.gc.materialdesign.widgets.Dialog;
 
 import java.util.List;
 

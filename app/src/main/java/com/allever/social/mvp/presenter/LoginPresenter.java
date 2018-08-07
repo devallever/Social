@@ -11,8 +11,12 @@ import com.allever.social.bean.Response;
 import com.allever.social.bean.User;
 import com.allever.social.mvp.base.BasePresenter;
 import com.allever.social.mvp.view.ILoginView;
+import com.allever.social.network.NetResponse;
+import com.allever.social.network.NetService;
+import com.allever.social.network.impl.OkHttpService;
+import com.allever.social.network.listener.NetCallback;
 import com.allever.social.utils.Constants;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +46,12 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
 
     private String mOpenId;
 
+    private NetService mNetService;
+
     public LoginPresenter(){
+
+        mNetService = new OkHttpService();
+
     }
 
     public void loginWithQQ(Activity activity, IUiListener iUiListener, Tencent tencent){
@@ -52,20 +61,23 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
     public void login(final Context context,
                       String username,
                       final String pwd){
-        OkhttpUtil.getIns().login(username, pwd, new Callback() {
+        mNetService.login(username, pwd, new NetCallback() {
             @Override
-            public void onFailure(Request request, IOException e) {
-                Log.d(TAG, "onFailure: ");
+            public void onSuccess(NetResponse response) {
+                Log.d(TAG, "onSuccess: ");
+                String result = response.getString();
+                if (result != null){
+                    handleLogin(context, result, pwd);
+                    mViewRef.get().loginSuccess();
+                }
             }
 
             @Override
-            public void onResponse(com.squareup.okhttp.Response response) throws IOException {
-                String result = response.body().string();
-                Log.d(TAG, "onResponse: result = " + result);
-                handleLogin(context, result, pwd);
-                mViewRef.get().loginSuccess();
+            public void onFail(String msg) {
+                mViewRef.get().showTipsDialog(msg);
             }
         });
+
     }
 
     private void handleLogin(Context context, String result, String pwd) {

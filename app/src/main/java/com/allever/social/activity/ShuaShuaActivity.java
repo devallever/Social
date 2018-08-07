@@ -15,7 +15,7 @@ import com.allever.social.R;
 import com.allever.social.modules.main.SocialMainActivity;
 import com.allever.social.adapter.SwipeCardItemBaseAdapter;
 import com.allever.social.pojo.SwipeCardItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;

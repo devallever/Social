@@ -17,7 +17,7 @@ import com.allever.social.BaseActivity;
 import com.allever.social.R;
 import com.allever.social.adapter.ChargeItemArrayAdapter;
 import com.allever.social.pojo.ChargeItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.allever.social.utils.WebUtil;
 import com.andexert.library.RippleView;
@@ -30,7 +30,6 @@ import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by XM on 2016/6/5.

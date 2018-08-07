@@ -1,8 +1,6 @@
 package com.allever.social.fragment;
 
 import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -12,7 +10,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -20,10 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allever.social.activity.SelectedNearbyUserDialogActivity;
@@ -34,13 +28,10 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 
 import com.allever.social.MyApplication;
 import com.allever.social.R;
-import com.allever.social.activity.UserDataActivity;
 import com.allever.social.activity.UserDataDetailActivity;
 import com.allever.social.adapter.NearbyUserItemAdapter;
-import com.allever.social.adapter.NewsItemAdapter;
 import com.allever.social.pojo.NearByUserItem;
-import com.allever.social.pojo.NewsItem;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.allever.social.utils.WebUtil;
 import com.gc.materialdesign.widgets.Dialog;
@@ -48,7 +39,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.nostra13.universalimageloader.utils.L;
 
 import java.util.ArrayList;
 import java.util.List;

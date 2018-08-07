@@ -3,7 +3,6 @@ package com.allever.social.foundModule.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
@@ -17,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.allever.social.BaseFragment;
 import com.allever.social.R;
 import com.allever.social.activity.UserDataDetailActivity;
 import com.allever.social.foundModule.adapter.UserListBaseAdapter;
@@ -26,7 +24,7 @@ import com.allever.social.listener.RecyclerViewScrollListener;
 import com.allever.social.listener.RecyclerItemClickListener;
 import com.allever.social.modules.main.nearByUser.event.DownloadHeadFinishEvent;
 import com.allever.social.utils.FileUtil;
-import com.allever.social.utils.OkhttpUtil;
+import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.allever.social.utils.WebUtil;
 import com.gc.materialdesign.widgets.Dialog;
@@ -37,12 +35,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
