@@ -18,14 +18,22 @@ import android.widget.Toast;
 //import com.hyphenate.chat.EMClient;
 
 import com.allever.social.R;
+import com.allever.social.bean.Response;
+import com.allever.social.bean.User;
+import com.allever.social.network.NetResponse;
+import com.allever.social.network.NetService;
+import com.allever.social.network.impl.OkHttpService;
+import com.allever.social.network.listener.NetCallback;
 import com.allever.social.receiver.LongConnectionAlarmReceiver;
 import com.allever.social.network.util.OkhttpUtil;
 import com.allever.social.utils.SharedPreferenceUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 
+import java.lang.reflect.Type;
 import java.util.Set;
 
 import cn.jpush.android.api.JPushInterface;
@@ -39,6 +47,8 @@ public class LongConnectionService extends Service {
     private int count;
     private final String TAG = "ConnectionService";
 
+    private NetService mNetService;
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -48,37 +58,17 @@ public class LongConnectionService extends Service {
     @Override
     public void onCreate() {
         handler = new Handler();
+
+        mNetService = new OkHttpService();
+
         Toast.makeText(this,"服务已被重启",Toast.LENGTH_LONG).show();
         count=0;
-        //开一个线程每隔一分钟发一次广播
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    while (true){
-                        //Intent intentbroadcast = new Intent("com.allever.social.longconnection");
-                        //intentbroadcast.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-                        //LongConnectionService.this.sendBroadcast(intentbroadcast);
-                        //Log.d(TAG, "服务进行中。已发第" + (count + 1) + "个广播");
-                        //Toast.makeText(LongConnectionService.this,"服务进行中。已发第" + (count + 1) + "个广播",Toast.LENGTH_LONG).show();
-                        //Log.d("StartService", "登陆聊天服务器成功！");
-                        //Toast.makeText(LongConnectionService.this,"服务进行中。",Toast.LENGTH_LONG).show();
-                        Thread.sleep(1000*60);
-                    }
-                }catch (InterruptedException e){
-                    e.printStackTrace();
-                }
-
-            }
-        }).start();
         super.onCreate();
     }
 
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
         //每隔一分钟自动登录一次
-
-
         Intent intentLocationService =new Intent(LongConnectionService.this,BDLocationService.class);
         startService(intentLocationService);
 
@@ -122,45 +112,15 @@ public class LongConnectionService extends Service {
         handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
-                //super.handleMessage(msg);
                 switch (msg.what){
                     case OkhttpUtil.MESSAGE_POLL_SERVICE:
                         handlePollService(msg);
-                        break;
-                    case OkhttpUtil.MESSAGE_AUTO_LOGIN:
-                        handleAutoLogin(msg);
                         break;
                 }
             }
         };
 
         OkhttpUtil.pollServive(handler);
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                //服务该干嘛的干嘛
-                //执行耗时的操作
-                //stopSelf();
-
-            }
-        }).start();
-        //模拟信息-----------------------------------------------------------------------------
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setTicker("This is ticker text");
-        builder.setContentTitle("Social");
-        builder.setContentText("已开启长连接服务");
-        builder.setSmallIcon(R.mipmap.logo);
-        builder.setContentInfo("This is content info");
-        builder.setAutoCancel(true);
-////        Intent intent = new Intent(this, NotificationPendingIntentActivity.class);
-////        PendingIntent pendingIntent = PendingIntent.getActivity(this,1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-////        builder.setContentIntent(pendingIntent);
-        NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-        //notificationManager.notify(1, builder.build());
-        //--------------------------------------------------------------------------------------
-
 
         AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
         int ten_min = 60*1000*1;//1分钟;
@@ -181,92 +141,25 @@ public class LongConnectionService extends Service {
         Root root = gson.fromJson(result, Root.class);
         Log.d("LongConnection",result);
 
-//        if (SharedPreferenceUtil.getUserName()!=null && SharedPreferenceUtil.getPassword()!=null){
-//            if (!SharedPreferenceUtil.getUserName().equals("") && !SharedPreferenceUtil.getPassword().equals("")){
-//                //登录环信
-//                //登录app服务器成功后登录环信服务器
-//                EMClient.getInstance().login(SharedPreferenceUtil.getUserName(), SharedPreferenceUtil.getPassword(), new EMCallBack() {//回调
-//                    @Override
-//                    public void onSuccess() {
-//                        new Thread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                EMClient.getInstance().groupManager().loadAllGroups();
-//                                EMClient.getInstance().chatManager().loadAllConversations();
-//                                Log.d("LoninFragment", "登陆聊天服务器成功！");
-//                            }
-//                        }).start();
-//
-//                    }
-//
-//                    @Override
-//                    public void onProgress(int progress, String status) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(int code, String message) {
-//                        Log.d("LoninFragment", "登陆聊天服务器失败！");
-//                    }
-//                });
-//            }
-//        }
-
-
-
         if (root!=null || !root.success){
             if(root.message.equals("未登录")){
                 //断线自动重连
-                OkhttpUtil.autoLogin(handler);
+                //OkhttpUtil.autoLogin(handler);
+                mNetService.autoLogin(new NetCallback() {
+                    @Override
+                    public void onSuccess(NetResponse response) {
+                        handleAutoLogin(response);
+                    }
+                    @Override
+                    public void onFail(String msg) { }
+                });
                 return;
             }
-
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-            builder.setTicker("登录失败");
-            builder.setContentTitle("Social");
-            builder.setContentText("请重新登录");
-            builder.setSmallIcon(R.mipmap.logo);
-            builder.setContentInfo("");
-            builder.setAutoCancel(true);
-////        Intent intent = new Intent(this, NotificationPendingIntentActivity.class);
-////        PendingIntent pendingIntent = PendingIntent.getActivity(this,1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-////        builder.setContentIntent(pendingIntent);
-            NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-            //notificationManager.notify(1, builder.build());
-
             return ;
         }else{
             SharedPreferenceUtil.setVip(root.is_vip+"");
             SharedPreferenceUtil.setRecommend(root.is_recommended+"");
-//            //登录环信
-//            //登录app服务器成功后登录环信服务器
-//            EMClient.getInstance().login(SharedPreferenceUtil.getUserName(), SharedPreferenceUtil.getPassword(), new EMCallBack() {//回调
-//                @Override
-//                public void onSuccess() {
-//                    new Thread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            EMClient.getInstance().groupManager().loadAllGroups();
-//                            EMClient.getInstance().chatManager().loadAllConversations();
-//                            Log.d("LoninFragment", "登陆聊天服务器成功！");
-//                        }
-//                    }).start();
-//
-//                }
-//
-//                @Override
-//                public void onProgress(int progress, String status) {
-//
-//                }
-//
-//                @Override
-//                public void onError(int code, String message) {
-//                    Log.d("LoninFragment", "登陆聊天服务器失败！");
-//                }
-//            });
-            //Toast.makeText(this,result,Toast.LENGTH_LONG).show();
         }
-        //this.stopSelf();
     }
 
     @Override
@@ -277,9 +170,19 @@ public class LongConnectionService extends Service {
         startService(intent);
     }
 
+    private void handleAutoLogin(NetResponse netResponse){
+        String result = netResponse.getString();
+        System.out.println(result);
 
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+        Type type = new TypeToken<Response<com.allever.social.bean.User>>() {}.getType();
+        com.allever.social.bean.Response<com.allever.social.bean.User> root = gson.fromJson(result,type);
 
-    private void handleAutoLogin(Message msg){
+        if (root.isSuccess()){
+            SharedPreferenceUtil.setSessionId(root.getSession_id());
+            SharedPreferenceUtil.setState("1");
+        }
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setTicker("自动登录");
         builder.setContentTitle("Social");
@@ -289,50 +192,13 @@ public class LongConnectionService extends Service {
         NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(4, builder.build());
 
-        String  result = msg.obj.toString();
-        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-        LoginRoot root = gson.fromJson(result, LoginRoot.class);
-
-        if (root==null) return;
-        if (root.seccess==false) return;
-
         //登录成功后为每个用户设置别名：username
-        JPushInterface.setAlias(this, root.user.username, new TagAliasCallback() {
+        JPushInterface.setAlias(this, root.getData().getUsername(), new TagAliasCallback() {
             @Override
             public void gotResult(int i, String s, Set<String> set) {
 
             }
         });
-
-//        //登录app服务器成功后登录环信服务器
-//        EMClient.getInstance().login(root.user.username, SharedPreferenceUtil.getPassword(), new EMCallBack() {//回调
-//            @Override
-//            public void onSuccess() {
-//                new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        EMClient.getInstance().groupManager().loadAllGroups();
-//                        EMClient.getInstance().chatManager().loadAllConversations();
-//                        Log.d("LoninFragment", "登陆聊天服务器成功！");
-//                    }
-//                }).start();
-//
-//            }
-//
-//            @Override
-//            public void onProgress(int progress, String status) {
-//
-//            }
-//
-//            @Override
-//            public void onError(int code, String message) {
-//                Log.d("LoninFragment", "登陆聊天服务器失败！");
-//            }
-//        });
-
-        Log.d("LongConnection", result);
-
-
     }
 
 
@@ -343,36 +209,4 @@ public class LongConnectionService extends Service {
         int is_vip;
         int is_recommended;
     }
-
-    public class LoginRoot{
-        boolean seccess;
-        String message;
-        String session_id;
-        User user;
-    }
-
-    public class User{
-        String id;
-        String username;
-        String nickname;
-        String imagepath;
-        double longitude;
-        double latiaude;
-        String phone;
-        String email;
-        String user_head_path;
-        String signature;
-        String city;
-        String sex;
-        int age;
-        String occupation;
-        String constellation;
-        String hight;
-        String weight;
-        String figure;
-        String emotion;
-        int is_vip;
-    }
-
-
 }

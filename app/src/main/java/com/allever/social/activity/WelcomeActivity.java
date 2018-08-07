@@ -16,6 +16,10 @@ import com.allever.social.MyApplication;
 import com.allever.social.R;
 import com.allever.social.foke.NativeRuntime;
 import com.allever.social.modules.main.SocialMainActivity;
+import com.allever.social.network.NetResponse;
+import com.allever.social.network.NetService;
+import com.allever.social.network.impl.OkHttpService;
+import com.allever.social.network.listener.NetCallback;
 import com.allever.social.service.AdvertiseService;
 import com.allever.social.service.BDLocationService;
 import com.allever.social.ui.activity.FirstActivity;
@@ -49,6 +53,8 @@ import cn.jpush.android.api.TagAliasCallback;
  */
 public class WelcomeActivity extends BaseActivity {
 
+    private static final String TAG = "WelcomeActivity";
+
     private static final int REQUEST_CODE_RED_POCKET_DIALOG = 1000;
 
     //百度定位
@@ -68,6 +74,16 @@ public class WelcomeActivity extends BaseActivity {
 
 //        //百度移动统计-----------------------------------------------------------------------------
         initMTJ();
+
+        NetService mNetService = new OkHttpService();
+        mNetService.autoLogin(new NetCallback() {
+            @Override
+            public void onSuccess(NetResponse response) {
+                Log.d(TAG, "onSuccess: response = " + response.getString());
+            }
+            @Override
+            public void onFail(String msg) { }
+        });
 
 
 

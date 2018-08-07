@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMMessage;
+import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.Headers;
@@ -214,6 +215,22 @@ public class OkhttpUtil {
 
         mClient.newCall(request).enqueue(callback);
 
+    }
+
+    public void autoLogin(Callback callback){
+        RequestBody formBody = new FormEncodingBuilder()
+                .add("username", SharedPreferenceUtil.getUserName())
+                .add("password", SharedPreferenceUtil.getPassword())
+                .add("qq_open_id", SharedPreferenceUtil.getOpenid())
+                .add("longitude", SharedPreferenceUtil.getLongitude())
+                .add("latitude", SharedPreferenceUtil.getLatitude())
+                .add("jpush_registration_id",JPushInterface.getRegistrationID(MyApplication.mContext))
+                .build();
+        Request request = new Request.Builder()
+                .url(WebUtil.HTTP_ADDRESS + "/LoginServlet")
+                .post(formBody)
+                .build();
+        mClient.newCall(request).enqueue(callback);
     }
 
     //----------------------------------------------------------------------------------------------

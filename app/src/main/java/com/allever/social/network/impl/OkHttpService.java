@@ -28,4 +28,20 @@ public class OkHttpService implements NetService{
             }
         });
     }
+
+    @Override
+    public void autoLogin(final NetCallback netCallback) {
+        OkhttpUtil.getIns().autoLogin(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                NetResponse netResponse = new NetResponse();
+                netResponse.setString(response.body().string());
+                netCallback.onSuccess(netResponse);
+            }
+        });
+    }
 }
