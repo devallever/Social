@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modules.main.SocialMainActivity">
+    tools:context=".ui.SocialMainActivity">
 
     <LinearLayout
         android:id="@+id/id_social_main_ly_tab_bar"

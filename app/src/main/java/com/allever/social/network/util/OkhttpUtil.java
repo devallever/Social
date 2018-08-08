@@ -62,7 +62,6 @@ public class OkhttpUtil {
     public static final int MESSAGE_MODIFY_HEAD = 15;
     public static final int MESSAGE_MODIFY_USER_DATA = 16;
     public static final int MESSAGE_POLL_SERVICE = 17;
-    public static final int MESSAGE_CHECK_VERSION =18;
     public static final int MESSAGE_DOWNLOAD = 19;
     public static final int MESSAGE_AUTO_LOGIN = 20;
     public static final int MESSAGE_AD_SETTING = 21;
@@ -4711,39 +4710,6 @@ public class OkhttpUtil {
         });
 
     }
-
-    public static void checkVersion(final Handler handler, String version_code){
-        OkHttpClient okHttpClient = new OkHttpClient();
-        RequestBody formBody = new FormEncodingBuilder()
-                .add("version_code", version_code)
-                .build();
-        Request request = new Request.Builder()
-                .url(WebUtil.HTTP_ADDRESS + "/CheckVersionServlet")
-                .post(formBody)
-                .addHeader("Cookie", "JSESSIONID=" + SharedPreferenceUtil.getSessionId())
-                .build();
-        okHttpClient.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Request request, IOException e) {
-
-            }
-
-            @Override
-            public void onResponse(Response response) throws IOException {
-                //NOT UI Thread
-                if (response.isSuccessful()) {
-                    System.out.println(response.code());
-                    String result = response.body().string();
-                    Message message = new Message();
-                    message.what = MESSAGE_CHECK_VERSION;
-                    message.obj = result;
-                    handler.sendMessage(message);
-                    System.out.println(result);
-                }
-            }
-        });
-    }
-
 
     public static void getAdDdtail(final Handler handler,String type){
         OkHttpClient okHttpClient = new OkHttpClient();

@@ -1,6 +1,5 @@
 package com.allever.social.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,10 +11,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.allever.social.BaseActivity;
-import com.allever.social.MyApplication;
 import com.allever.social.R;
 import com.allever.social.foke.NativeRuntime;
-import com.allever.social.modules.main.SocialMainActivity;
+import com.allever.social.ui.SocialMainActivity;
 import com.allever.social.network.NetResponse;
 import com.allever.social.network.NetService;
 import com.allever.social.network.impl.OkHttpService;
@@ -69,7 +67,6 @@ public class WelcomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Context context = MyApplication.getContext();
         setContentView(R.layout.welcome_activity_layout);
 
 //        //百度移动统计-----------------------------------------------------------------------------
@@ -93,9 +90,6 @@ public class WelcomeActivity extends BaseActivity {
                 switch (msg.what){
                     case OkhttpUtil.MESSAGE_AD_DETAIL:
                         handleADDetail(msg);
-                        break;
-                    case OkhttpUtil.MESSAGE_DOWNLOAD:
-                        //handleDownload(msg);
                         break;
                     case OkhttpUtil.MESSAGE_AD_SETTING:
                         handleADSetting(msg);

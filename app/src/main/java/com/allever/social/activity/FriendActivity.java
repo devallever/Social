@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.allever.social.BaseActivity;
 import com.allever.social.R;
-import com.allever.social.modules.main.SocialMainActivity;
+import com.allever.social.ui.SocialMainActivity;
 import com.allever.social.fragment.ChatFragment;
 import com.allever.social.fragment.ContactFragment;
 import com.baidu.mobstat.StatService;

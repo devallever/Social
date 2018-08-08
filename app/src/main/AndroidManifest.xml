@@ -564,7 +564,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".modules.main.SocialMainActivity"
+            android:name=".ui.SocialMainActivity"
             android:launchMode="singleTask">
         </activity>
         <activity android:name=".BaseActivity"></activity>

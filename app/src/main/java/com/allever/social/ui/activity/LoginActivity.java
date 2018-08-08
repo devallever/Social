@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.allever.social.MyApplication;
 import com.allever.social.R;
 import com.allever.social.activity.RegistActivity;
-import com.allever.social.modules.main.SocialMainActivity;
+import com.allever.social.ui.SocialMainActivity;
 import com.allever.social.mvp.base.BaseMVPActivity;
 import com.allever.social.mvp.presenter.LoginPresenter;
 import com.allever.social.mvp.view.ILoginView;
