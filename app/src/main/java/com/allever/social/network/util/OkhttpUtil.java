@@ -235,6 +235,49 @@ public class OkhttpUtil {
         mClient.newCall(request).enqueue(callback);
     }
 
+    public void getUserList(String page, Callback callback){
+        RequestBody formBody = new FormEncodingBuilder()
+                .add("longitude", SharedPreferenceUtil.getLongitude())
+                .add("latitude", SharedPreferenceUtil.getLatitude())
+                .add("page", page)
+                .add("selected_sex", SharedPreferenceUtil.getSelectedNearbyUserSex())
+                .add("selected_min_age", SharedPreferenceUtil.getSelectedNearbyUserMinage())
+                .add("selected_max_age", SharedPreferenceUtil.getSelectedNearbyUserMaxage())
+                .add("selected_distance", SharedPreferenceUtil.getSelectedNearbyUserDistance())
+                .build();
+        Request request;
+        if(OkhttpUtil.checkLogin()){
+            request = new Request.Builder()
+                    .url(WebUtil.HTTP_ADDRESS + "/UserListServlet")
+                    .post(formBody)
+                    .addHeader("Cookie", "JSESSIONID=" + SharedPreferenceUtil.getSessionId())
+                    .build();
+        }else{
+            request = new Request.Builder()
+                    .url(WebUtil.HTTP_ADDRESS + "/UserListServlet")
+                    .post(formBody)
+                    .build();
+        }
+
+        mClient.newCall(request).enqueue(callback);
+    }
+
+
+    public void pullRefreshUser(Callback callback){
+        RequestBody formBody = new FormEncodingBuilder()
+                .add("user_id", SharedPreferenceUtil.getUserId())
+                .build();
+        Request request = new Request.Builder()
+                .url(WebUtil.HTTP_ADDRESS + "/PullRefresherServlet")
+                .post(formBody)
+                .addHeader("Cookie", "JSESSIONID=" + SharedPreferenceUtil.getSessionId())
+                .build();
+
+        mClient.newCall(request).enqueue(callback);
+
+    }
+
+
     //----------------------------------------------------------------------------------------------
 
 

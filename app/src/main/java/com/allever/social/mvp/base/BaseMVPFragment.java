@@ -43,5 +43,9 @@ public abstract class BaseMVPFragment<V, T extends BasePresenter<V>> extends Fra
         Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
     }
 
+    protected abstract void initView();
+
+    protected abstract void initData();
+
     protected abstract T createPresenter();
 }

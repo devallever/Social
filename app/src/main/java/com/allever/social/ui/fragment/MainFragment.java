@@ -1,4 +1,4 @@
-package com.allever.social.fragment;
+package com.allever.social.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -92,7 +92,6 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
                 iv_add.setImageResource(R.mipmap.ic_add_24_dp);
                 break;
         }
-        //Toast.makeText(getActivity(),position+"", Toast.LENGTH_LONG).show();
     }
 
     @Override

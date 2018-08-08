@@ -1,34 +1,16 @@
 package com.allever.social.foundModule.adapter;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.allever.social.MyApplication;
 import com.allever.social.R;
 import com.allever.social.foundModule.bean.UserBeen;
-import com.allever.social.modules.main.nearByUser.event.DownloadHeadFinishEvent;
-import com.allever.social.utils.FileUtil;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.FutureTarget;
-
-import org.greenrobot.eventbus.EventBus;
-
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -66,44 +48,6 @@ public class UserListBaseAdapter extends RecyclerView.Adapter<UserListBaseAdapte
         holder.tv_login_time.setText(userBeen.getLogin_time());
 
         Glide.with(context).load(userBeen.getHead_path()).into(holder.iv_head);
-
-        //final File headFile = new File(FileUtil.USER_HEAD_DIR,FileUtil.getFileNameFromUrl(userBeen.getHead_path()));
-        //Glide.with(context).load(headFile).into(holder.iv_head);
-/*        final File headFile = new File(FileUtil.USER_HEAD_DIR,FileUtil.getFileNameFromUrl(userBeen.getHead_path()));
-        if (headFile.exists()){
-            Glide.with(context).load(headFile).into(holder.iv_head);
-        }else {
-            //Glide.with(context).load(userBeen.getHead_path()).into(holder.iv_head);
-            FileUtil.downloadImage(userBeen.getHead_path(), new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-
-                }
-
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    InputStream inputStream = response.body().byteStream();
-                    BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    byte[] b = new byte[1024];
-                    int len;
-                    while ((len = bufferedInputStream.read(b)) > 0 ){
-                        baos.write(b,0,len);
-                    }
-                    FileOutputStream fos = new FileOutputStream(headFile);
-                    fos.write(baos.toByteArray());
-                    fos.close();
-                    bufferedInputStream.close();
-                    inputStream.close();
-                    response.body().close();
-                    //通知更新界面
-                    //DownloadHeadFinishEvent downloadHeadFinishEvent = new DownloadHeadFinishEvent();
-                    //EventBus.getDefault().post(downloadHeadFinishEvent);
-                }
-            });
-
-        }*/
-
 
         if (userBeen.getIs_accept_video()==1){
             holder.iv_video.setVisibility(View.VISIBLE);

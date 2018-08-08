@@ -50,4 +50,43 @@ public class OkHttpService implements NetService{
             }
         });
     }
+
+    @Override
+    public void getUserList(String requestPage, final NetCallback netCallback) {
+        OkhttpUtil.getIns().getUserList(requestPage, new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                Log.d(TAG, "onFailure: ");
+                netCallback.onFail(e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                Log.d(TAG, "onResponse: ");
+                String result = response.body().string();
+                Log.d(TAG, "onResponse: result = " + result);
+                NetResponse netResponse = new NetResponse();
+                netResponse.setString(result);
+                netCallback.onSuccess(netResponse);
+            }
+        });
+    }
+
+    @Override
+    public void pullRefreshUser(final NetCallback netCallback) {
+        OkhttpUtil.getIns().pullRefreshUser(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                netCallback.onFail(e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                String result = response.body().string();
+                NetResponse netResponse = new NetResponse();
+                netResponse.setString(result);
+                netCallback.onSuccess(netResponse);
+            }
+        });
+    }
 }

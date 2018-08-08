@@ -25,7 +25,9 @@ public class User {
 	private String autoreaction;
 	private String onlinestate;
 	private String qq_open_id;
-	
+	private int video_fee;
+	private int accetp_video;
+	private String login_time;
 	
 	public String getId() {
 		return id;
@@ -165,12 +167,31 @@ public class User {
 	public void setOnlinestate(String onlinestate) {
 		this.onlinestate = onlinestate;
 	}
-
 	public String getQq_open_id() {
 		return qq_open_id;
 	}
-
 	public void setQq_open_id(String qq_open_id) {
 		this.qq_open_id = qq_open_id;
 	}
+	public int getVideo_fee() {
+		return video_fee;
+	}
+	public void setVideo_fee(int video_fee) {
+		this.video_fee = video_fee;
+	}
+	public int getAccetp_video() {
+		return accetp_video;
+	}
+	public void setAccetp_video(int accetp_video) {
+		this.accetp_video = accetp_video;
+	}
+	public String getLogin_time() {
+		return login_time;
+	}
+	public void setLogin_time(String login_time) {
+		this.login_time = login_time;
+	}
+	
+	
+	
 }

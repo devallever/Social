@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.allever.social.R;
 import com.allever.social.fragment.RecommendFragment;
 import com.allever.social.fragment.FriendFragment;
-import com.allever.social.fragment.MainFragment;
+import com.allever.social.ui.fragment.MainFragment;
 import com.allever.social.fragment.MineFragment;
 import com.allever.social.mvp.base.BaseMVPActivity;
 import com.allever.social.mvp.presenter.SocialMainPresenter;
