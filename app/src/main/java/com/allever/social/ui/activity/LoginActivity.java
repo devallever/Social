@@ -173,7 +173,6 @@ public class LoginActivity extends BaseMVPActivity<ILoginView, LoginPresenter> i
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("QQLogin", "回调111111");
         if (requestCode == Constants.REQUEST_LOGIN ||
                 requestCode == Constants.REQUEST_APPBAR) {
             Tencent.onActivityResultData(requestCode, resultCode, data, loginListener);

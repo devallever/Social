@@ -460,15 +460,8 @@ public class ModifyUserDataActivity extends BaseActivity implements View.OnClick
         SharedPreferenceUtil.setWeight(root.user.weight);
         SharedPreferenceUtil.setFigure(root.user.figure);
         SharedPreferenceUtil.setEmotion(root.user.emotion);
-        Dialog dialog = new Dialog(this,"Tips","修改成功.");
-        dialog.setCancelable(false);
-        dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-        dialog.show();
+
+
 
         //发广播通知SeetingFragment设置界面更新ui
         Intent intent = new Intent("com.allever.modifyUserData");
@@ -478,6 +471,9 @@ public class ModifyUserDataActivity extends BaseActivity implements View.OnClick
         //发广播通知MainActivity修改界面
         Intent intent1 = new Intent("com.allever.autologin");
         sendBroadcast(intent1);
+
+        show("修改成功");
+        finish();
 
     }
 

@@ -127,7 +127,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
 
 
     private AfterModifyUserDataReceiver afterModifyUserDataReceiver;
-    private AfterLoginaReceiver afterLoginReceiver;
     private UpdateSocialReceiver updateSocialReceiver;
     private UpdateOnlineStateReceiver updateOnlineStateReceiver;
     private ForceLogoutReceiver forceLogoutReceiver;
@@ -170,10 +169,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         tv_fans_count = (TextView)view.findViewById(R.id.id_mine_fg_tv_fans_count);
         tv_follow_count = (TextView)view.findViewById(R.id.id_mine_fg_tv_follow_count);
         tv_news_count = (TextView)view.findViewById(R.id.id_mine_fg_tv_news_count);
-
-//        rv_recruit = (RippleView)view.findViewById(R.id.id_mine_fg_rv_recruit);
-//        if (OkhttpUtil.checkLogin()) rv_recruit.setOnRippleCompleteListener(this);
-//        else Toast.makeText(getActivity(),"未登录",Toast.LENGTH_LONG).show();
 
         rv_account_and_secure = (RippleView)view.findViewById(R.id.id_mine_fg_rv_account_and_secure);
         if (OkhttpUtil.checkLogin()) rv_account_and_secure.setOnRippleCompleteListener(this);
@@ -230,16 +225,14 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         intentFilter = new IntentFilter();
         intentFilter.addAction("com.allever.modifyUserHead");
         intentFilter.addAction("com.allever.modifyUserData");
-        intentFilter.addAction("com.allever.afterlogin");
         intentFilter.addAction("com.allever.social.UPDATE_SOCIAL_COUNT");
         intentFilter.addAction("com.allever.social.UPDATE_ONLINE_STATE");
         intentFilter.addAction("com.allever.social.USER_LOGIN_ANOTHER_DEVICE");
+
         afterModifyUserDataReceiver = new AfterModifyUserDataReceiver();
-        afterLoginReceiver = new AfterLoginaReceiver();
         updateSocialReceiver = new UpdateSocialReceiver();
         updateOnlineStateReceiver = new UpdateOnlineStateReceiver();
         forceLogoutReceiver  = new ForceLogoutReceiver();
-        getActivity().registerReceiver(afterLoginReceiver, intentFilter);
         getActivity().registerReceiver(afterModifyUserDataReceiver, intentFilter);
         getActivity().registerReceiver(updateSocialReceiver,intentFilter);
         getActivity().registerReceiver(updateOnlineStateReceiver,intentFilter);
@@ -766,7 +759,6 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
     public void onDestroy() {
         super.onDestroy();
         getActivity().unregisterReceiver(afterModifyUserDataReceiver);
-        getActivity().unregisterReceiver(afterLoginReceiver);
         getActivity().unregisterReceiver(updateSocialReceiver);
         getActivity().unregisterReceiver(forceLogoutReceiver);
         getActivity().unregisterReceiver(updateOnlineStateReceiver);
@@ -834,7 +826,9 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
 
         Intent intent = new Intent("com.allever.autologin");
         getActivity().sendBroadcast(intent);
+
         Glide.with(getActivity()).load(WebUtil.HTTP_ADDRESS + SharedPreferenceUtil.getHeadpath()).into(iv_head);
+
         tv_nickname.setText(SharedPreferenceUtil.getNickname()+"(" + SharedPreferenceUtil.getUserName() + ")");
 
         Intent i = new Intent(getActivity(),ModifyUserDataActivity.class);
@@ -868,16 +862,15 @@ public class MineFragment extends Fragment implements View.OnClickListener , Rip
         }
     }
 
-    private class  AfterLoginaReceiver extends BroadcastReceiver{
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            //Toast.makeText(getActivity(),"收到广播",Toast.LENGTH_LONG).show();
-            String  action = intent.getAction();
-            if(action.equals("com.allever.afterlogin")){
-                getActivity().finish();
-            }
-        }
-    }
+//    private class  AfterLoginaReceiver extends BroadcastReceiver{
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            String  action = intent.getAction();
+//            if(action.equals("com.allever.afterlogin")){
+//                getActivity().finish();
+//            }
+//        }
+//    }
 
     private class UpdateSocialReceiver extends BroadcastReceiver{
         @Override
