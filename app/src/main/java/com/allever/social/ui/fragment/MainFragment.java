@@ -29,10 +29,9 @@ import com.gc.materialdesign.widgets.Dialog;
  * Created by XM on 2016/4/15.
  */
 public class MainFragment extends Fragment implements ViewPager.OnPageChangeListener,RippleView.OnRippleCompleteListener{
-    private int position = 0;
-    //private ImageButton btn_add;
-    private RippleView rv_add;
-    private ImageView iv_add;
+    private int mPosition = 0;
+    private RippleView mRvAdd;
+    private ImageView mIvAdd;
 
     @Nullable
     @Override
@@ -45,10 +44,10 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
         }
         viewPager.removeAllViews();
 
-        rv_add = (RippleView)view.findViewById(R.id.id_main_fragment_rv_add);
-        rv_add.setOnRippleCompleteListener(this);
+        mRvAdd = (RippleView)view.findViewById(R.id.id_main_fragment_rv_add);
+        mRvAdd.setOnRippleCompleteListener(this);
 
-        iv_add = (ImageView)view.findViewById(R.id.id_main_fragment_iv_add);
+        mIvAdd = (ImageView)view.findViewById(R.id.id_main_fragment_iv_add);
 
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.id_main_fragment_tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -73,23 +72,21 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
         adapter.addFragment(new UserListFragment(), "用户");
         adapter.addFragment(new NewsListFragment(), "动态");
         //adapter.addFragment(new NearbyGroupFragment(), "群组");
-        //adapter.addFragment(new HotFragment(), "推荐");
-        //adapter.addFragment(new NearbyPostFragment(),"招聘");
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(this);
     }
 
     @Override
     public void onPageSelected(int position) {
-        this.position = position;
+        this.mPosition = position;
         switch (position){
             case 0:
-                iv_add.setImageResource(R.mipmap.ic_search_white_24dp);
+                mIvAdd.setImageResource(R.mipmap.ic_search_white_24dp);
                 break;
             case 1:
             case 2:
             case 3:
-                iv_add.setImageResource(R.mipmap.ic_add_24_dp);
+                mIvAdd.setImageResource(R.mipmap.ic_add_24_dp);
                 break;
         }
     }
@@ -107,7 +104,7 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
     @Override
     public void onComplete(RippleView rippleView) {
         Intent intent;
-        switch (position){
+        switch (mPosition){
             case 0:
                 intent = new Intent(getActivity(), SearchUserActivity.class);
                 startActivity(intent);
@@ -119,25 +116,6 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
             case 2:
                 intent = new Intent(getActivity(), AddGroupActivity.class);
                 startActivity(intent);
-                break;
-            case 3:
-                if (SharedPreferenceUtil.getVip().equals("1")){
-                    intent = new Intent(getActivity(), AddRecruitActivity.class);
-                    startActivity(intent);
-                }else{
-                    Dialog dialog  = new Dialog(getActivity(),"提示","您不是会员,无法发布招聘。\n是否开通会员?");
-                    dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(getActivity(), GetVipActivity.class);
-                            startActivity(intent);
-
-                        }
-                    });
-                    dialog.show();
-                }
-
-
                 break;
         }
     }

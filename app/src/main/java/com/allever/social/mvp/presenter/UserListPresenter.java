@@ -32,6 +32,10 @@ public class UserListPresenter extends BasePresenter<IUserListView>{
 
     private NetService mNetService;
 
+    private int mRequestPage = 1;
+
+    private List<UserBeen> mUserList = new ArrayList<>();
+
     public UserListPresenter(){
         mNetService = new OkHttpService();
     }
@@ -45,8 +49,18 @@ public class UserListPresenter extends BasePresenter<IUserListView>{
         }
     }
 
-    public void getUserList(int requestPage){
-        mNetService.getUserList(requestPage + "", new NetCallback() {
+    public void refreshUserList(){
+        mRequestPage = 1;
+        getUserList();
+    }
+
+    public void getMoreUserList(){
+        mRequestPage++;
+        getUserList();
+    }
+
+    public void getUserList(){
+        mNetService.getUserList(mRequestPage + "", new NetCallback() {
             @Override
             public void onSuccess(NetResponse response) {
                 String result = response.getString();
@@ -106,7 +120,11 @@ public class UserListPresenter extends BasePresenter<IUserListView>{
             return;
         }
 
-        List<UserBeen> userBeenList = new ArrayList<>();
+        if (mRequestPage == 1){
+            mUserList.clear();
+        }
+
+        //List<UserBeen> userBeenList = new ArrayList<>();
         UserBeen userBeen;
         for (com.allever.social.bean.User user: root.getData()){
             userBeen = new UserBeen();
@@ -118,11 +136,18 @@ public class UserListPresenter extends BasePresenter<IUserListView>{
             userBeen.setIs_accept_video(user.getAccetp_video());
             userBeen.setLogin_time(user.getLogin_time());
             userBeen.setOccupation(user.getOccupation());
-            userBeenList.add(userBeen);
+            mUserList.add(userBeen);
             SharedPreferenceUtil.saveUserData(user.getUsername(), user.getNickname(), WebUtil.HTTP_ADDRESS + user.getUser_head_path());
         }
 
-        mViewRef.get().handleUserList(userBeenList);
+        mViewRef.get().handleUserList(mUserList);
+
+        if (SharedPreferenceUtil.getRefreshUserRefreshingState()==0){
+            //已超过一分钟 向其他用户推送
+            if (OkhttpUtil.checkLogin()){
+                pullRefreshUser();
+            }
+        }
     }
 }
 
