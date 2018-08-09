@@ -5,12 +5,15 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 
 /**
  * Created by Allever on 2016/12/2.
  */
 
 public class RecyclerViewScrollListener extends RecyclerView.OnScrollListener implements SwipeRefreshLayout.OnRefreshListener {
+
+    private static final String TAG = "RecyclerViewScrollListe";
 
     /**
      * 当前布局管理器的类型
@@ -49,6 +52,8 @@ public class RecyclerViewScrollListener extends RecyclerView.OnScrollListener im
     @Override
     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
 
+        Log.d(TAG, "onScrolled: dy = " + dy);
+
         /**
          * 获取布局参数
          */
@@ -74,6 +79,8 @@ public class RecyclerViewScrollListener extends RecyclerView.OnScrollListener im
                 break;
             case GRID_LAYOUT:
                 mLastVisibleItemPosition = ((GridLayoutManager) layoutManager).findLastVisibleItemPosition();
+                int firstItemPosition = ((GridLayoutManager) layoutManager).findFirstVisibleItemPosition();
+                Log.d(TAG, "onScrolled: firstPosition = " + firstItemPosition);
                 break;
             case STAGGERED_GRID_LAYOUT:
                 StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
@@ -96,10 +103,13 @@ public class RecyclerViewScrollListener extends RecyclerView.OnScrollListener im
 
         //RecycleView 显示的条目数
         int visibleCount = layoutManager.getChildCount();
+        Log.d(TAG, "onScrollStateChanged: visibleCount = " + visibleCount);
 
         //显示数据总数
         int totalCount = layoutManager.getItemCount();
+        Log.d(TAG, "onScrollStateChanged: totalCount = " + totalCount);
 
+        Log.d(TAG, "onScrollStateChanged: lastVisibleItemPosition = " + mLastVisibleItemPosition);
 
         // 四个条件，分别是是否有数据，状态是否是滑动停止状态，显示的最大条目是否大于整个数据（注意偏移量），是否正在加载数据
         if(visibleCount>0
@@ -111,6 +121,8 @@ public class RecyclerViewScrollListener extends RecyclerView.OnScrollListener im
                 isLoadData = true;
                 mListener.loadMore();
             }
+        }else{
+            Log.d(TAG, "onScrollStateChanged: no data");
         }
 
     }

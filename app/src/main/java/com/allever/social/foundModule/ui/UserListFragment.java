@@ -80,6 +80,7 @@ public class UserListFragment extends BaseMVPFragment<IUserListView, UserListPre
             }
             @Override
             public void onItemLongClick(View view, int position) {
+                //Nothing to to
             }
         }));
         mRv.setAdapter(mUserListBaseAdapter);
