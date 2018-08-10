@@ -1,4 +1,4 @@
-package com.allever.social.foundModule.ui;
+package com.allever.social.ui.fragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

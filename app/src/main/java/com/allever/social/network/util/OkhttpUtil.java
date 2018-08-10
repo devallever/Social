@@ -277,6 +277,50 @@ public class OkhttpUtil {
 
     }
 
+    public void getNewsList(String page, Callback callback){
+        RequestBody formBody = new FormEncodingBuilder()
+                .add("longitude", SharedPreferenceUtil.getLongitude())
+                .add("latitude", SharedPreferenceUtil.getLatitude())
+                .add("page", page)
+                .build();
+        Request request;
+        if(OkhttpUtil.checkLogin()){
+            request = new Request.Builder()
+                    .url(WebUtil.HTTP_ADDRESS + "/NewsListServlet")
+                    .post(formBody)
+                    .addHeader("Cookie", "JSESSIONID=" + SharedPreferenceUtil.getSessionId())
+                    .build();
+        }else{
+            request = new Request.Builder()
+                    .url(WebUtil.HTTP_ADDRESS + "/NewsListServlet")
+                    .post(formBody)
+                    .build();
+        }
+
+        mClient.newCall(request).enqueue(callback);
+    }
+
+    public void likeNews(String news_id, Callback callback){
+        RequestBody formBody = new FormEncodingBuilder()
+                .add("news_id", news_id)
+                .build();
+        Request request;
+        if (OkhttpUtil.checkLogin()){
+            request = new Request.Builder()
+                    .url(WebUtil.HTTP_ADDRESS + "/LikeServlet")
+                    .post(formBody)
+                    .addHeader("Cookie", "JSESSIONID=" + SharedPreferenceUtil.getSessionId())
+                    .build();
+        }else{
+            request = new Request.Builder()
+                    .url(WebUtil.HTTP_ADDRESS + "/LikeServlet")
+                    .post(formBody)
+                    .build();
+        }
+
+        mClient.newCall(request).enqueue(callback);
+    }
+
 
     //----------------------------------------------------------------------------------------------
 

@@ -14,16 +14,10 @@ import android.widget.ImageView;
 import com.allever.social.R;
 import com.allever.social.activity.AddGroupActivity;
 import com.allever.social.activity.AddNewsActivity;
-import com.allever.social.activity.AddRecruitActivity;
-import com.allever.social.activity.GetVipActivity;
 import com.allever.social.activity.SearchUserActivity;
 import com.allever.social.adapter.MyFragmentPagerAdapter;
-import com.allever.social.foundModule.ui.NewsListFragment;
-import com.allever.social.foundModule.ui.UserListFragment;
-import com.allever.social.utils.SharedPreferenceUtil;
 import com.andexert.library.RippleView;
 import com.baidu.mobstat.StatService;
-import com.gc.materialdesign.widgets.Dialog;
 
 /**
  * Created by XM on 2016/4/15.

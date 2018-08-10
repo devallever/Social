@@ -124,7 +124,6 @@ public class UserListPresenter extends BasePresenter<IUserListView>{
             mUserList.clear();
         }
 
-        //List<UserBeen> userBeenList = new ArrayList<>();
         UserBeen userBeen;
         for (com.allever.social.bean.User user: root.getData()){
             userBeen = new UserBeen();

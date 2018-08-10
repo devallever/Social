@@ -26,9 +26,7 @@ public class OkHttpService implements NetService{
 
             @Override
             public void onResponse(Response response) throws IOException {
-                NetResponse netResponse = new NetResponse();
-                netResponse.setString(response.body().string());
-                netCallback.onSuccess(netResponse);
+                handleStringResponse(response.body().string(),netCallback);
             }
         });
     }
@@ -44,9 +42,7 @@ public class OkHttpService implements NetService{
 
             @Override
             public void onResponse(Response response) throws IOException {
-                NetResponse netResponse = new NetResponse();
-                netResponse.setString(response.body().string());
-                netCallback.onSuccess(netResponse);
+                handleStringResponse(response.body().string(), netCallback);
             }
         });
     }
@@ -56,18 +52,12 @@ public class OkHttpService implements NetService{
         OkhttpUtil.getIns().getUserList(requestPage, new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
-                Log.d(TAG, "onFailure: ");
                 netCallback.onFail(e.getMessage());
             }
 
             @Override
             public void onResponse(Response response) throws IOException {
-                Log.d(TAG, "onResponse: ");
-                String result = response.body().string();
-                Log.d(TAG, "onResponse: result = " + result);
-                NetResponse netResponse = new NetResponse();
-                netResponse.setString(result);
-                netCallback.onSuccess(netResponse);
+                handleStringResponse(response.body().string(), netCallback);
             }
         });
     }
@@ -82,11 +72,53 @@ public class OkHttpService implements NetService{
 
             @Override
             public void onResponse(Response response) throws IOException {
-                String result = response.body().string();
-                NetResponse netResponse = new NetResponse();
-                netResponse.setString(result);
-                netCallback.onSuccess(netResponse);
+                handleStringResponse(response.body().string(), netCallback);
             }
         });
+    }
+
+    @Override
+    public void getNewsList(String requestPage, final NetCallback netCallback) {
+        OkhttpUtil.getIns().getNewsList(requestPage, new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                handleStringResponse(response.body().string(), netCallback);
+            }
+        });
+    }
+
+    @Override
+    public void likeNews(String newsId, final NetCallback netCallback) {
+        OkhttpUtil.getIns().likeNews(newsId, new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                netCallback.onFail(e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                handleStringResponse(response.body().string(), netCallback);
+            }
+        });
+    }
+
+    @Override
+    public void handleStringResponse(String result, NetCallback callback) {
+        Log.d(TAG, "handleStringResponse: result = " + result);
+        NetResponse netResponse = new NetResponse();
+        netResponse.setString(result);
+        callback.onSuccess(netResponse);
+    }
+
+    @Override
+    public void handleBytesResponse(byte[] bytes, NetCallback callback) {
+        NetResponse netResponse = new NetResponse();
+        netResponse.setBytes(bytes);
+        callback.onSuccess(netResponse);
     }
 }
