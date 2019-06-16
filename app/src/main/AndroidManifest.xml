@@ -3,11 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.allever.social">
 
-    <uses-sdk
-        android:minSdkVersion="9"
-        android:targetSdkVersion="23"
-        tools:overrideLibrary="com.easemob.redpacketui"
-        />
 
     <supports-screens android:anyDensity="true" />
 
@@ -905,13 +900,12 @@
 
 
 
-        //service
+
         <!--<service-->
             <!--android:name=".service.LongConnectionService"-->
             <!--android:persistent="true"/>-->
         <service android:name=".service.AdvertiseService"/>
 
-        //reveiver
         <!--<receiver android:name=".receiver.LongConnectionAlarmReceiver"-->
             <!--android:permission="android.permission.RECEIVE_BOOT_COMPLETED">-->
             <!--<intent-filter android:priority="2147483647">-->
